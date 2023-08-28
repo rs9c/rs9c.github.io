@@ -14,7 +14,16 @@
   line-height: 1.5;
   color: #24292e;
   font-family: system-ui, -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;;
-  font-size: 18px;
+  /* 横屏 */
+  @media screen and (orientation: landscape) {
+    /* background-color: #ffc7c7; */
+    font-size: 16px;
+  }
+  /* 竖屏 */
+  @media screen and (orientation: portrait) {
+    /* background-color: #c7efff; */
+   font-size: 32px;
+  }
   line-height: 1.5;
   word-wrap: break-word;
 }
@@ -551,16 +560,17 @@
         <article class="markdown-body">
           <h1>嗨害嗨</h1>
 <blockquote>
-<h3 style="font-size: 16px;">不知道写啥</h3>
+<h3 style="font-size: 1em;">不知道写啥</h3>
 </blockquote>
 <h2>网站导航🧭</h2>
 <ol>
 <li>
-<h3><a href="mcserver/index.html">RSJEMC生存服务器↗</a></h3>
+  <h3><a href="mcserver/index.html">RSJEMC生存服务器↗</a></h3>
 </li>
 </ol>
 <hr>
-<p><a href="#top" style="font-size: 20px;"><strong>⤒返回顶部</strong></a> <a href="https://github.com/risingsun517/risingsun517.github.io">↗直击本仓库(risingsun517/risingsun517.github.io)</a></p>
+<p><a href="#top" style="font-size: 1.1em;"><strong>⤒返回顶部</strong></a></p>
+<p><a href="https://github.com/risingsun517/risingsun517.github.io">↗直击本仓库(risingsun517/risingsun517.github.io)</a></p>
 
         </article>
       </body>
