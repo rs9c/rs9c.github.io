@@ -7,15 +7,7 @@
         <!-- 识别浏览器 -->
         <script type="text/javascript">
           var rec_platform = navigator.platform;
-          system.win = rec_platform.indexOf("Win") == 0;
-          system.mac = rec_platform.indexOf("Mac") == 0;
-          system.x11 = (rec_platform == "X11")||(rec_platform.indexOf("Linux") == 0);
-          zoom_fp = 1;
-          if (system.win||system.mac||system.x11){
-            zoom_fp = 1;
-          }else{
-            zoom_fp = 2;
-          }
+          var zoom_fp = 10;
         </script>
         <style>
           html, body { margin: 0; padding: 0; background-color: #ffffff; zoom: zoom_fp;}
