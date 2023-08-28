@@ -6,11 +6,11 @@
 /* 横屏 */
 @media screen and (orientation: landscape) {
   /* background-color: #ffc7c7; */
-  font-size: 16px;
+  font-size: 18px;
 }
 /* 竖屏 */
 @media screen and (orientation: portrait) {
   /* background-color: #c7efff; */
-  font-size: 32px;
+  font-size: 36px;
 }
 ```
