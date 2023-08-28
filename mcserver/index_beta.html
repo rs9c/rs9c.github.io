@@ -10,7 +10,7 @@
           system.win = rec_platform.indexOf("Win") == 0;
           system.mac = rec_platform.indexOf("Mac") == 0;
           system.x11 = (rec_platform == "X11")||(rec_platform.indexOf("Linux") == 0);
-          var zoom_fp = 1;
+          zoom_fp = 1;
           if (system.win||system.mac||system.x11){
             zoom_fp = 1;
           }else{
