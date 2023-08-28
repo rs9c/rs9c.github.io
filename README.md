@@ -4,11 +4,11 @@
 > **检测横竖屏（示例）**
 ```css
 /* 横屏显示标准字体 */
-@media screen and (orientation: landscape) {
+@media only screen and (orientation: landscape) {
   font-size: 18px;
 }
 /* 竖屏显示大字体 */
-@media screen and (orientation: portrait) {
+@media only screen and (orientation: portrait) {
   font-size: 36px;
 }
 ```
