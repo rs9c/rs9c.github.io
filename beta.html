@@ -17,13 +17,15 @@
   /* 横屏-蓝背景（android貌似显示不了） */
   @media only screen and (orientation: landscape) {
     font-size: 18px;
-    background-color: #79d9ffc4;
+    background-color: #79d9ff6e;
   }
-  /* 竖屏-红背景 */
+  /* 竖屏-红背景 （android貌似显示不了）*/
   @media only screen and (orientation: portrait) {
     font-size: 18px;
-    background-color: #e97979b4;
+    background-color: #ff00003e;
   }
+  /* 无法检测则为绿色 */
+  background-color: #79ff8053;
   line-height: 1.5;
   word-wrap: break-word;
 }
@@ -558,6 +560,10 @@
       </head>
       <body>
         <article class="markdown-body">
+          <p style="color: #6d6d6d;line-height: 0%;">关于背景颜色：</p>
+          <p style="color: #6d6d6d;line-height: 0%;">@media检测到横屏-蓝色</p>
+          <p style="color: #6d6d6d;line-height: 0%;">@media检测到竖屏-红色</p>
+          <p style="color: #6d6d6d;line-height: 0%;">@media无法检测横竖屏-绿色</p>
           <h1>我是一级标题</h1>
 <h2>我是二级标题</h2>
 <h3>我是三级标题</h3>
@@ -572,7 +578,6 @@
 <p><mark>我亮了:)</mark></p>
 <p><code>我是内嵌代码块</code></p>
 <pre><code class="language-csharp"><div class='ace-tm'><div class='ace_static_highlight' style='counter-reset:ace_line 0'><div class='ace_line'><span class='ace_comment'>//<span class='ace_cjk' style='width:NaNpx'>这</span><span class='ace_cjk' style='width:NaNpx'>是</span><span class='ace_cjk' style='width:NaNpx'>一</span><span class='ace_cjk' style='width:NaNpx'>个</span>CSharp<span class='ace_cjk' style='width:NaNpx'>代</span><span class='ace_cjk' style='width:NaNpx'>码</span><span class='ace_cjk' style='width:NaNpx'>块</span></span>
-</div><div class='ace_line'><span class='ace_keyword'>using</span> <span class='ace_identifier'>System</span><span class='ace_punctuation ace_operator'>;</span>
 </div><div class='ace_line'><span class='ace_keyword'>void</span> <span class='ace_identifier'>Main</span><span class='ace_paren ace_lparen'>(</span><span class='ace_paren ace_rparen'>)</span><span class='ace_paren ace_lparen'>{</span>
 </div><div class='ace_line'>  <span class='ace_identifier'>Console</span><span class='ace_punctuation ace_operator'>.</span><span class='ace_identifier'>WriteLine</span><span class='ace_paren ace_lparen'>(</span><span class='ace_string ace_start'>&#34;</span><span class='ace_string'><span class='ace_cjk' style='width:NaNpx'>我</span><span class='ace_cjk' style='width:NaNpx'>是</span><span class='ace_cjk' style='width:NaNpx'>代</span><span class='ace_cjk' style='width:NaNpx'>码</span><span class='ace_cjk' style='width:NaNpx'>块</span></span><span class='ace_string ace_end'>&#34;</span><span class='ace_paren ace_rparen'>)</span><span class='ace_punctuation ace_operator'>;</span>
 </div><div class='ace_line'><span class='ace_paren ace_rparen'>}</span>
