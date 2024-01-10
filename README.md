@@ -14,3 +14,9 @@
 ```html
 <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1"/>
 ```
+
+> **新标签页打开链接**
+
+```html
+<a href="/" target="_blank">新标签页</a>
+```
