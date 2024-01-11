@@ -551,22 +551,59 @@
         <article class="markdown-body">
             <!-- <p><u><a href="/index.html" style="font-size: 1.1em"><strong>←返回主页</strong></a></u></p> -->
             <h1>产品识别码生成系统</h1>
-            <p><blockquote style="border-width: 0.16em;">
+            <!-- <p><blockquote style="border-width: 0.16em;">
               示例:<code>51231130152930002619332046011</code>。
               <p style="padding: 0.35em 1.15em; color: #ff4800;">
                 本生成程序适用于2023/09/16及以后的产品识别码(RSPID-29位)。
               </p>
-            </blockquote></p>
-            <!-- <p><strong style="color:#ff0000;font-size: 2em;">开发中，暂不可用！！</strong></p> -->
-            <h4>下方输入RSPID：</h4>
-            <p><input type="text" id="pid" size="29" maxlength="29"> <input type="button" value="验证" onclick="verify()"></p>
-            <!-- 以下暂不可用 -->
-            <strong><p style="line-height: 1em;">状态：<a id="zt"></a></p></strong>
-            <p style="line-height: .3em;">类型：<a id="lx"></a></p>
-            <p style="line-height: .3em;">品牌：<a id="pp"></a></p>
-            <p style="line-height: .3em;">型号：<a id="xh"></a></p>
-            <p style="line-height: .3em;">生产时间：<a id="sj"></a></p>
-            <!-- id名为对应拼音首字母：状态，类型，品牌，型号，时间 -->
+            </blockquote></p> -->
+            <!-- 输入部分 -->
+            <p>类型:
+              <select id="tp" style="font-size: 1em;">
+                <option value="51">Product-51</option>
+                <option value="57">Ticket-57</option>
+              </select>
+              品牌:
+              <select id="pp" style="font-size: 1em;">
+                <option value="90">RISINGSUN</option>
+                <option value="23">BoringClub</option>
+              </select>
+            </p>
+            <p id="date">日期: 20
+              <input size="2" id="yy" type="text" maxlength="2" value=""></input>年
+              <input size="2" id="mm" type="text" maxlength="2" value=""></input>月
+              <input size="2" id="dd" type="text" maxlength="2" value=""></input>日
+            </p>
+            <p id="time">时间: 
+              <input size="2" id="h" type="text" maxlength="2" value=""></input>时
+              <input size="2" id="m" type="text" maxlength="2" value=""></input>分
+            </p>
+            <p>型号: 
+              <input size="7" id="xh" type="text" maxlength="5"></input>
+              范围:A~Z,0~9；不超过五个字符
+            </p>
+            <p>代号: 
+              <input size="2" id="dh" type="text" maxlength="2"></input>
+              范围:00~99；两个字符
+            </p>
+            <p id="rand">随机码: 
+              <input size="5" id="ra" type="text" maxlength="2"></input>
+              范围:01~99；两个字符
+            </p>
+            <!-- 按钮部分 -->
+            <p>
+              <input type="button" value="填充日期" onclick="autoDate()"></input>
+              <input type="button" value="填充时间" onclick="autoTime()"></input>
+              <input type="button" value="填充随机码" onclick="autoRand()"></input>
+            </p>
+            <p>
+              <input type="button" value="生成RSPID" onclick="creat()" style="font-size: 1.5em;font-weight: 500;"></input>
+            </p>
+            <p>
+              结果：
+              <br>
+              <code style="font-size: 1.1em;" id="output"></code>
+            </p>
         </article>
         <script src="createrspid.js"></script>
       </body>
