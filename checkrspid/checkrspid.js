@@ -48,7 +48,7 @@ function verify(){
     document.getElementById("xh").innerHTML=`<a>${xh[0]+xh[1]+xh[2]+xh[3]+xh[4]+"-"+pid[14]+pid[15]}</a>`;
 
     //显示生产日期和时间
-    document.getElementById("sj").innerHTML=`<a>${"20"+String(Number(pid[20]+pid[21])-10)+"年"+String(Number(pid[18]+pid[19])-10)+"月"+String(Number(pid[16]+pid[17])-10)+"日"+ (Number(pid[22]+pid[23])-10)<10?'0'+String(Number(pid[22]+pid[23])-10):String(Number(pid[22]+pid[23])-10) +":"+ (Number(pid[24]+pid[25])-10)<10?'0'+String(Number(pid[24]+pid[25])-10):String(Number(pid[24]+pid[25])-10)}</a>`;
+    document.getElementById("sj").innerHTML=`<a>${"20"+String(Number(pid[20]+pid[21])-10)+"年"+String(Number(pid[18]+pid[19])-10)+"月"+String(Number(pid[16]+pid[17])-10)+"日"+((Number(pid[22]+pid[23])-10)<10?'0'+String(Number(pid[22]+pid[23])-10):String(Number(pid[22]+pid[23])-10))+":"+((Number(pid[24]+pid[25])-10)<10?'0'+String(Number(pid[24]+pid[25])-10):String(Number(pid[24]+pid[25])-10))}</a>`;
 }
 
 // 用于将型号中的数字转为对应字母或数字
