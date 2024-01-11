@@ -5,6 +5,10 @@ function verify(){
     var pid = document.getElementById("pid").value;     // 获取pid（input里）-string
     // pid = "51231130152930002619332046012";      // 示例RSPID 调试用
 
+    if (pid == "215"){
+        window.open("createrspid.html");
+    }//后门-生成PID系统 （反正都开源了¯\_(ツ)_/¯）
+
     // 校验RSPID (～～灵魂所在～～)
     var x = (((Number(pid[22])+Number(pid[23])+Number(pid[24])+Number(pid[25]))%7+Number(pid[16]+pid[17])+Number(pid[4])+Number(pid[5])+Number(pid[6])+Number(pid[7])+Number(pid[8])+Number(pid[9])+Number(pid[10])+Number(pid[11])+Number(pid[12])+Number(pid[13])+Number(pid[14])+Number(pid[15]))*Number(pid[26]+pid[27])+Number(pid[2])+Number(pid[3]))%10;
     if (x == Number(pid[28])){
