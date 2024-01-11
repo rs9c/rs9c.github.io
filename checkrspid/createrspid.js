@@ -1,5 +1,5 @@
-var d = new Date();
 function autoDate(){
+    var d = new Date();
     var yy = d.getFullYear()%100;
     var mm = d.getMonth()+1;
     var dd = d.getDate();
@@ -9,6 +9,7 @@ function autoDate(){
     <input size="2" id="dd" type="text" maxlength="2" value="${dd<10?'0'+String(dd):dd}"></input>日`;
 }
 function autoTime(){
+    var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();
     document.getElementById("time").innerHTML=`时间: 
