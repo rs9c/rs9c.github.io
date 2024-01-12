@@ -560,8 +560,9 @@
             <!-- 输入部分 -->
             <p>类型:
               <select id="tp" style="font-size: 1em;">
-                <option value="51">Product-51</option>
-                <option value="57">Ticket-57</option>
+                <option value="51">Product</option>
+                <option value="57">Ticket</option>
+                <option value="52">Bill</option>
               </select>
               品牌:
               <select id="pp" style="font-size: 1em;">
@@ -570,34 +571,34 @@
               </select>
             </p>
             <p id="date">日期: 20
-              <input size="2" id="yy" type="text" maxlength="2" value=""></input>年
-              <input size="2" id="mm" type="text" maxlength="2" value=""></input>月
-              <input size="2" id="dd" type="text" maxlength="2" value=""></input>日
+              <input size="2" id="yy" type="text" maxlength="2" value="">年
+              <input size="2" id="mm" type="text" maxlength="2" value="">月
+              <input size="2" id="dd" type="text" maxlength="2" value="">日
             </p>
             <p id="time">时间: 
-              <input size="2" id="h" type="text" maxlength="2" value=""></input>时
-              <input size="2" id="m" type="text" maxlength="2" value=""></input>分
+              <input size="2" id="h" type="text" maxlength="2" value="">时
+              <input size="2" id="m" type="text" maxlength="2" value="">分
             </p>
             <p>型号: 
-              <input size="7" id="xh" type="text" maxlength="5"></input>
+              <input size="7" id="xh" type="text" maxlength="5">
               范围:A~Z,0~9；不超过五个字符
             </p>
             <p>代号: 
-              <input size="2" id="dh" type="text" maxlength="2"></input>
+              <input size="2" id="dh" type="text" maxlength="2">
               范围:00~99；两个字符
             </p>
             <p id="rand">随机码: 
-              <input size="5" id="ra" type="text" maxlength="2"></input>
+              <input size="5" id="ra" type="text" maxlength="2">
               范围:01~99；两个字符
             </p>
             <!-- 按钮部分 -->
             <p>
-              <input type="button" value="填充日期" onclick="autoDate()"></input>
-              <input type="button" value="填充时间" onclick="autoTime()"></input>
-              <input type="button" value="填充随机码" onclick="autoRand()"></input>
+              <input type="button" value="填充日期" onclick="autoDate()">
+              <input type="button" value="填充时间" onclick="autoTime()">
+              <input type="button" value="填充随机码" onclick="autoRand()">
             </p>
             <p>
-              <input type="button" value="生成RSPID" onclick="creat()" style="font-size: 1.5em;font-weight: 500;"></input>
+              <input type="button" value="生成RSPID" onclick="creat()" style="font-size: 1.5em;font-weight: 500;">
             </p>
             <p>
               结果：
