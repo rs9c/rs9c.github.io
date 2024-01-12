@@ -1,36 +1,35 @@
 var xh = new Array;     // 型号的字母部分（数组）0A,1T,2E,3S,4T
+var isNA = 0;       // 检测错误 大于0则错误
 
 // 验证RSPID的函数
 function verify(){
+    isNA = 0;       // 重置错误
     var pid = document.getElementById("pid").value;     // 获取pid（input里）-string
     // pid = "51231130152930002619332046012";      // 示例RSPID 调试用
 
     if (pid == "215"){
         window.open("createrspid.html");
+        document.getElementById("pid").value = '';
+        return;
     }//后门-生成PID系统 （反正都开源了¯\_(ツ)_/¯）
 
     // 校验RSPID (～～灵魂所在～～)
     var x = (((Number(pid[22])+Number(pid[23])+Number(pid[24])+Number(pid[25]))%7+Number(pid[16]+pid[17])+Number(pid[4])+Number(pid[5])+Number(pid[6])+Number(pid[7])+Number(pid[8])+Number(pid[9])+Number(pid[10])+Number(pid[11])+Number(pid[12])+Number(pid[13])+Number(pid[14])+Number(pid[15]))*Number(pid[26]+pid[27])+Number(pid[2])+Number(pid[3]))%10;
     if (x == Number(pid[28])){
         document.getElementById("zt").innerHTML=`<a style="color: #00bb00">验证成功✅</a><a><br>${pid}</a>`;
-    }else{
-        document.getElementById("zt").innerHTML=`<a style="color: #ee0000">验证失败❌</a>`;
-        document.getElementById("lx").innerHTML=`<a>N/A</a>`;
-        document.getElementById("pp").innerHTML=`<a>N/A</a>`;
-        document.getElementById("xh").innerHTML=`<a>N/A</a>`;
-        document.getElementById("sj").innerHTML=`<a>N/A</a>`;
-        return;
-    }
-    // document.getElementById("zt").innerHTML=`<a>${x}</a>`;
+    }else{isNA++;}      // 标记为错误 以下同理
 
     // 检测类型
     if (pid[0]+pid[1] == "51"){
         document.getElementById("lx").innerHTML=`<a>Product</a>`;
     }else if (pid[0]+pid[1] == "57"){
         document.getElementById("lx").innerHTML=`<a>Ticket</a>`;
+    }else if (pid[0]+pid[1] == "52"){
+        document.getElementById("lx").innerHTML=`<a>Bill</a>`;
     }// else if (pid[0]+pid[1] == "00"){
     //     document.getElementById("lx").innerHTML=`<a>N/A</a>`;       // 未来可能会有更多的“类型”……
     // }
+    else{isNA++;}
 
     // 检测品牌
     if (pid[2]+pid[3] == "90"){
@@ -40,6 +39,7 @@ function verify(){
     }// else if (pid[2]+pid[3] == "00"){
     //     document.getElementById("pp").innerHTML=`<a>N/A</a>`;       // 未来可能会有更多的“品牌”……
     // }
+    else{isNA++;}
 
     // 显示型号
     for (var i = 0; i <= 4; i ++){
@@ -47,8 +47,21 @@ function verify(){
     }
     document.getElementById("xh").innerHTML=`<a>${xh[0]+xh[1]+xh[2]+xh[3]+xh[4]+"-"+pid[14]+pid[15]}</a>`;
 
-    //显示生产日期和时间
+    // 显示生产日期和时间
     document.getElementById("sj").innerHTML=`<a>${"20"+String(Number(pid[20]+pid[21])-10)+"年"+String(Number(pid[18]+pid[19])-10)+"月"+String(Number(pid[16]+pid[17])-10)+"日"+((Number(pid[22]+pid[23])-10)<10?'0'+String(Number(pid[22]+pid[23])-10):String(Number(pid[22]+pid[23])-10))+":"+((Number(pid[24]+pid[25])-10)<10?'0'+String(Number(pid[24]+pid[25])-10):String(Number(pid[24]+pid[25])-10))}</a>`;
+    if ((Number(pid[20]+pid[21])-10) < 23 || ((Number(pid[20]+pid[21])-10) == 23 && ((Number(pid[18]+pid[19])-10)) < 9 || ((Number(pid[20]+pid[21])-10) == 23 && (Number(pid[18]+pid[19])-10) == 9 && (Number(pid[16]+pid[17])-10) < 16))){isNA++;}     // 检测日期是否超出2023/9/16
+    else if ((Number(pid[18]+pid[19])-10) < 1 || (Number(pid[18]+pid[19])-10) > 12){isNA++;}     //月份是否合法
+    else if ((Number(pid[22]+pid[23])-10) > 23 || (Number(pid[24]+pid[25])-10) > 59){isNA++;}       // 时间是否合法
+    else if ((Number(pid[16]+pid[17])-10) > 31){isNA++;}     // 日是否超出31 （什么小月大月二月闰月懒得弄了（摆
+
+    // 检测到错误
+    if (isNA > 0){
+        document.getElementById("zt").innerHTML=`<a style="color: #ee0000">验证失败❌</a>`;
+        document.getElementById("lx").innerHTML=`<a>N/A</a>`;
+        document.getElementById("pp").innerHTML=`<a>N/A</a>`;
+        document.getElementById("xh").innerHTML=`<a>N/A</a>`;
+        document.getElementById("sj").innerHTML=`<a>N/A</a>`;
+    }
 }
 
 // 用于将型号中的数字转为对应字母或数字
@@ -128,6 +141,6 @@ function trans(tranIn,arrayNo){
         break;
         case '50':xh[arrayNo]='';
         break;
-        default:xh[arrayNo]=undefined;
+        default:isNA++;
     }
 }
