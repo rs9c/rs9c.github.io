@@ -1,3 +1,4 @@
+var pid, x;        // 此脚本注释懒得写了。。
 function autoDate(){
     var d = new Date();
     var yy = d.getFullYear()%100;
@@ -24,9 +25,16 @@ function autoRand(){
     范围:01~99；两个字符`;
 }
 function creat(){
-    var pid = document.getElementById("tp").value + document.getElementById("pp").value + trans(0) + trans(1) + trans(2) + trans(3) + trans(4) +document.getElementById("dh").value + String(Number(document.getElementById("dd").value)+10) + String(Number(document.getElementById("mm").value)+10) + String(Number(document.getElementById("yy").value)+10) + String(Number(document.getElementById("h").value)+10) + String(Number(document.getElementById("m").value)+10) + document.getElementById("ra").value;
-    var x = (((Number(pid[22])+Number(pid[23])+Number(pid[24])+Number(pid[25]))%7+Number(pid[16]+pid[17])+Number(pid[4])+Number(pid[5])+Number(pid[6])+Number(pid[7])+Number(pid[8])+Number(pid[9])+Number(pid[10])+Number(pid[11])+Number(pid[12])+Number(pid[13])+Number(pid[14])+Number(pid[15]))*Number(pid[26]+pid[27])+Number(pid[2])+Number(pid[3]))%10;
+    document.getElementById("button2").innerHTML=`<input type="button" value="生成RSPID" onclick="creat()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
+    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`;       // 重置
+    pid = document.getElementById("tp").value + document.getElementById("pp").value + trans(0) + trans(1) + trans(2) + trans(3) + trans(4) +document.getElementById("dh").value + String(Number(document.getElementById("dd").value)+10) + String(Number(document.getElementById("mm").value)+10) + String(Number(document.getElementById("yy").value)+10) + String(Number(document.getElementById("h").value)+10) + String(Number(document.getElementById("m").value)+10) + document.getElementById("ra").value;
+    x = (((Number(pid[22])+Number(pid[23])+Number(pid[24])+Number(pid[25]))%7+Number(pid[16]+pid[17])+Number(pid[4])+Number(pid[5])+Number(pid[6])+Number(pid[7])+Number(pid[8])+Number(pid[9])+Number(pid[10])+Number(pid[11])+Number(pid[12])+Number(pid[13])+Number(pid[14])+Number(pid[15]))*Number(pid[26]+pid[27])+Number(pid[2])+Number(pid[3]))%10;
     document.getElementById("output").innerHTML=`${pid+String(x)}`;
+}
+function copy(){
+    navigator.clipboard.writeText(pid+String(x));     // 草率的复制脚本。。
+    document.getElementById("button2").innerHTML=`<input type="button" value="生成RSPID" onclick="creat()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
+    <input type="button" value="复制成功✅" onclick="copy()" style="font-size: 1.4em;font-weight: 200;">`;
 }
 function trans(xhNo){
     switch((document.getElementById("xh").value)[xhNo]){

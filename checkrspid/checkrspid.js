@@ -64,6 +64,13 @@ function verify(){
     }
 }
 
+// 粘贴剪贴板
+function paste(){
+    navigator.clipboard.readText()
+        .then(text => {
+            document.getElementById("pid").value = text;
+        });     // 太麻烦啦 // text是变量名
+}
 // 用于将型号中的数字转为对应字母或数字
 function trans(tranIn,arrayNo){
     switch(tranIn){
