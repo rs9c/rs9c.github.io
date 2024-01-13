@@ -14,7 +14,7 @@ function verify(){
     }//后门-生成PID系统 （反正都开源了¯\_(ツ)_/¯）
 
     // 校验RSPID (～～灵魂所在～～)
-    var x = (((Number(pid[22])+Number(pid[23])+Number(pid[24])+Number(pid[25]))%7+Number(pid[16]+pid[17])+Number(pid[18]+pid[19])+Number(pid[20]+pid[21])+Number(pid[4])+Number(pid[5])+Number(pid[6])+Number(pid[7])+Number(pid[8])+Number(pid[9])+Number(pid[10])+Number(pid[11])+Number(pid[12])+Number(pid[13])+Number(pid[14])+Number(pid[15]))*Number(pid[26]+pid[27])+Number(pid[2])+Number(pid[3])+((Number(pid[0])+Number(pid[1]))*Number(pid[1])))%10;
+    var x = (((Number(pid[22])+Number(pid[23])+Number(pid[24])+Number(pid[25]))%7+Number(pid[16])+Number(pid[17])+Number(pid[18])+Number(pid[19])+Number(pid[20])+Number(pid[21])+Number(pid[4])+Number(pid[5])+Number(pid[6])+Number(pid[7])+Number(pid[8])+Number(pid[9])+Number(pid[10])+Number(pid[11])+Number(pid[12])+Number(pid[13])+Number(pid[14])+Number(pid[15]))*Number(pid[26]+pid[27]+pid[20]+pid[1]+pid[17])+Number(pid[2])+Number(pid[3])+((Number(pid[0])+Number(pid[1]))*Number(pid[1])))%10;
     if (x == Number(pid[28])){
         document.getElementById("zt").innerHTML=`<a style="color: #00bb00">验证成功✅</a><a><br>${pid}</a>`;
     }else{isNA++;}      // 标记为错误 以下同理
