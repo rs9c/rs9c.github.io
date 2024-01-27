@@ -1,4 +1,4 @@
-var xh = new Array(); // 型号的字母部分（数组）0A,1T,2E,3S,4T
+var xh = new Array(); // 型号的字母部分（数组）0A,1T,2E,3S,4T.
 var isNA = 0; // 检测错误 大于0则错误
 
 // 验证RSPID的函数
