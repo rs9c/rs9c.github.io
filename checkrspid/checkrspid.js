@@ -5,8 +5,6 @@ var isNA = 0; // 检测错误 大于0则错误
 function verify() {
     isNA = 0; // 重置错误
     var pid = document.getElementById("pid").value; // 获取pid（input里）-string
-    // pid = "51231130152930002619332046012";      // 示例RSPID 调试用
-
     if (pid == "215") {
         window.open("createrspid.html");
         document.getElementById("pid").value = "";
