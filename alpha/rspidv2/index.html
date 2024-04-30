@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html>
     <head>
         <meta
             charset="utf-8"
             id="viewport"
             name="viewport"
             content="width=device-width, initial-scale=1" />
-        <title>不欢迎来到risingsun517.github.io</title>
+        <title>验证产品识别码(RSPID)</title>
 
         <style>
             html,
@@ -331,7 +331,7 @@
             }
 
             .markdown-body blockquote {
-                padding: 0 1em;
+                padding: 0 0.4em;
                 color: #6a737d;
                 border-left: 0.25em solid #dfe2e5;
             }
@@ -568,81 +568,40 @@
     </head>
     <body>
         <article class="markdown-body">
-            <h1>主页</h1>
-            <blockquote>
-                Here's risingsun517.github.io!
-                <h3 style="font-size: 1em">你来这里干啥◐‿◑</h3>
+            <!-- <p><u><a href="/index.html" style="font-size: 1.1em"><strong>←返回主页</strong></a></u></p> -->
+            <h1>产品识别码验证系统</h1>
+            <blockquote style="border-width: 0.16em">
+                示例:<code>51231130152930002619332046014</code>。
+                <p style="padding: 0.35em 1.15em; color: #bababa">RISINGSUN Project ID version 2</p>
             </blockquote>
-            <h2>网站导航🧭</h2>
-            <ol>
-                <strong style="font-size: 1.2em;" id="pageM">
-                    <!-- 详见sitemap.json -->
-                </strong>
-            </ol>
-            <hr style="height: 0.05em;"/> 
-            <blockquote style="color: #ff0000;">以下为Beta(测试阶段)页面</blockquote>
-            <ol >
-                <strong style="font-size: 1.2em;color: #6a737d;" id="pageB">
-                </strong>
-            </ol>
-            <blockquote>以下为Alpha(刚新建文件夹阶段:D)页面</blockquote>
-            <ol >
-                <strong style="font-size: 1.2em;color: #6a737d;" id="pageA">
-                </strong>
-            </ol>
-            <hr style="height: 0.05em;"/>
+            <h4>
+                下方输入RSPID：<input
+                    type="button"
+                    value="粘贴"
+                    onclick="paste()"
+                    style="font-weight: 400; font-size: 1em; margin-left: 1em" />
+            </h4>
             <p>
-                <a
-                    href="#top"
-                    style="font-size: 1.1em"
-                    ><strong>⤒返回顶部</strong></a
-                >
+                <input
+                    type="text"
+                    id="pid"
+                    size="29"
+                    maxlength="29" />
+                <input
+                    type="button"
+                    value="验证"
+                    onclick="verify()"
+                    style="font-weight: 500; font-size: 1.1em; margin-left: 0.15em" />
             </p>
-            <p>
-                <a
-                    href="https://github.com/risingsun517/risingsun517.github.io"
-                    target="_blank"
-                    >↗直击本仓库(risingsun517/risingsun517.github.io)</a
-                ><br>
-                <a
-                    href="/donate.png"
-                    target="_blank"
-                    >💰资助本站:D</a
-                >
-            </p>
-            <p>
-                <a
-                    href="https://u.tools"
-                    target="_blank"
-                    style="color: #6e6e6e;"
-                    >↗uTools</a
-                >
-            </p>
+            <strong
+                ><p style="line-height: 1em">状态：<a id="zt"></a></p
+            ></strong>
+            <p style="line-height: 0.3em">类型：<a id="lx"></a></p>
+            <p style="line-height: 0.3em">品牌：<a id="pp"></a></p>
+            <p style="line-height: 0.3em">型号：<a id="xh"></a></p>
+            <p style="line-height: 0.3em">时间：<a id="sj"></a></p>
+            <!-- id名为对应拼音首字母：状态，类型，品牌，型号，时间 -->
         </article>
-        <script>
-            function LoadPage(){
-                let site;
-                // 访问sitemap.json
-                fetch('sitemap.json')
-                    .then(response => response.json())
-                    .then(sitemap => {
-                        console.debug(sitemap);
-                        site = sitemap; // json本son
-                        // fetch为异步操作，这些代码只能往这里丢
-                        // 遍历json中的main并更新页面，以下同理
-                        for (var i = 0; i <= site.main.length - 1; ++i ){
-                            document.getElementById("pageM").innerHTML += `<li style="height: 1.2em;"><a href="${site.main[i].url}" target="_blank">${site.main[i].title}</a></li>`;
-                        }
-                        for (var i = 0; i <= site.beta.length - 1; ++i ){
-                            document.getElementById("pageB").innerHTML += `<li style="height: 1.2em;"><a href="${site.beta[i].url}" target="_blank">${site.beta[i].title}</a></li>`;
-                        }
-                        for (var i = 0; i <= site.alpha.length - 1; ++i ){
-                            document.getElementById("pageA").innerHTML += `<li style="height: 1.2em;"><a href="${site.alpha[i].url}" target="_blank">${site.alpha[i].title}</a></li>`;
-                        }
-                    });
-            }
-            // 加载页面后运行函数
-            LoadPage();
-        </script>
+        <script src="checkrspid.js"></script>
     </body>
 </html>
