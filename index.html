@@ -626,7 +626,6 @@
                 fetch('sitemap.json')
                     .then(response => response.json())
                     .then(sitemap => {
-                        console.debug(sitemap);
                         site = sitemap; // json本son
                         // fetch为异步操作，这些代码只能往这里丢
                         // 遍历json中的main并更新页面，以下同理
