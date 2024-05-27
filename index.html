@@ -621,21 +621,20 @@
         </article>
         <script>
             function LoadPage(){
-                let site;
                 // 访问sitemap.json
                 fetch('sitemap.json')
                     .then(response => response.json())
                     .then(sitemap => {
-                        site = sitemap; // json本son
+                        // sitemap - json本son
                         // fetch为异步操作，这些代码只能往这里丢
                         // 遍历json中的main并更新页面，以下同理
-                        for (var i = 0; i <= site.main.length - 1; ++i ){
+                        for (var i = 0; i <= sitemap.main.length - 1; ++i ){
                             document.getElementById("pageM").innerHTML += `<li style="height: 1.2em;"><a href="${site.main[i].url}" target="_blank">${site.main[i].title}</a></li>`;
                         }
-                        for (var i = 0; i <= site.beta.length - 1; ++i ){
+                        for (var i = 0; i <= sitemap.beta.length - 1; ++i ){
                             document.getElementById("pageB").innerHTML += `<li style="height: 1.2em;"><a href="${site.beta[i].url}" target="_blank">${site.beta[i].title}</a></li>`;
                         }
-                        for (var i = 0; i <= site.alpha.length - 1; ++i ){
+                        for (var i = 0; i <= sitemap.alpha.length - 1; ++i ){
                             document.getElementById("pageA").innerHTML += `<li style="height: 1.2em;"><a href="${site.alpha[i].url}" target="_blank">${site.alpha[i].title}</a></li>`;
                         }
                     });
