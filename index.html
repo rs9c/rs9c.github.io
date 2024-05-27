@@ -629,13 +629,13 @@
                         // fetch为异步操作，这些代码只能往这里丢
                         // 遍历json中的main并更新页面，以下同理
                         for (var i = 0; i <= sitemap.main.length - 1; ++i ){
-                            document.getElementById("pageM").innerHTML += `<li style="height: 1.2em;"><a href="${site.main[i].url}" target="_blank">${site.main[i].title}</a></li>`;
+                            document.getElementById("pageM").innerHTML += `<li style="height: 1.2em;"><a href="${sitemap.main[i].url}" target="_blank">${sitemap.main[i].title}</a></li>`;
                         }
                         for (var i = 0; i <= sitemap.beta.length - 1; ++i ){
-                            document.getElementById("pageB").innerHTML += `<li style="height: 1.2em;"><a href="${site.beta[i].url}" target="_blank">${site.beta[i].title}</a></li>`;
+                            document.getElementById("pageB").innerHTML += `<li style="height: 1.2em;"><a href="${sitemap.beta[i].url}" target="_blank">${sitemap.beta[i].title}</a></li>`;
                         }
                         for (var i = 0; i <= sitemap.alpha.length - 1; ++i ){
-                            document.getElementById("pageA").innerHTML += `<li style="height: 1.2em;"><a href="${site.alpha[i].url}" target="_blank">${site.alpha[i].title}</a></li>`;
+                            document.getElementById("pageA").innerHTML += `<li style="height: 1.2em;"><a href="${sitemap.alpha[i].url}" target="_blank">${sitemap.alpha[i].title}</a></li>`;
                         }
                     });
             }
