@@ -1,19 +1,23 @@
 // 需要用的变量往这里丢
 var pid = "";
-var x;      //校验码
+var x; //校验码
 // window.location.search ——获取url?后
-var getPid = window.location.search.substring(window.location.search.lastIndexOf("=")+1,window.location.search.length);
+var getPid = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
 // 检验getPid是否为空
-if (getPid == ""){
+if (getPid == "") {
     console.debug("getPid is empty");
-}else{
+} else {
     pid = getPid;
     verify();
 }
-// document.getElementById("pid").value = pid;
+
+// document.getElementById("id").value
+function dg(id) {
+    return document.getElementById(id).value;
+}
 
 // 验证rspid
-async function verify(){
+async function verify() {
     // 更改url中的pid
     /* const urlParams = new URLSearchParams(window.location.search);
     const pid = urlParams.get("pid");
@@ -21,62 +25,91 @@ async function verify(){
     const newUrl = new URL(window.location);
     newUrl.search = urlParams.toString();
     history.pushState({}, '', newUrl); */
-    console.debug("run verify");
-    document.getElementById("zt").innerHTML=`<a style="color: #000000">验证中 请稍等...</a>`
-    if(getPid == ""){pid = document.getElementById("pid").value;}
+    console.debug("running verify");
+    x = 0;
+    document.getElementById("zt").innerHTML = `<a style="color: #000000">验证中 请稍等...</a>`;
+    if (getPid == "") {
+        pid = dg("pid");
+    } else {
+        dg("pid") = pid;
+    }
     if (pid == "215") {
         window.open("createrspid.html");
-        document.getElementById("pid").value = "";
+        dg("pid") = "";
         return;
-    }// 熟悉的后门～进入生成pid界面
-    console.info("Pid is \'"+pid+"\'");
+    } // 熟悉的后门～进入生成pid界面
+    console.info("Pid is '" + pid + "'");
 }
 
 // 生成rspid
-async function create(){
-
+async function create() {
+    console.debug("running create");
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
+    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
+    var xhn = 0;
+    x = 0;
+    // 12 34 56 -> 135 246
+    for (var i = 0; i < dg("xh").length; ++i) {
+        var j = await atn(dg("xh")[i]);
+        xhn += parseInt(j / 10) * (10 ** (dg("xh").length * 2 - 1 - i)) + parseInt(j % 10) * (10 ** (dg("xh").length - 1 - i));
+        console.debug("xhn:" + xhn);
+    }       //xhn会炸，要改!!!
+    pid = dg("tp") + dg("yy") + dg("mm") + dg("dd") + dg("h") + dg("m") + dg("pp") + String(xhn) + dg("ra");
+    var xlist = [7, 9, 1, 5, 8, 4, 2, 6, 3, 0];
+    for (var i = 0; i < pid.length; ++i) {
+        x += Number(pid[i]) * xlist[i % 10];
+        console.debug("x:" + String(x));
+    }
+    x = x % 10;
+    console.debug("The last X:" + String(x));
+    console.info("pid:" + pid + String(x));
+    document.getElementById("output").innerHTML = `${pid + String(x)}`;
 }
 
 // 异步-将传入的数字（字符串）转为字符（字符串）【详见table.json】
-// async function ... await nta(inputString)
-async function nta(inputString){
+async function nta(inputString) {
     const response = await fetch("table.json");
     const table = await response.json();
     for (var i = 0; i < table.length; ++i) {
         if (inputString == table[i].n) {
-            console.info("nta:Found "+inputString+" at "+String(i)+",It is\'"+table[i].a+"\'");
+            console.info("nta:Found " + inputString + " at " + String(i) + ",It is '" + table[i].a + "'");
             return table[i].a;
         }
     }
-    console.warn("nta:NotFound \'"+inputString+"\'");
-    return "∅";
+    console.warn("nta:NotFound '" + inputString + "'");
+    return "⨂";
 }
-async function atn(inputString){
+// 异步-将传入的字符（字符串）转为数字（字符串）【详见table.json】
+async function atn(inputString) {
     const response = await fetch("table.json");
     const table = await response.json();
     for (var i = 0; i < table.length; ++i) {
         if (inputString == table[i].a) {
-            console.info("atn:Found\'"+inputString+"\'at "+String(i)+",It is "+table[i].n);
+            console.info("atn:Found'" + inputString + "'at " + String(i) + ",It is " + table[i].n);
             return table[i].n;
         }
     }
-    console.warn("atn:NotFound \'"+inputString+"\'");
+    console.warn("atn:NotFound '" + inputString + "'");
 }
 
 // 测试
-async function testn(tpid){
-    if(tpid==null){tpid = "31105553325503104110656342650289728072749701645832581635425716757177727676956468426826454267267923984564696793";}
+async function testn(txhn) {
+    if (txhn == null) {
+        txhn = "31105553325560104110656342653089728072749720645832581635425716757177727676956468426826454267267923984564696793";
+    }
     var tout = "";
-    for (var i = 0;i < tpid.length;i+=2){
-        console.debug(tpid[i]+tpid[i+1]);
-        tout += await nta(tpid[i]+tpid[i+1]);
+    for (var i = 0; i < txhn.length; i += 2) {
+        console.debug(txhn[i] + txhn[i + 1]);
+        tout += await nta(txhn[i] + txhn[i + 1]);
         console.debug(tout);
     }
 }
-async function testa(txh){
-    if(txh==null){txh = "a test? A TEST!(2024)/RisingSun517266-RISINGSUN9C_GROUP";}
+async function testa(txh) {
+    if (txh == null) {
+        txh = "a test? A TEST!(2024)/RisingSun517266-RISINGSUN9C_GROUP";
+    }
     var tout = "";
-    for (var i = 0;i < txh.length;i+=1){
+    for (var i = 0; i < txh.length; i += 1) {
         console.debug(txh[i]);
         tout += await atn(txh[i]);
         console.debug(tout);
@@ -87,13 +120,13 @@ async function testa(txh){
 // 粘贴按钮
 function paste() {
     navigator.clipboard.readText().then((text) => {
-        document.getElementById("pid").value = text;
-    }); 
+        dg("pid") = text;
+    });
 }
 // 复制按钮
 function copy() {
-    navigator.clipboard.writeText(pid + String(x));     //历史遗留 看看以后能不能改
-    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="creat()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
+    navigator.clipboard.writeText(pid + String(x)); //历史遗留问题，此处pid不是真的pid。能用就行，，，
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
     <input type="button" value="复制成功✅" onclick="copy()" style="font-size: 1.4em;font-weight: 200;">`;
 }
 // 填充日期
