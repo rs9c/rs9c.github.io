@@ -5,7 +5,7 @@ var x; //校验码
 var getPid = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
 // 检验getPid是否为空
 if (getPid == "") {
-    console.debug("getPid is empty");
+    console.debug("getPid为空");
 } else {
     pid = getPid;
     verify();
@@ -25,7 +25,7 @@ async function verify() {
     const newUrl = new URL(window.location);
     newUrl.search = urlParams.toString();
     history.pushState({}, '', newUrl); */
-    console.debug("running verify");
+    console.debug("运行verify()");
     x = 0;
     document.getElementById("zt").innerHTML = `<a style="color: #000000">验证中 请稍等...</a>`;
     if (getPid == "") {
@@ -38,31 +38,40 @@ async function verify() {
         dg("pid") = "";
         return;
     } // 熟悉的后门～进入生成pid界面
-    console.info("Pid is '" + pid + "'");
+    console.info("传入的Pid为'" + pid + "'");
 }
 
 // 生成rspid
 async function create() {
-    console.debug("running create");
+    console.debug("运行create()");
     document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
     <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
-    var xhn = 0;
+    var xhn = "";
     x = 0;
     // 12 34 56 -> 135 246
+    for (var i = 0; i < dg("xh").length * 2; ++i) {
+        xhn += "0";     // 000000
+    }
+    xhn = xhn.split('');    // ['0','0',...]
     for (var i = 0; i < dg("xh").length; ++i) {
         var j = await atn(dg("xh")[i]);
-        xhn += parseInt(j / 10) * (10 ** (dg("xh").length * 2 - 1 - i)) + parseInt(j % 10) * (10 ** (dg("xh").length - 1 - i));
-        console.debug("xhn:" + xhn);
-    }       //xhn会炸，要改!!!
-    pid = dg("tp") + dg("yy") + dg("mm") + dg("dd") + dg("h") + dg("m") + dg("pp") + String(xhn) + dg("ra");
+        xhn[i] = j[0];
+        xhn[i + dg("xh").length] = j[1];
+        console.debug("逐步生成xhn:" + xhn);
+    }       // ['1','3','5',...]
+    pid = dg("tp") + dg("yy") + dg("mm") + dg("dd") + dg("h") + dg("m") + dg("pp");
+    for (var i = 0; i < dg("xh").length * 2; ++i) {
+        pid += xhn[i];
+    }
+    pid += dg("ra");
     var xlist = [7, 9, 1, 5, 8, 4, 2, 6, 3, 0];
     for (var i = 0; i < pid.length; ++i) {
         x += Number(pid[i]) * xlist[i % 10];
-        console.debug("x:" + String(x));
+        console.debug("逐步计算校验码x:" + String(x));
     }
     x = x % 10;
-    console.debug("The last X:" + String(x));
-    console.info("pid:" + pid + String(x));
+    console.info("最终校验码X:" + String(x));
+    console.info("最终pid:" + pid + String(x));
     document.getElementById("output").innerHTML = `${pid + String(x)}`;
 }
 
@@ -85,7 +94,7 @@ async function atn(inputString) {
     const table = await response.json();
     for (var i = 0; i < table.length; ++i) {
         if (inputString == table[i].a) {
-            console.info("atn:Found'" + inputString + "'at " + String(i) + ",It is " + table[i].n);
+            console.info("atn:Found '" + inputString + "' at " + String(i) + ",It is " + table[i].n);
             return table[i].n;
         }
     }
@@ -127,7 +136,7 @@ function paste() {
 function copy() {
     navigator.clipboard.writeText(pid + String(x)); //历史遗留问题，此处pid不是真的pid。能用就行，，，
     document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
-    <input type="button" value="复制成功✅" onclick="copy()" style="font-size: 1.4em;font-weight: 200;">`;
+    <input type="button" value="复制成功✓" onclick="copy()" style="font-size: 1.4em;font-weight: 200;">`;
 }
 // 填充日期
 function autoDate() {
