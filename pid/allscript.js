@@ -31,14 +31,23 @@ async function verify() {
     if (getPid == "") {
         pid = dg("pid");
     } else {
-        dg("pid") = pid;
+        document.getElementById("pid").value = pid;
     }
     if (pid == "215") {
         window.open("createrspid.html");
-        dg("pid") = "";
+        document.getElementById("pid").value = "";
         return;
     } // 熟悉的后门～进入生成pid界面
     console.info("传入的Pid为'" + pid + "'");
+
+    
+    if (document.getElementById("ignoreError").checked == true){
+        // 如果勾选了“检测到错误时强制输出结果”
+
+    }else{
+        // 如果没勾选“检测到错误时强制输出结果”
+
+    }
 }
 
 // 生成rspid
@@ -50,15 +59,15 @@ async function create() {
     x = 0;
     // 12 34 56 -> 135 246
     for (var i = 0; i < dg("xh").length * 2; ++i) {
-        xhn += "0";     // 000000
+        xhn += "0"; // 000000
     }
-    xhn = xhn.split('');    // ['0','0',...]
+    xhn = xhn.split(""); // ['0','0',...]
     for (var i = 0; i < dg("xh").length; ++i) {
         var j = await atn(dg("xh")[i]);
         xhn[i] = j[0];
         xhn[i + dg("xh").length] = j[1];
         console.debug("逐步生成xhn:" + xhn);
-    }       // ['1','3','5',...]
+    } // ['1','3','5',...]
     pid = dg("tp") + dg("yy") + dg("mm") + dg("dd") + dg("h") + dg("m") + dg("pp");
     for (var i = 0; i < dg("xh").length * 2; ++i) {
         pid += xhn[i];
@@ -129,7 +138,7 @@ async function testa(txh) {
 // 粘贴按钮
 function paste() {
     navigator.clipboard.readText().then((text) => {
-        dg("pid") = text;
+        document.getElementById("pid").value = text;
     });
 }
 // 复制按钮
