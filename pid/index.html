@@ -5,7 +5,7 @@
     <meta charset="utf-8" id="viewport" name="viewport" content="width=device-width, initial-scale=1" />
     <!-- iOS web app -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link rel="apple-touch-icon-precomposed" href="icon.png" sizes="1024x1024" />
+    <link rel="apple-touch-icon-precomposed" href="image/icon1.png" sizes="1024x1024" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>验证产品识别码(RSPID)</title>
 
@@ -581,7 +581,9 @@
         </blockquote>
         <h4>
             下方输入RSPID：<input type="button" value="粘贴" onclick="paste()"
-                style="font-weight: 400; font-size: 1em; margin-left: 1em" />
+                style="font-weight: 400; font-size: 1em; margin-left: 0em" />
+            <input type="button" value="扫码二维码" onclick="scanQR()"
+                style="font-weight: 400; font-size: 1em; margin-left: 0.3em" />
         </h4>
         <p>
             <input type="text" id="pid" size="25" />

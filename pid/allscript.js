@@ -253,3 +253,7 @@ function autoRand() {
     <input size="2" id="ra" type="text" maxlength="2" value="${randnum < 10 ? "0" + String(randnum) : randnum}"></input>
     范围:01~99；两个字符`;
 }
+
+function scanQR() {
+    window.alert("这个功能还没做:D\n敬请期待");
+}

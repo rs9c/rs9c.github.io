@@ -1,13 +1,12 @@
 {
     "main":[
         {"title":"RSJE MC 服务器 ↗","url":"/mcserver/index.html"},
-        {"title":"验证产品识别码(RSPID)[旧] ↗","url":"/pid/old/index.html"}
+        {"title":"验证产品识别码(RSPID) ↗","url":"/pid/index.html"}
     ],
     "beta":[
         {"title":"测试页-β ↗","url":"/beta/index.html"},
         {"title":"无聊社书面表达对照(BCL) ↗","url":"/bcl/index.html"}
     ],
     "alpha":[
-        {"title":"RSPID v2 ↗","url":"/pid/index.html"}
     ]
 }
