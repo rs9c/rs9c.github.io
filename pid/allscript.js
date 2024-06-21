@@ -1,3 +1,4 @@
+var firstOpen = true;
 var pid = "";
 var x; //校验码
 // window.location.search ——获取url?后
@@ -30,10 +31,11 @@ async function verify() {
     var detXH = "";
     x = 0;
     document.getElementById("zt").innerHTML = `<a style="color: #000000">验证中 请稍等...</a>`;
-    if (getPid == "") {
-        pid = dg("pid");
-    } else {
+    if (getPid != "" && firstOpen == true){
         document.getElementById("pid").value = pid;
+        firstOpen = false;
+    }else{
+        pid = dg("pid");
     }
     if (pid == "215") {
         window.open("createrspid.html");
