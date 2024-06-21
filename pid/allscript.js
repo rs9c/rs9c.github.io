@@ -93,7 +93,7 @@ async function verify() {
     detTimeM = Number(pid[10] + pid[11]);
     var toDate = new Date(detDateY, detDateM, detDateD, detTimeH, detTimeM); // 将获取到的日期转为Date()，并判断转换前后是否一致。不一致则时间不合法
     if (toDate.getFullYear() === detDateY && toDate.getMonth() === detDateM && toDate.getDate() === detDateD && toDate.getHours() === detTimeH && toDate.getMinutes() === detTimeM) {
-        console.info("获取到时间：" + String(detDateY) + "/" + String(detDateM + 1) + "/" + String(detDateD) + "-" + String(detTimeH) + ":" + String(detTimeM));
+        console.info("获取到时间：" + String(detDateY) + "/" + String(detDateM + 1) + "/" + String(detDateD) + "-" + String(detTimeH < 10 ? "0" + String(detTimeH) : detTimeH) + ":" + String(detTimeM < 10 ? "0" + String(detTimeM) : detTimeM));
     } else {
         console.error("时间不合法");
         err = true;
