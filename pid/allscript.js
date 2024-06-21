@@ -31,10 +31,10 @@ async function verify() {
     var detXH = "";
     x = 0;
     document.getElementById("zt").innerHTML = `<a style="color: #000000">验证中 请稍等...</a>`;
-    if (getPid != "" && firstOpen == true){
+    if (getPid != "" && firstOpen == true) {
         document.getElementById("pid").value = pid;
         firstOpen = false;
-    }else{
+    } else {
         pid = dg("pid");
     }
     if (pid == "215") {
