@@ -1,4 +1,3 @@
-// 需要用的变量往这里丢
 var pid = "";
 var x; //校验码
 // window.location.search ——获取url?后
@@ -26,6 +25,9 @@ async function verify() {
     newUrl.search = urlParams.toString();
     history.pushState({}, '', newUrl); */
     console.debug("运行verify()");
+    var err = false; // 若有错误则为true
+    var lengthOfXH, detLX, detPP, detDateY, detDateM, detDateD, detTimeH, detTimeM;
+    var detXH = "";
     x = 0;
     document.getElementById("zt").innerHTML = `<a style="color: #000000">验证中 请稍等...</a>`;
     if (getPid == "") {
@@ -38,15 +40,85 @@ async function verify() {
         document.getElementById("pid").value = "";
         return;
     } // 熟悉的后门～进入生成pid界面
+
     console.info("传入的Pid为'" + pid + "'");
-
-    
-    if (document.getElementById("ignoreError").checked == true){
-        // 如果勾选了“检测到错误时强制输出结果”
-
-    }else{
-        // 如果没勾选“检测到错误时强制输出结果”
-
+    lengthOfXH = pid.length - 17;
+    if (lengthOfXH < 0 || lengthOfXH % 2 != 0) {
+        console.error("pid长度错误");
+        err = true;
+    }
+    var xlist = [7, 9, 1, 5, 8, 4, 2, 6, 3, 0];
+    for (var i = 0; i < pid.length - 1; ++i) {
+        x += Number(pid[i]) * xlist[i % 10];
+    }
+    x = x % 10;
+    if (Number(pid[pid.length - 1]) != x) {
+        console.error("pid校验码错误");
+        err = true;
+    }
+    const response = await fetch("type.json");
+    const type = await response.json();
+    for (var i = 0; i < type.tp.length; ++i) {
+        if (pid[0] + pid[1] == type.tp[i].n) {
+            console.info("检测到类型：" + type.tp[i].a);
+            detLX = type.tp[i].a;
+        }
+    }
+    for (var i = 0; i < type.pp.length; ++i) {
+        if (pid[12] + pid[13] == type.pp[i].n) {
+            console.info("检测到品牌：" + type.pp[i].a);
+            detPP = type.pp[i].a;
+        }
+    }
+    if (detLX == undefined) {
+        console.error("类型错误");
+        err = true;
+    }
+    if (detPP == undefined) {
+        console.error("品牌错误");
+        err = true;
+    }
+    for (var i = 0; i < lengthOfXH / 2; ++i) {
+        detXH += await nta(pid[14 + i] + pid[14 + lengthOfXH / 2 + i]);
+    }
+    console.info("检测到型号：\n" + detXH);
+    if (detXH.includes("⨂")) {
+        console.error("型号中包含错误");
+        err = true;
+    }
+    detDateY = Number("20" + pid[2] + pid[3]);
+    detDateM = Number(pid[4] + pid[5]) - 1; // js中月份从0开始
+    detDateD = Number(pid[6] + pid[7]);
+    detTimeH = Number(pid[8] + pid[9]);
+    detTimeM = Number(pid[10] + pid[11]);
+    var toDate = new Date(detDateY, detDateM, detDateD, detTimeH, detTimeM); // 将获取到的日期转为Date()，并判断转换前后是否一致。不一致则时间不合法
+    if (toDate.getFullYear() === detDateY && toDate.getMonth() === detDateM && toDate.getDate() === detDateD && toDate.getHours() === detTimeH && toDate.getMinutes() === detTimeM) {
+        console.info("获取到时间：" + String(detDateY) + "/" + String(detDateM + 1) + "/" + String(detDateD) + "-" + String(detTimeH) + ":" + String(detTimeM));
+    } else {
+        console.error("时间不合法");
+        err = true;
+    }
+    if (err == false) {
+        document.getElementById("zt").innerHTML = `<a style="color: #00bb00">已验证✓</a>`;
+        document.getElementById("lx").innerHTML = detLX;
+        document.getElementById("pp").innerHTML = detPP;
+        document.getElementById("xh").innerHTML = detXH;
+        document.getElementById("sj").innerHTML = String(detDateY) + "/" + String(detDateM + 1) + "/" + String(detDateD) + "-" + String(detTimeH < 10 ? "0" + String(detTimeH) : detTimeH) + ":" + String(detTimeM < 10 ? "0" + String(detTimeM) : detTimeM);
+    } else {
+        document.getElementById("zt").innerHTML = `<a style="color: #ee0000">未验证✕</a>`;
+        if (document.getElementById("ignoreError").checked == false) {
+            // 如果未勾选“检测到错误时强制输出结果”
+            document.getElementById("lx").innerHTML = "N/A";
+            document.getElementById("pp").innerHTML = "N/A";
+            document.getElementById("xh").innerHTML = "N/A";
+            document.getElementById("sj").innerHTML = "N/A";
+        } else {
+            // 如果勾选“检测到错误时强制输出结果”
+            document.getElementById("lx").innerHTML = detLX;
+            document.getElementById("pp").innerHTML = detPP;
+            document.getElementById("xh").innerHTML = detXH;
+            document.getElementById("sj").innerHTML = String(detDateY) + "/" + String(detDateM + 1) + "/" + String(detDateD) + "-" + String(detTimeH) + ":" + String(detTimeM);
+        }
     }
 }
 
@@ -68,7 +140,7 @@ async function create() {
         xhn[i + dg("xh").length] = j[1];
         console.debug("逐步生成xhn:" + xhn);
     } // ['1','3','5',...]
-    pid = dg("tp") + dg("yy") + dg("mm") + dg("dd") + dg("h") + dg("m") + dg("pp");
+    pid = dg("tpl") + dg("yy") + dg("mm") + dg("dd") + dg("h") + dg("m") + dg("ppl");
     for (var i = 0; i < dg("xh").length * 2; ++i) {
         pid += xhn[i];
     }
@@ -90,7 +162,7 @@ async function nta(inputString) {
     const table = await response.json();
     for (var i = 0; i < table.length; ++i) {
         if (inputString == table[i].n) {
-            console.info("nta:Found " + inputString + " at " + String(i) + ",It is '" + table[i].a + "'");
+            console.debug("nta:Found " + inputString + " at " + String(i) + ",It is '" + table[i].a + "'");
             return table[i].a;
         }
     }
@@ -103,7 +175,7 @@ async function atn(inputString) {
     const table = await response.json();
     for (var i = 0; i < table.length; ++i) {
         if (inputString == table[i].a) {
-            console.info("atn:Found '" + inputString + "' at " + String(i) + ",It is " + table[i].n);
+            console.debug("atn:Found '" + inputString + "' at " + String(i) + ",It is " + table[i].n);
             return table[i].n;
         }
     }
@@ -149,6 +221,8 @@ function copy() {
 }
 // 填充日期
 function autoDate() {
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
+    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
     var d = new Date();
     var yy = d.getFullYear() % 100;
     var mm = d.getMonth() + 1;
@@ -160,6 +234,8 @@ function autoDate() {
 }
 // 填充时间
 function autoTime() {
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
+    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
     var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();
@@ -169,6 +245,8 @@ function autoTime() {
 }
 // 填充随机码
 function autoRand() {
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
+    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
     var randnum = Math.round(Math.random() * 100);
     randnum == 0 || randnum == 100 ? (randnum = Math.round(Math.random() * 100)) : randnum;
     document.getElementById("rand").innerHTML = `随机码: 
