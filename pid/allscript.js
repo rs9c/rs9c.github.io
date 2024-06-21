@@ -117,7 +117,7 @@ async function verify() {
             document.getElementById("lx").innerHTML = detLX;
             document.getElementById("pp").innerHTML = detPP;
             document.getElementById("xh").innerHTML = detXH;
-            document.getElementById("sj").innerHTML = String(detDateY) + "/" + String(detDateM + 1) + "/" + String(detDateD) + "-" + String(detTimeH) + ":" + String(detTimeM);
+            document.getElementById("sj").innerHTML = String(detDateY) + "/" + String(detDateM + 1) + "/" + String(detDateD) + "-" + String(detTimeH < 10 ? "0" + String(detTimeH) : detTimeH) + ":" + String(detTimeM < 10 ? "0" + String(detTimeM) : detTimeM);
         }
     }
 }
