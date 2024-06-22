@@ -184,30 +184,6 @@ async function atn(inputString) {
     console.warn("atn:NotFound '" + inputString + "'");
 }
 
-// 测试
-async function testn(txhn) {
-    if (txhn == null) {
-        txhn = "31105553325560104110656342653089728072749720645832581635425716757177727676956468426826454267267923984564696793";
-    }
-    var tout = "";
-    for (var i = 0; i < txhn.length; i += 2) {
-        console.debug(txhn[i] + txhn[i + 1]);
-        tout += await nta(txhn[i] + txhn[i + 1]);
-        console.debug(tout);
-    }
-}
-async function testa(txh) {
-    if (txh == null) {
-        txh = "a test? A TEST!(2024)/RisingSun517266-RISINGSUN9C_GROUP";
-    }
-    var tout = "";
-    for (var i = 0; i < txh.length; i += 1) {
-        console.debug(txh[i]);
-        tout += await atn(txh[i]);
-        console.debug(tout);
-    }
-}
-
 // 以下内容直接抄旧版
 // 粘贴按钮
 function paste() {
