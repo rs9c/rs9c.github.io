@@ -1,1019 +1,1421 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta
-            charset="utf-8"
-            id="viewport"
-            name="viewport"
-            content="width=device-width, initial-scale=1" />
-        <!-- iOS web app -->
-        <!-- <meta name="apple-mobile-web-app-capable" content="yes" />
+
+<head>
+    <meta charset="utf-8" id="viewport" name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- iOS web app -->
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon-precomposed" href="app图标链接.png" sizes="1024x1024" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> -->
-        <!-- 标题 -->
-        <title>无聊社书面表达对照(BCL)</title>
-        <!-- markdown样式，导出自uTools -->
-        <link rel="stylesheet" href="/beta/katex.min.css">
-        <style>
-            html,
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: #ffffff;
-            }
+    <!-- 标题 -->
+    <title>无聊社书面表达对照(BCL)</title>
+    <!-- markdown样式，导出自uTools -->
+    <link rel="stylesheet" href="/beta/katex.min.css">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
             .markdown-body {
-                box-sizing: border-box;
-                min-width: 200px;
-                max-width: 980px;
-                margin: 0 auto;
-                padding: 45px;
-            }
-            @media (max-width: 767px) {
-                .markdown-body {
-                    padding: 15px;
-                }
-            }
-            .markdown-body {
-                -ms-text-size-adjust: 100%;
-                -webkit-text-size-adjust: 100%;
-                line-height: 1.5;
-                color: #24292e;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-                font-size: 16px;
-                line-height: 1.5;
-                word-wrap: break-word;
-            }
-
-            .markdown-body details {
-                display: block;
-            }
-
-            .markdown-body summary {
-                display: list-item;
-            }
-
-            .markdown-body a {
-                background-color: initial;
-            }
-
-            .markdown-body a:active,
-            .markdown-body a:hover {
-                outline-width: 0;
-            }
-
-            .markdown-body strong {
-                font-weight: inherit;
-                font-weight: bolder;
-            }
-
-            .markdown-body h1 {
-                font-size: 2em;
-                margin: 0.67em 0;
-            }
-
-            .markdown-body img {
-                border-style: none;
-            }
-
-            .markdown-body code,
-            .markdown-body kbd,
-            .markdown-body pre {
-                font-family: monospace, monospace;
-                font-size: 1em;
-            }
-
-            .markdown-body hr {
-                box-sizing: initial;
-                height: 0;
-                overflow: visible;
-            }
-
-            .markdown-body input {
-                font: inherit;
-                margin: 0;
-            }
-
-            .markdown-body input {
-                overflow: visible;
-            }
-
-            .markdown-body [type="checkbox"] {
-                box-sizing: border-box;
-                padding: 0;
-            }
-
-            .markdown-body * {
-                box-sizing: border-box;
-            }
-
-            .markdown-body input {
-                font-family: inherit;
-                font-size: inherit;
-                line-height: inherit;
-            }
-
-            .markdown-body a {
-                color: #0366d6;
-                text-decoration: none;
-            }
-
-            .markdown-body a:hover {
-                text-decoration: underline;
-            }
-
-            .markdown-body strong {
-                font-weight: 600;
-            }
-
-            .markdown-body hr {
-                height: 0;
-                margin: 15px 0;
-                overflow: hidden;
-                background: transparent;
-                border: 0;
-                border-bottom: 1px solid #dfe2e5;
-            }
-
-            .markdown-body hr:after,
-            .markdown-body hr:before {
-                display: table;
-                content: "";
-            }
-
-            .markdown-body hr:after {
-                clear: both;
-            }
-
-            .markdown-body table {
-                border-spacing: 0;
-                border-collapse: collapse;
-            }
-
-            .markdown-body td,
-            .markdown-body th {
-                padding: 0;
-            }
-
-            .markdown-body details summary {
-                cursor: pointer;
-            }
-
-            .markdown-body kbd {
-                display: inline-block;
-                padding: 3px 5px;
-                font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-                line-height: 10px;
-                color: #444d56;
-                vertical-align: middle;
-                background-color: #fafbfc;
-                border: 1px solid #d1d5da;
-                border-radius: 3px;
-                box-shadow: inset 0 -1px 0 #d1d5da;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2,
-            .markdown-body h3,
-            .markdown-body h4,
-            .markdown-body h5,
-            .markdown-body h6 {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body h1 {
-                font-size: 32px;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2 {
-                font-weight: 600;
-            }
-
-            .markdown-body h2 {
-                font-size: 24px;
-            }
-
-            .markdown-body h3 {
-                font-size: 20px;
-            }
-
-            .markdown-body h3,
-            .markdown-body h4 {
-                font-weight: 600;
-            }
-
-            .markdown-body h4 {
-                font-size: 16px;
-            }
-
-            .markdown-body h5 {
-                font-size: 14px;
-            }
-
-            .markdown-body h5,
-            .markdown-body h6 {
-                font-weight: 600;
-            }
-
-            .markdown-body h6 {
-                font-size: 12px;
-            }
-
-            .markdown-body p {
-                margin-top: 0;
-                margin-bottom: 10px;
-            }
-
-            .markdown-body blockquote {
-                margin: 0;
-            }
-
-            .markdown-body ol,
-            .markdown-body ul {
-                padding-left: 0;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body ol ol,
-            .markdown-body ul ol {
-                list-style-type: lower-roman;
-            }
-
-            .markdown-body ol ol ol,
-            .markdown-body ol ul ol,
-            .markdown-body ul ol ol,
-            .markdown-body ul ul ol {
-                list-style-type: lower-alpha;
-            }
-
-            .markdown-body dd {
-                margin-left: 0;
-            }
-
-            .markdown-body code,
-            .markdown-body pre {
-                font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-                font-size: 12px;
-            }
-
-            .markdown-body pre {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body input::-webkit-inner-spin-button,
-            .markdown-body input::-webkit-outer-spin-button {
-                margin: 0;
-                -webkit-appearance: none;
-                appearance: none;
-            }
-
-            .markdown-body :checked + .radio-label {
-                position: relative;
-                z-index: 1;
-                border-color: #0366d6;
-            }
-
-            .markdown-body hr {
-                border-bottom-color: #eee;
-            }
-
-            .markdown-body kbd {
-                display: inline-block;
-                padding: 3px 5px;
-                font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-                line-height: 10px;
-                color: #444d56;
-                vertical-align: middle;
-                background-color: #fafbfc;
-                border: 1px solid #d1d5da;
-                border-radius: 3px;
-                box-shadow: inset 0 -1px 0 #d1d5da;
-            }
-
-            .markdown-body:after,
-            .markdown-body:before {
-                display: table;
-                content: "";
-            }
-
-            .markdown-body:after {
-                clear: both;
-            }
-
-            .markdown-body > :first-child {
-                margin-top: 0 !important;
-            }
-
-            .markdown-body > :last-child {
-                margin-bottom: 0 !important;
-            }
-
-            .markdown-body a:not([href]) {
-                color: inherit;
-                text-decoration: none;
-            }
-
-            .markdown-body blockquote,
-            .markdown-body details,
-            .markdown-body dl,
-            .markdown-body ol,
-            .markdown-body p,
-            .markdown-body pre,
-            .markdown-body table,
-            .markdown-body ul {
-                margin-top: 0;
-                margin-bottom: 16px;
-            }
-
-            .markdown-body hr {
-                height: 0.25em;
-                padding: 0;
-                margin: 24px 0;
-                background-color: #e1e4e8;
-                border: 0;
-            }
-
-            .markdown-body blockquote {
-                padding: 0 1em;
-                color: #6a737d;
-                border-left: 0.25em solid #dfe2e5;
-            }
-
-            .markdown-body blockquote > :first-child {
-                margin-top: 0;
-            }
-
-            .markdown-body blockquote > :last-child {
-                margin-bottom: 0;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2,
-            .markdown-body h3,
-            .markdown-body h4,
-            .markdown-body h5,
-            .markdown-body h6 {
-                margin-top: 24px;
-                margin-bottom: 16px;
-                font-weight: 600;
-                line-height: 1.25;
-            }
-
-            .markdown-body h1 {
-                font-size: 2em;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2 {
-                padding-bottom: 0.3em;
-                border-bottom: 1px solid #eaecef;
-            }
-
-            .markdown-body h2 {
-                font-size: 1.5em;
-            }
-
-            .markdown-body h3 {
-                font-size: 1.25em;
-            }
-
-            .markdown-body h4 {
-                font-size: 1em;
-            }
-
-            .markdown-body h5 {
-                font-size: 0.875em;
-            }
-
-            .markdown-body h6 {
-                font-size: 0.85em;
-                color: #6a737d;
-            }
-
-            .markdown-body ol,
-            .markdown-body ul {
-                padding-left: 2em;
-            }
-
-            .markdown-body ol ol,
-            .markdown-body ol ul,
-            .markdown-body ul ol,
-            .markdown-body ul ul {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body li {
-                word-wrap: break-all;
-            }
-
-            .markdown-body li > p {
-                margin-top: 16px;
-            }
-
-            .markdown-body li + li,
-            .markdown-body li > ul {
-                margin-top: 0.25em;
-            }
+                padding: 15px;
+            }
+        }
+
+        .markdown-body {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            line-height: 1.5;
+            color: #24292e;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+            font-size: 16px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .markdown-body details {
+            display: block;
+        }
+
+        .markdown-body summary {
+            display: list-item;
+        }
+
+        .markdown-body a {
+            background-color: initial;
+        }
+
+        .markdown-body a:active,
+        .markdown-body a:hover {
+            outline-width: 0;
+        }
+
+        .markdown-body strong {
+            font-weight: inherit;
+            font-weight: bolder;
+        }
+
+        .markdown-body h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+
+        .markdown-body img {
+            border-style: none;
+        }
+
+        .markdown-body code,
+        .markdown-body kbd,
+        .markdown-body pre {
+            font-family: monospace, monospace;
+            font-size: 1em;
+        }
+
+        .markdown-body hr {
+            box-sizing: initial;
+            height: 0;
+            overflow: visible;
+        }
+
+        .markdown-body input {
+            font: inherit;
+            margin: 0;
+        }
+
+        .markdown-body input {
+            overflow: visible;
+        }
+
+        .markdown-body [type="checkbox"] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        .markdown-body * {
+            box-sizing: border-box;
+        }
+
+        .markdown-body input {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        .markdown-body a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .markdown-body a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-body strong {
+            font-weight: 600;
+        }
+
+        .markdown-body hr {
+            height: 0;
+            margin: 15px 0;
+            overflow: hidden;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid #dfe2e5;
+        }
+
+        .markdown-body hr:after,
+        .markdown-body hr:before {
+            display: table;
+            content: "";
+        }
+
+        .markdown-body hr:after {
+            clear: both;
+        }
+
+        .markdown-body table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        .markdown-body td,
+        .markdown-body th {
+            padding: 0;
+        }
+
+        .markdown-body details summary {
+            cursor: pointer;
+        }
+
+        .markdown-body kbd {
+            display: inline-block;
+            padding: 3px 5px;
+            font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            line-height: 10px;
+            color: #444d56;
+            vertical-align: middle;
+            background-color: #fafbfc;
+            border: 1px solid #d1d5da;
+            border-radius: 3px;
+            box-shadow: inset 0 -1px 0 #d1d5da;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4,
+        .markdown-body h5,
+        .markdown-body h6 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body h1 {
+            font-size: 32px;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2 {
+            font-weight: 600;
+        }
+
+        .markdown-body h2 {
+            font-size: 24px;
+        }
+
+        .markdown-body h3 {
+            font-size: 20px;
+        }
+
+        .markdown-body h3,
+        .markdown-body h4 {
+            font-weight: 600;
+        }
+
+        .markdown-body h4 {
+            font-size: 16px;
+        }
+
+        .markdown-body h5 {
+            font-size: 14px;
+        }
+
+        .markdown-body h5,
+        .markdown-body h6 {
+            font-weight: 600;
+        }
+
+        .markdown-body h6 {
+            font-size: 12px;
+        }
+
+        .markdown-body p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .markdown-body blockquote {
+            margin: 0;
+        }
+
+        .markdown-body ol,
+        .markdown-body ul {
+            padding-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body ol ol,
+        .markdown-body ul ol {
+            list-style-type: lower-roman;
+        }
+
+        .markdown-body ol ol ol,
+        .markdown-body ol ul ol,
+        .markdown-body ul ol ol,
+        .markdown-body ul ul ol {
+            list-style-type: lower-alpha;
+        }
+
+        .markdown-body dd {
+            margin-left: 0;
+        }
+
+        .markdown-body code,
+        .markdown-body pre {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            font-size: 12px;
+        }
+
+        .markdown-body pre {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body input::-webkit-inner-spin-button,
+        .markdown-body input::-webkit-outer-spin-button {
+            margin: 0;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .markdown-body :checked+.radio-label {
+            position: relative;
+            z-index: 1;
+            border-color: #0366d6;
+        }
+
+        .markdown-body hr {
+            border-bottom-color: #eee;
+        }
+
+        .markdown-body kbd {
+            display: inline-block;
+            padding: 3px 5px;
+            font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            line-height: 10px;
+            color: #444d56;
+            vertical-align: middle;
+            background-color: #fafbfc;
+            border: 1px solid #d1d5da;
+            border-radius: 3px;
+            box-shadow: inset 0 -1px 0 #d1d5da;
+        }
+
+        .markdown-body:after,
+        .markdown-body:before {
+            display: table;
+            content: "";
+        }
+
+        .markdown-body:after {
+            clear: both;
+        }
+
+        .markdown-body> :first-child {
+            margin-top: 0 !important;
+        }
+
+        .markdown-body> :last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .markdown-body a:not([href]) {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .markdown-body blockquote,
+        .markdown-body details,
+        .markdown-body dl,
+        .markdown-body ol,
+        .markdown-body p,
+        .markdown-body pre,
+        .markdown-body table,
+        .markdown-body ul {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body hr {
+            height: 0.25em;
+            padding: 0;
+            margin: 24px 0;
+            background-color: #e1e4e8;
+            border: 0;
+        }
+
+        .markdown-body blockquote {
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 0.25em solid #dfe2e5;
+        }
+
+        .markdown-body blockquote> :first-child {
+            margin-top: 0;
+        }
+
+        .markdown-body blockquote> :last-child {
+            margin-bottom: 0;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4,
+        .markdown-body h5,
+        .markdown-body h6 {
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .markdown-body h1 {
+            font-size: 2em;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2 {
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #eaecef;
+        }
+
+        .markdown-body h2 {
+            font-size: 1.5em;
+        }
+
+        .markdown-body h3 {
+            font-size: 1.25em;
+        }
+
+        .markdown-body h4 {
+            font-size: 1em;
+        }
+
+        .markdown-body h5 {
+            font-size: 0.875em;
+        }
+
+        .markdown-body h6 {
+            font-size: 0.85em;
+            color: #6a737d;
+        }
+
+        .markdown-body ol,
+        .markdown-body ul {
+            padding-left: 2em;
+        }
+
+        .markdown-body ol ol,
+        .markdown-body ol ul,
+        .markdown-body ul ol,
+        .markdown-body ul ul {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body li {
+            word-wrap: break-all;
+        }
+
+        .markdown-body li>p {
+            margin-top: 16px;
+        }
+
+        .markdown-body li+li,
+        .markdown-body li>ul {
+            margin-top: 0.25em;
+        }
+
+        .markdown-body ul li.task-list-item {
+            position: relative;
+            appearance: none;
+            list-style: none;
+        }
+
+        .markdown-body ul li.task-list-item.checked {
+            text-decoration-line: line-through;
+            color: #6e6e6e;
+        }
+
+        .markdown-body ul li.task-list-item:not(.checked) {
+            color: initial;
+        }
+
+        .markdown-body ul li.task-list-item::before {
+            content: "";
+            width: 13px;
+            height: 13px;
+            background-color: #fff;
+            position: absolute;
+            left: -28px;
+            top: 4px;
+            border-radius: 2px;
+            border: 2px solid #757575;
+        }
+
+        .markdown-body ul li.task-list-item.checked::before {
+            background-color: #1976d2;
+            border-color: #1976d2;
+        }
+
+        .markdown-body ul li.task-list-item.checked::after {
+            content: "";
+            position: absolute;
+            left: -22px;
+            top: 5px;
+            width: 4px;
+            height: 10px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .markdown-body dl {
+            padding: 0;
+        }
+
+        .markdown-body dl dt {
+            padding: 0;
+            margin-top: 16px;
+            font-size: 1em;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .markdown-body dl dd {
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body table {
+            width: 100%;
+            overflow: auto;
+        }
+
+        .markdown-body table th {
+            font-weight: 600;
+        }
+
+        .markdown-body table td,
+        .markdown-body table th {
+            padding: 6px 13px;
+            border: 1px solid #dfe2e5;
+        }
+
+        .markdown-body table tr {
+            background-color: #fff;
+            border-top: 1px solid #c6cbd1;
+        }
+
+        .markdown-body table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        .markdown-body img {
+            max-width: 100%;
+            box-sizing: initial;
+            background-color: #fff;
+        }
+
+        .markdown-body p>img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .markdown-body img[align="right"] {
+            padding-left: 20px;
+        }
+
+        .markdown-body img[align="left"] {
+            padding-right: 20px;
+        }
+
+        .markdown-body code {
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            border-radius: 3px;
+        }
+
+        .markdown-body pre {
+            word-wrap: normal;
+        }
+
+        .markdown-body pre>code {
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            word-break: normal;
+            white-space: pre;
+            background: transparent;
+            border: 0;
+        }
+
+        .markdown-body pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f6f8fa;
+            border-radius: 3px;
+        }
+
+        .markdown-body pre code {
+            display: inline;
+            max-width: auto;
+            padding: 0;
+            margin: 0;
+            overflow: visible;
+            line-height: inherit;
+            word-wrap: normal;
+            background-color: initial;
+            border: 0;
+        }
+
+        .markdown-body mark {
+            display: inline-flex;
+            background-color: #fff8c5;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="markdown-body">
+        <blockquote >
+            <a style="font-size: 1.2em;color: red;">注意！以下内容不再更新！</a>
+            
+            <br/>
+            <a style="font-size: 1em;color: #24292e;">请期待最新的「表达法」，预计2025年初编写完成。:D</a>
+        </blockquote>
+        <h3>快速前往</h3>
+        <ol>
+            <li><a href="#1">无聊社书面表达法</a></li>
+            <li><a href="#2">无聊社语</a></li>
+        </ol>
+        <hr>
+        <h2><span id="1">无聊社书面表达法</span></h2>
+        <blockquote>
+            <p>本部分内容正逐步完善……根据P-BC 2024 编写。</p>
+        </blockquote>
+        <table>
+            <thead>
+                <tr>
+                    <th>学科名</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CNS</td>
+                    <td>语文</td>
+                </tr>
+                <tr>
+                    <td>MAT</td>
+                    <td>数学</td>
+                </tr>
+                <tr>
+                    <td>ENG</td>
+                    <td>英语</td>
+                </tr>
+                <tr>
+                    <td>PHY</td>
+                    <td>物理</td>
+                </tr>
+                <tr>
+                    <td>CMT</td>
+                    <td>化学</td>
+                </tr>
+                <tr>
+                    <td>LVT</td>
+                    <td>生物</td>
+                </tr>
+                <tr>
+                    <td>ARL</td>
+                    <td>地理</td>
+                </tr>
+                <tr>
+                    <td>POL</td>
+                    <td>政治</td>
+                </tr>
+                <tr>
+                    <td>HST</td>
+                    <td>历史</td>
+                </tr>
+                <tr>
+                    <td>PAE</td>
+                    <td>体育（不常用）</td>
+                </tr>
+                <tr>
+                    <td>ART</td>
+                    <td>美术（不常用）</td>
+                </tr>
+                <tr>
+                    <td>MSC</td>
+                    <td>音乐（不常用）</td>
+                </tr>
+                <tr>
+                    <td>CMP; COM</td>
+                    <td>信息（不常用）</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>书物类型</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BOOK</td>
+                    <td>教材</td>
+                </tr>
+                <tr>
+                    <td>EX</td>
+                    <td>练习册</td>
+                </tr>
+                <tr>
+                    <td>HW</td>
+                    <td>作业</td>
+                </tr>
+                <tr>
+                    <td>NEW; NEWS; N</td>
+                    <td>报纸</td>
+                </tr>
+                <tr>
+                    <td>NOTE</td>
+                    <td>笔记</td>
+                </tr>
+                <tr>
+                    <td>PA</td>
+                    <td>卷纸</td>
+                </tr>
+                <tr>
+                    <td>PJ</td>
+                    <td>卷纸夹</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>标签</th>
+                    <th>用法</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>B</td>
+                    <td>&lt;B&gt;</td>
+                    <td>补充</td>
+                </tr>
+                <tr>
+                    <td>eg.</td>
+                    <td></td>
+                    <td>例子</td>
+                </tr>
+                <tr>
+                    <td>ex.</td>
+                    <td></td>
+                    <td>补充；拓展</td>
+                </tr>
+                <tr>
+                    <td>Exp</td>
+                    <td></td>
+                    <td>（理）实验</td>
+                </tr>
+                <tr>
+                    <td>line</td>
+                    <td>line+NUMBER</td>
+                    <td>行，行数</td>
+                </tr>
+                <tr>
+                    <td>P</td>
+                    <td></td>
+                    <td>页码</td>
+                </tr>
+                <tr>
+                    <td>pa; para</td>
+                    <td>pa(ra)+NUMBER</td>
+                    <td>段落</td>
+                </tr>
+                <tr>
+                    <td>pic.</td>
+                    <td></td>
+                    <td>图</td>
+                </tr>
+                <tr>
+                    <td>Po</td>
+                    <td>&lt;Po&gt;或单用</td>
+                    <td>来自其他机构</td>
+                </tr>
+                <tr>
+                    <td>xls.</td>
+                    <td>xls.[X1][X2]...<br />[Y1]<br />[Y2]<br />...</td>
+                    <td>表格</td>
+                </tr>
+                <tr>
+                    <td>#COLOR</td>
+                    <td>#COLOR单个颜色<br />#COLOR1+COLOR2颜色叠加<br />#COLOR1&amp;COLOR2颜色相间</td>
+                    <td>颜色（具体可参考BCL）</td>
+                </tr>
+                <tr>
+                    <td>#def</td>
+                    <td>#def A, B</td>
+                    <td>宏定义：将A定义为B</td>
+                </tr>
+                <tr>
+                    <td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mtext>△</mtext>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^△</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.8491em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.8491em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mord mtight">△</span></span></span></span></span></span></span></span></span></span></span>
+                    </td>
+                    <td></td>
+                    <td>仅作为了解</td>
+                </tr>
+            </tbody>
+        </table>
+        <blockquote>
+            <p>特殊情况下，「关键字」能够作为「修饰符」或「前置修饰符」使用，将不在「修饰符」或「前置修饰符」中阐述。</p>
+            <p>部分字符在手写体中可能略有差别。</p>
+        </blockquote>
+        <table>
+            <thead>
+                <tr>
+                    <th>关键字</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>adj.; dj.</td>
+                    <td>形容词</td>
+                </tr>
+                <tr>
+                    <td>adv.; dv.</td>
+                    <td>副词</td>
+                </tr>
+                <tr>
+                    <td>aj.; <s>a</s>.</td>
+                    <td>定语</td>
+                </tr>
+                <tr>
+                    <td>art.</td>
+                    <td>冠词</td>
+                </tr>
+                <tr>
+                    <td>av.</td>
+                    <td>状语</td>
+                </tr>
+                <tr>
+                    <td>b.</td>
+                    <td>补语</td>
+                </tr>
+                <tr>
+                    <td>bs.</td>
+                    <td>兼词</td>
+                </tr>
+                <tr>
+                    <td>conj.; cj.</td>
+                    <td>连词</td>
+                </tr>
+                <tr>
+                    <td>do<br />doing<br />did<br />done</td>
+                    <td>同v.bf, v.ing, v.ed, v.en<br />详见「关键字-v.」「修饰符」</td>
+                </tr>
+                <tr>
+                    <td>i.</td>
+                    <td>感叹词；拟声词<br />【注】一般二者混用，在特殊情况下需用中文标明</td>
+                </tr>
+                <tr>
+                    <td>n.</td>
+                    <td>名词</td>
+                </tr>
+                <tr>
+                    <td>nb.</td>
+                    <td>数量词（数词+量词）</td>
+                </tr>
+                <tr>
+                    <td>nm.</td>
+                    <td>数词</td>
+                </tr>
+                <tr>
+                    <td>nr.</td>
+                    <td>量词</td>
+                </tr>
+                <tr>
+                    <td>obj.; O</td>
+                    <td>宾语</td>
+                </tr>
+                <tr>
+                    <td>phr.</td>
+                    <td>短语</td>
+                </tr>
+                <tr>
+                    <td>prep.; pr.</td>
+                    <td>介词</td>
+                </tr>
+                <tr>
+                    <td>pron.; pn.</td>
+                    <td>代词</td>
+                </tr>
+                <tr>
+                    <td>sb.</td>
+                    <td>某人</td>
+                </tr>
+                <tr>
+                    <td>sub.; S</td>
+                    <td>主语</td>
+                </tr>
+                <tr>
+                    <td>st.</td>
+                    <td>某时</td>
+                </tr>
+                <tr>
+                    <td>stc.</td>
+                    <td>句子；从句</td>
+                </tr>
+                <tr>
+                    <td>sth.</td>
+                    <td>某事物</td>
+                </tr>
+                <tr>
+                    <td>t.</td>
+                    <td>时态</td>
+                </tr>
+                <tr>
+                    <td>v.</td>
+                    <td>动词</td>
+                </tr>
+                <tr>
+                    <td>v'; V</td>
+                    <td>谓语</td>
+                </tr>
+                <tr>
+                    <td>wh.; wh-?</td>
+                    <td>疑问词</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>修饰符</th>
+                    <th>用法</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>前置修饰符</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>c.</td>
+                    <td>可数，常与「n.」连用，可简写为&quot;cn.&quot;</td>
+                </tr>
+                <tr>
+                    <td>u.</td>
+                    <td>不可数，常与「n.」连用，可简写为&quot;un.&quot;</td>
+                </tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>特殊符号</th>
+                    <th>用法</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>+</mo>
+                                            </msup>
+                                            <msup>
+                                                <mo separator="true">,</mo>
+                                                <mo>+</mo>
+                                            </msup>
+                                            <msup>
+                                                <mspace linebreak="newline"></mspace>
+                                                <mo>+</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^+,^+\\^+</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.9658em;vertical-align:-0.1944em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span><span
+                                        class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span><span
+                                        class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span
+                                            class="mspace newline"></span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>
+                    </td>
+                    <td>A<span class="katex"><span class="katex-mathml"><math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>+</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^+</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>,B<span
+                            class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>+</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^+</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span><br />A<span
+                            class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>+</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^+</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>,B<span
+                            class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>+</mo>
+                                            </msup>
+                                            <msup>
+                                                <mspace linebreak="newline"></mspace>
+                                                <mo>+</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^+\\^+</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span><span
+                                        class="mord"><span class="mspace newline"></span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>
+                    </td>
+                    <td>A随着B的增加而增加</td>
+                </tr>
+                <tr>
+                    <td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>−</mo>
+                                            </msup>
+                                            <msup>
+                                                <mo separator="true">,</mo>
+                                                <mo>−</mo>
+                                            </msup>
+                                            <msup>
+                                                <mspace linebreak="newline"></mspace>
+                                                <mo>−</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^-,^-\\^-</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.9658em;vertical-align:-0.1944em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span><span
+                                        class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span><span
+                                        class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span
+                                            class="mspace newline"></span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span>
+                    </td>
+                    <td>A<span class="katex"><span class="katex-mathml"><math
+                                    xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>−</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^-</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span>,B<span
+                            class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>−</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^-</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span><br />A<span
+                            class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>−</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^-</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span>,B<span
+                            class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <msup>
+                                                <mrow></mrow>
+                                                <mo>−</mo>
+                                            </msup>
+                                            <msup>
+                                                <mspace linebreak="newline"></mspace>
+                                                <mo>−</mo>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">^-\\^-</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.7713em;"></span><span
+                                        class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span
+                                                    class="vlist-r"><span class="vlist" style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span><span
+                                        class="mord"><span class="mspace newline"></span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.7713em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span>
+                    </td>
+                    <td>A随着B的减小而减小</td>
+                </tr>
+                <tr>
+                    <td>⤴︎</td>
+                    <td></td>
+                    <td>增加；增函数</td>
+                </tr>
+                <tr>
+                    <td>⤵︎</td>
+                    <td></td>
+                    <td>减少；减函数</td>
+                </tr>
+                <tr>
+                    <td>&lt;&lt; &gt;&gt;<br />&lt; &gt;&lt; &gt;<br />&lt;/ &gt;</td>
+                    <td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <mo>&lt;</mo>
+                                            <mo>&lt;</mo>
+                                            <mi>v</mi>
+                                            <mi mathvariant="normal">.</mi>
+                                            <mi>e</mi>
+                                            <mi>d</mi>
+                                            <mi mathvariant="normal">/</mi>
+                                            <mi>e</mi>
+                                            <mi>n</mi>
+                                            <mo>&gt;</mo>
+                                            <mo>&gt;</mo>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">&lt;&lt;v.ed/en&gt;&gt;</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span
+                                        class="mrel">&lt;&lt;</span><span class="mspace"
+                                        style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                        class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                        class="mord mathnormal" style="margin-right:0.03588em;">v</span><span
+                                        class="mord">.</span><span class="mord mathnormal">e</span><span
+                                        class="mord mathnormal">d</span><span class="mord">/</span><span
+                                        class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span
+                                        class="mspace" style="margin-right:0.2778em;"></span><span
+                                        class="mrel">&gt;&gt;</span></span></span></span><br /><span class="katex"><span
+                                class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <mo>&lt;</mo>
+                                            <mi mathvariant="normal">/</mi>
+                                            <mi>v</mi>
+                                            <mi mathvariant="normal">.</mi>
+                                            <mi>b</mi>
+                                            <mi>f</mi>
+                                            <mo>&gt;</mo>
+                                            <mo>&lt;</mo>
+                                            <mi>v</mi>
+                                            <mi mathvariant="normal">.</mi>
+                                            <mi>e</mi>
+                                            <mi>d</mi>
+                                            <mo>&gt;</mo>
+                                            <mo>&lt;</mo>
+                                            <mi>v</mi>
+                                            <mi mathvariant="normal">.</mi>
+                                            <mi>e</mi>
+                                            <mi>n</mi>
+                                            <mo>&gt;</mo>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">&lt;/v.bf&gt;&lt;v.ed&gt;&lt;v.en&gt;
+                                        </annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span
+                                        class="mrel">&lt;</span><span class="mspace"
+                                        style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                        class="strut" style="height:1em;vertical-align:-0.25em;"></span><span
+                                        class="mord">/</span><span class="mord mathnormal"
+                                        style="margin-right:0.03588em;">v</span><span class="mord">.</span><span
+                                        class="mord mathnormal">b</span><span class="mord mathnormal"
+                                        style="margin-right:0.10764em;">f</span><span class="mspace"
+                                        style="margin-right:0.2778em;"></span><span class="mrel">&gt;&lt;</span><span
+                                        class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                    class="base"><span class="strut"
+                                        style="height:0.7335em;vertical-align:-0.0391em;"></span><span
+                                        class="mord mathnormal" style="margin-right:0.03588em;">v</span><span
+                                        class="mord">.</span><span class="mord mathnormal">e</span><span
+                                        class="mord mathnormal">d</span><span class="mspace"
+                                        style="margin-right:0.2778em;"></span><span class="mrel">&gt;&lt;</span><span
+                                        class="mspace" style="margin-right:0.2778em;"></span></span><span
+                                    class="base"><span class="strut"
+                                        style="height:0.5782em;vertical-align:-0.0391em;"></span><span
+                                        class="mord mathnormal" style="margin-right:0.03588em;">v</span><span
+                                        class="mord">.</span><span class="mord mathnormal">e</span><span
+                                        class="mord mathnormal">n</span><span class="mspace"
+                                        style="margin-right:0.2778em;"></span><span
+                                        class="mrel">&gt;</span></span></span></span><br /><span class="katex"><span
+                                class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <semantics>
+                                        <mrow>
+                                            <mo>&lt;</mo>
+                                            <mi>v</mi>
+                                            <mi mathvariant="normal">.</mi>
+                                            <mi>i</mi>
+                                            <mi>n</mi>
+                                            <mi>g</mi>
+                                            <mo>&gt;</mo>
+                                            <msup>
+                                                <mspace linebreak="newline"></mspace>
+                                                <mi>i</mi>
+                                            </msup>
+                                            <msup>
+                                                <mspace linebreak="newline"></mspace>
+                                                <mi>n</mi>
+                                            </msup>
+                                            <msup>
+                                                <mspace linebreak="newline"></mspace>
+                                                <mi>g</mi>
+                                            </msup>
+                                        </mrow>
+                                        <annotation encoding="application/x-tex">&lt;v.ing&gt;\\^i\\^n\\^g</annotation>
+                                    </semantics>
+                                </math></span><span class="katex-html" aria-hidden="true"><span class="base"><span
+                                        class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span
+                                        class="mrel">&lt;</span><span class="mspace"
+                                        style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                        class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span
+                                        class="mord mathnormal" style="margin-right:0.03588em;">v</span><span
+                                        class="mord">.</span><span class="mord mathnormal">in</span><span
+                                        class="mord mathnormal" style="margin-right:0.03588em;">g</span><span
+                                        class="mspace" style="margin-right:0.2778em;"></span><span
+                                        class="mrel">&gt;</span><span class="mspace"
+                                        style="margin-right:0.2778em;"></span></span><span class="base"><span
+                                        class="strut" style="height:0.8247em;"></span><span class="mord"><span
+                                            class="mspace newline"></span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.8247em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span
+                                        class="mord"><span class="mspace newline"></span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.6644em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span
+                                        class="mord"><span class="mspace newline"></span><span class="msupsub"><span
+                                                class="vlist-t"><span class="vlist-r"><span class="vlist"
+                                                        style="height:0.6644em;"><span
+                                                            style="top:-3.063em;margin-right:0.05em;"><span
+                                                                class="pstrut" style="height:2.7em;"></span><span
+                                                                class="sizing reset-size6 size3 mtight"><span
+                                                                    class="mord mathnormal mtight"
+                                                                    style="margin-right:0.03588em;">g</span></span></span></span></span></span></span></span></span></span></span>
+                        等</td>
+                    <td>动词的过去式与过去分词或原型或其他形式；<br />有时可用于其他词性</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>XA</td>
+                    <td>非A；不是A；排除A</td>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td></td>
+                    <td>（文）同义词</td>
+                </tr>
+                <tr>
+                    <td>≠</td>
+                    <td></td>
+                    <td>（文）反义词</td>
+                </tr>
+                <tr>
+                    <td>=\=</td>
+                    <td></td>
+                    <td>（文）不是；易混淆于（也可用&quot;~&quot;）</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h2><span id="2">无聊社语(BCL)</span></h2>
+        <blockquote>
+            <p>此部分正逐渐完善……以下内容较为抽象，请酌（不）情（要）理解。</p>
+        </blockquote>
+        <table>
+            <thead>
+                <tr>
+                    <th>BCL</th>
+                    <th>用法/释义</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- 网页底部 -->
+        <hr />
+        <p>
+            <a href="#top" style="font-size: 1.1em"><strong>⤒返回顶部</strong></a>
+        </p>
+        <p>
+            <a href="/donate.png" target="_blank">💰资助本站:D</a>
+        </p>
+    </article>
+    <script></script>
+</body>
 
-            .markdown-body ul li.task-list-item {
-                position: relative;
-                appearance: none;
-                list-style: none;
-            }
-
-            .markdown-body ul li.task-list-item.checked {
-                text-decoration-line: line-through;
-                color: #6e6e6e;
-            }
-
-            .markdown-body ul li.task-list-item:not(.checked) {
-                color: initial;
-            }
-
-            .markdown-body ul li.task-list-item::before {
-                content: "";
-                width: 13px;
-                height: 13px;
-                background-color: #fff;
-                position: absolute;
-                left: -28px;
-                top: 4px;
-                border-radius: 2px;
-                border: 2px solid #757575;
-            }
-
-            .markdown-body ul li.task-list-item.checked::before {
-                background-color: #1976d2;
-                border-color: #1976d2;
-            }
-
-            .markdown-body ul li.task-list-item.checked::after {
-                content: "";
-                position: absolute;
-                left: -22px;
-                top: 5px;
-                width: 4px;
-                height: 10px;
-                border: solid #fff;
-                border-width: 0 2px 2px 0;
-                transform: rotate(45deg);
-            }
-
-            .markdown-body dl {
-                padding: 0;
-            }
-
-            .markdown-body dl dt {
-                padding: 0;
-                margin-top: 16px;
-                font-size: 1em;
-                font-style: italic;
-                font-weight: 600;
-            }
-
-            .markdown-body dl dd {
-                padding: 0 16px;
-                margin-bottom: 16px;
-            }
-
-            .markdown-body table {
-                width: 100%;
-                overflow: auto;
-            }
-
-            .markdown-body table th {
-                font-weight: 600;
-            }
-
-            .markdown-body table td,
-            .markdown-body table th {
-                padding: 6px 13px;
-                border: 1px solid #dfe2e5;
-            }
-
-            .markdown-body table tr {
-                background-color: #fff;
-                border-top: 1px solid #c6cbd1;
-            }
-
-            .markdown-body table tr:nth-child(2n) {
-                background-color: #f6f8fa;
-            }
-
-            .markdown-body img {
-                max-width: 100%;
-                box-sizing: initial;
-                background-color: #fff;
-            }
-
-            .markdown-body p > img {
-                display: block;
-                margin: 0 auto;
-            }
-
-            .markdown-body img[align="right"] {
-                padding-left: 20px;
-            }
-
-            .markdown-body img[align="left"] {
-                padding-right: 20px;
-            }
-
-            .markdown-body code {
-                padding: 0.2em 0.4em;
-                margin: 0;
-                font-size: 85%;
-                background-color: rgba(27, 31, 35, 0.05);
-                border-radius: 3px;
-            }
-
-            .markdown-body pre {
-                word-wrap: normal;
-            }
-
-            .markdown-body pre > code {
-                padding: 0;
-                margin: 0;
-                font-size: 100%;
-                word-break: normal;
-                white-space: pre;
-                background: transparent;
-                border: 0;
-            }
-
-            .markdown-body pre {
-                padding: 16px;
-                overflow: auto;
-                font-size: 85%;
-                line-height: 1.45;
-                background-color: #f6f8fa;
-                border-radius: 3px;
-            }
-
-            .markdown-body pre code {
-                display: inline;
-                max-width: auto;
-                padding: 0;
-                margin: 0;
-                overflow: visible;
-                line-height: inherit;
-                word-wrap: normal;
-                background-color: initial;
-                border: 0;
-            }
-
-            .markdown-body mark {
-                display: inline-flex;
-                background-color: #fff8c5;
-            }
-        </style>
-    </head>
-    <body>
-        <article class="markdown-body">
-          <h3>快速前往</h3>
-<ol>
-<li><a href="#1">无聊社书面表达法</a></li>
-<li><a href="#2">无聊社语</a></li>
-</ol>
-<hr>
-<h2><span id="1">无聊社书面表达法</span></h2>
-<blockquote>
-<p>本部分内容正逐步完善……根据P-BC 2024 编写。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>学科名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CNS</td>
-<td>语文</td>
-</tr>
-<tr>
-<td>MAT</td>
-<td>数学</td>
-</tr>
-<tr>
-<td>ENG</td>
-<td>英语</td>
-</tr>
-<tr>
-<td>PHY</td>
-<td>物理</td>
-</tr>
-<tr>
-<td>CMT</td>
-<td>化学</td>
-</tr>
-<tr>
-<td>LVT</td>
-<td>生物</td>
-</tr>
-<tr>
-<td>ARL</td>
-<td>地理</td>
-</tr>
-<tr>
-<td>POL</td>
-<td>政治</td>
-</tr>
-<tr>
-<td>HST</td>
-<td>历史</td>
-</tr>
-<tr>
-<td>PAE</td>
-<td>体育（不常用）</td>
-</tr>
-<tr>
-<td>ART</td>
-<td>美术（不常用）</td>
-</tr>
-<tr>
-<td>MSC</td>
-<td>音乐（不常用）</td>
-</tr>
-<tr>
-<td>CMP; COM</td>
-<td>信息（不常用）</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>书物类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BOOK</td>
-<td>教材</td>
-</tr>
-<tr>
-<td>EX</td>
-<td>练习册</td>
-</tr>
-<tr>
-<td>HW</td>
-<td>作业</td>
-</tr>
-<tr>
-<td>NEW; NEWS; N</td>
-<td>报纸</td>
-</tr>
-<tr>
-<td>NOTE</td>
-<td>笔记</td>
-</tr>
-<tr>
-<td>PA</td>
-<td>卷纸</td>
-</tr>
-<tr>
-<td>PJ</td>
-<td>卷纸夹</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th>用法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>B</td>
-<td>&lt;B&gt;</td>
-<td>补充</td>
-</tr>
-<tr>
-<td>eg.</td>
-<td></td>
-<td>例子</td>
-</tr>
-<tr>
-<td>ex.</td>
-<td></td>
-<td>补充；拓展</td>
-</tr>
-<tr>
-<td>Exp</td>
-<td></td>
-<td>（理）实验</td>
-</tr>
-<tr>
-<td>line</td>
-<td>line+NUMBER</td>
-<td>行，行数</td>
-</tr>
-<tr>
-<td>P</td>
-<td></td>
-<td>页码</td>
-</tr>
-<tr>
-<td>pa; para</td>
-<td>pa(ra)+NUMBER</td>
-<td>段落</td>
-</tr>
-<tr>
-<td>pic.</td>
-<td></td>
-<td>图</td>
-</tr>
-<tr>
-<td>Po</td>
-<td>&lt;Po&gt;或单用</td>
-<td>来自其他机构</td>
-</tr>
-<tr>
-<td>xls.</td>
-<td>xls.[X1][X2]...<br/>[Y1]<br/>[Y2]<br/>...</td>
-<td>表格</td>
-</tr>
-<tr>
-<td>#COLOR</td>
-<td>#COLOR单个颜色<br/>#COLOR1+COLOR2颜色叠加<br/>#COLOR1&amp;COLOR2颜色相间</td>
-<td>颜色（具体可参考BCL）</td>
-</tr>
-<tr>
-<td>#def</td>
-<td>#def A, B</td>
-<td>宏定义：将A定义为B</td>
-</tr>
-<tr>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mtext>△</mtext></msup></mrow><annotation encoding="application/x-tex">^△</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">△</span></span></span></span></span></span></span></span></span></span></span></td>
-<td></td>
-<td>仅作为了解</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>特殊情况下，「关键字」能够作为「修饰符」或「前置修饰符」使用，将不在「修饰符」或「前置修饰符」中阐述。</p>
-<p>部分字符在手写体中可能略有差别。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>关键字</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>adj.; dj.</td>
-<td>形容词</td>
-</tr>
-<tr>
-<td>adv.; dv.</td>
-<td>副词</td>
-</tr>
-<tr>
-<td>aj.; <s>a</s>.</td>
-<td>定语</td>
-</tr>
-<tr>
-<td>art.</td>
-<td>冠词</td>
-</tr>
-<tr>
-<td>av.</td>
-<td>状语</td>
-</tr>
-<tr>
-<td>b.</td>
-<td>补语</td>
-</tr>
-<tr>
-<td>bp</td>
-<td>（理）沸点</td>
-</tr>
-<tr>
-<td>conj.; cj.</td>
-<td>连词</td>
-</tr>
-<tr>
-<td>do<br/>doing<br/>did<br/>done</td>
-<td>同v.bf, v.ing, v.ed, v.en<br/>详见「关键字-v.」「修饰符」</td>
-</tr>
-<tr>
-<td>i.</td>
-<td>感叹词；拟声词<br/>【注】一般二者混用，在特殊情况下需用中文标明</td>
-</tr>
-<tr>
-<td>mp</td>
-<td>（理）熔点</td>
-</tr>
-<tr>
-<td>n.</td>
-<td>名词</td>
-</tr>
-<tr>
-<td>nb.</td>
-<td>数量词（数词+量词）</td>
-</tr>
-<tr>
-<td>nm.</td>
-<td>数词</td>
-</tr>
-<tr>
-<td>nr.</td>
-<td>量词</td>
-</tr>
-<tr>
-<td>obj.; O</td>
-<td>宾语</td>
-</tr>
-<tr>
-<td>phr.</td>
-<td>短语</td>
-</tr>
-<tr>
-<td>prep.; pr.</td>
-<td>介词</td>
-</tr>
-<tr>
-<td>pron.; pn.</td>
-<td>代词</td>
-</tr>
-<tr>
-<td>sb.</td>
-<td>某人</td>
-</tr>
-<tr>
-<td>sub.; S</td>
-<td>主语</td>
-</tr>
-<tr>
-<td>st.</td>
-<td>某时</td>
-</tr>
-<tr>
-<td>stc.</td>
-<td>句子；从句</td>
-</tr>
-<tr>
-<td>sth.</td>
-<td>某事物</td>
-</tr>
-<tr>
-<td>t.</td>
-<td>时态</td>
-</tr>
-<tr>
-<td>v.</td>
-<td>动词</td>
-</tr>
-<tr>
-<td>v'; V</td>
-<td>谓语</td>
-</tr>
-<tr>
-<td>wh.; wh-?</td>
-<td>疑问词</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>修饰符</th>
-<th>用法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>前置修饰符</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>c.</td>
-<td>可数，常与「n.」连用，可简写为&quot;cn.&quot;</td>
-</tr>
-<tr>
-<td>u.</td>
-<td>不可数，常与「n.」连用，可简写为&quot;un.&quot;</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>特殊符号</th>
-<th>用法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>+</mo></msup><msup><mo separator="true">,</mo><mo>+</mo></msup><msup><mspace linebreak="newline"></mspace><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">^+,^+\\^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9658em;vertical-align:-0.1944em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mspace newline"></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span></td>
-<td>A<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>,B<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span><br/>A<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span>,B<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>+</mo></msup><msup><mspace linebreak="newline"></mspace><mo>+</mo></msup></mrow><annotation encoding="application/x-tex">^+\\^+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span><span class="mord"><span class="mspace newline"></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">+</span></span></span></span></span></span></span></span></span></span></span></td>
-<td>A随着B的增加而增加</td>
-</tr>
-<tr>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>−</mo></msup><msup><mo separator="true">,</mo><mo>−</mo></msup><msup><mspace linebreak="newline"></mspace><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">^-,^-\\^-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9658em;vertical-align:-0.1944em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span><span class="mpunct"><span class="mpunct">,</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mspace newline"></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span></td>
-<td>A<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">^-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span>,B<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">^-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span><br/>A<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">^-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span>,B<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mo>−</mo></msup><msup><mspace linebreak="newline"></mspace><mo>−</mo></msup></mrow><annotation encoding="application/x-tex">^-\\^-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7713em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span><span class="mord"><span class="mspace newline"></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7713em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">−</span></span></span></span></span></span></span></span></span></span></span></td>
-<td>A随着B的减小而减小</td>
-</tr>
-<tr>
-<td>⤴︎</td>
-<td></td>
-<td>增加；增函数</td>
-</tr>
-<tr>
-<td>⤵︎</td>
-<td></td>
-<td>减少；减函数</td>
-</tr>
-<tr>
-<td>&lt;&lt; &gt;&gt;<br/>&lt; &gt;&lt; &gt;<br/>&lt;/ &gt;</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mo>&lt;</mo><mi>v</mi><mi mathvariant="normal">.</mi><mi>e</mi><mi>d</mi><mi mathvariant="normal">/</mi><mi>e</mi><mi>n</mi><mo>&gt;</mo><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;&lt;v.ed/en&gt;&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mord">/</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;&gt;</span></span></span></span><br/><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi mathvariant="normal">/</mi><mi>v</mi><mi mathvariant="normal">.</mi><mi>b</mi><mi>f</mi><mo>&gt;</mo><mo>&lt;</mo><mi>v</mi><mi mathvariant="normal">.</mi><mi>e</mi><mi>d</mi><mo>&gt;</mo><mo>&lt;</mo><mi>v</mi><mi mathvariant="normal">.</mi><mi>e</mi><mi>n</mi><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;/v.bf&gt;&lt;v.ed&gt;&lt;v.en&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathnormal">e</span><span class="mord mathnormal">d</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span><br/><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mi>v</mi><mi mathvariant="normal">.</mi><mi>i</mi><mi>n</mi><mi>g</mi><mo>&gt;</mo><msup><mspace linebreak="newline"></mspace><mi>i</mi></msup><msup><mspace linebreak="newline"></mspace><mi>n</mi></msup><msup><mspace linebreak="newline"></mspace><mi>g</mi></msup></mrow><annotation encoding="application/x-tex">&lt;v.ing&gt;\\^i\\^n\\^g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathnormal">in</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8247em;"></span><span class="mord"><span class="mspace newline"></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8247em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span></span></span></span><span class="mord"><span class="mspace newline"></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mord"><span class="mspace newline"></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span></span></span></span></span></span></span></span> 等</td>
-<td>动词的过去式与过去分词或原型或其他形式；<br/>有时可用于其他词性</td>
-</tr>
-<tr>
-<td>X</td>
-<td>XA</td>
-<td>非A；不是A；排除A</td>
-</tr>
-<tr>
-<td>=</td>
-<td></td>
-<td>（文）同义词</td>
-</tr>
-<tr>
-<td>≠</td>
-<td></td>
-<td>（文）反义词</td>
-</tr>
-<tr>
-<td>=\=</td>
-<td></td>
-<td>（文）不是；易混淆于（也可用&quot;~&quot;）</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2><span id="2">无聊社语(BCL)</span></h2>
-<blockquote>
-<p>此部分正逐渐完善……以下内容较为抽象，请酌（不）情（要）理解。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>BCL</th>
-<th>用法/释义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-
-<!-- 网页底部 -->
-            <hr />
-            <p>
-                <a
-                    href="#top"
-                    style="font-size: 1.1em"
-                    ><strong>⤒返回顶部</strong></a
-                >
-            </p>
-            <p>
-                <a
-                    href="/donate.png"
-                    target="_blank"
-                    >💰资助本站:D</a
-                >
-            </p>
-        </article>
-        <script></script>
-    </body>
 </html>
