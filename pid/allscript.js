@@ -226,7 +226,7 @@ function autoRand() {
     document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
     <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
     var randnum = Math.round(Math.random() * 100);
-    randnum == 0 || randnum == 100 ? (randnum = Math.round(Math.random() * 100)) : randnum;
+    randnum == 100 ? (randnum = Math.round(Math.random() * 100)) : randnum;
     document.getElementById("rand").innerHTML = `随机码: 
     <input size="2" id="ra" type="text" maxlength="2" value="${randnum < 10 ? "0" + String(randnum) : randnum}"></input>
     范围:01~99；两个字符`;
