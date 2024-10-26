@@ -1,6 +1,5 @@
 {
     "main":[
-        {"title":"RSJE MC 服务器 ↗","url":"/mcserver/index.html"},
         {"title":"验证产品识别码(RSPID) ↗","url":"/pid/index.html"}
     ],
     "beta":[
