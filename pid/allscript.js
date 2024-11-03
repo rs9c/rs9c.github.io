@@ -45,7 +45,7 @@ async function verify() {
     } // 熟悉的后门～进入生成pid界面
 
     // 判断是否pid为36进制；若是，则进行转换
-    if (pid.match(/[A-Z]/)) pid = tsToDec(pid);
+    if (pid.match(/[A-Z]/)) {pid = tsToDec(pid);}
 
     console.info("传入的Pid为'" + pid + "'");
     lengthOfXH = pid.length - 17;
@@ -193,7 +193,6 @@ async function atn(inputString) {
     console.warn("atn:NotFound '" + inputString + "'");
 }
 
-// 以下内容直接抄旧版
 // 粘贴按钮
 function paste() {
     navigator.clipboard.readText().then((text) => {
@@ -217,6 +216,7 @@ function copy36() {
             <input type="button" value="成功✓" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
         `;
 }
+
 // 填充日期
 function autoDate() {
     document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
@@ -260,6 +260,7 @@ function autoRand() {
     <input size="2" id="ra" type="text" maxlength="2" value="${randnum < 10 ? "0" + String(randnum) : randnum}"></input>
     范围:01~99；两个字符`;
 }
+
 // 10进制转36进制
 function decToTs(dec) {
     console.debug("传入的十进制：" + dec);
