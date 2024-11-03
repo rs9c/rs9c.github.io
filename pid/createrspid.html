@@ -632,14 +632,17 @@
             <input type="button" value="填充随机码" onclick="autoRand()" />
         </p>
         <p id="button2">
-            <input type="button" value="生成RSPID" onclick="create()"
-                style="font-size: 1.4em; font-weight: 550; margin-right: 0.5em" />
-            <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="生成" onclick="create()"
+                style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
+            <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="复制Ts" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
         </p>
         <p>
             结果：
             <br />
             <code style="font-size: 1.1em" id="output"></code>
+            <br/>
+            <code style="font-size: 1.1em" id="output36"></code>
         </p>
     </article>
     <script>

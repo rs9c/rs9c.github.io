@@ -1,5 +1,6 @@
 var firstOpen = true;
 var pid = "";
+var theLastPid = "";
 var x; //校验码
 // window.location.search ——获取url?后
 var getPid = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
@@ -42,6 +43,9 @@ async function verify() {
         document.getElementById("pid").value = "";
         return;
     } // 熟悉的后门～进入生成pid界面
+
+    // 判断是否pid为36进制；若是，则进行转换
+    if (pid.match(/[A-Z]/)) pid = tsToDec(pid);
 
     console.info("传入的Pid为'" + pid + "'");
     lengthOfXH = pid.length - 17;
@@ -127,8 +131,11 @@ async function verify() {
 // 生成rspid
 async function create() {
     console.debug("运行create()");
-    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
-    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
+                style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
+            <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="复制Ts" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
+        `; // 重置
     var xhn = "";
     x = 0;
     // 12 34 56 -> 135 246
@@ -154,8 +161,10 @@ async function create() {
     }
     x = x % 10;
     console.info("最终校验码X:" + String(x));
-    console.info("最终pid:" + pid + String(x));
-    document.getElementById("output").innerHTML = `${pid + String(x)}`;
+    theLastPid = pid + String(x);
+    console.info("最终pid:" + theLastPid);
+    document.getElementById("output").innerHTML = `${theLastPid}`;
+    document.getElementById("output36").innerHTML = `${decToTs(theLastPid)}`;
 }
 
 // 异步-将传入的数字（字符串）转为字符（字符串）【详见table.json】
@@ -193,14 +202,28 @@ function paste() {
 }
 // 复制按钮
 function copy() {
-    navigator.clipboard.writeText(pid + String(x)); //历史遗留问题，此处pid不是真的pid。能用就行，，，
-    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
-    <input type="button" value="复制成功✓" onclick="copy()" style="font-size: 1.4em;font-weight: 200;">`;
+    navigator.clipboard.writeText(theLastPid);
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
+                style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
+            <input type="button" value="成功✓" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="复制Ts" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
+        `;
+}
+function copy36() {
+    navigator.clipboard.writeText(decToTs(theLastPid));
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
+                style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
+            <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="成功✓" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
+        `;
 }
 // 填充日期
 function autoDate() {
-    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
-    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
+                style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
+            <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="复制Ts" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
+        `; // 重置
     var d = new Date();
     var yy = d.getFullYear() % 100;
     var mm = d.getMonth() + 1;
@@ -212,8 +235,11 @@ function autoDate() {
 }
 // 填充时间
 function autoTime() {
-    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
-    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
+                style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
+            <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="复制Ts" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
+        `; // 重置
     var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();
@@ -223,11 +249,36 @@ function autoTime() {
 }
 // 填充随机码
 function autoRand() {
-    document.getElementById("button2").innerHTML = `<input type="button" value="生成RSPID" onclick="create()" style="font-size: 1.4em;font-weight: 550;margin-right: 0.5em;">
-    <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em;font-weight: 400;">`; // 重置
+    document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
+                style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
+            <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
+            <input type="button" value="复制Ts" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
+        `; // 重置
     var randnum = Math.round(Math.random() * 100);
     randnum == 100 ? (randnum = Math.round(Math.random() * 100)) : randnum;
     document.getElementById("rand").innerHTML = `随机码: 
     <input size="2" id="ra" type="text" maxlength="2" value="${randnum < 10 ? "0" + String(randnum) : randnum}"></input>
     范围:01~99；两个字符`;
+}
+// 10进制转36进制
+function decToTs(dec) {
+    console.debug("传入的十进制：" + dec);
+    dec = BigInt(dec);
+    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result = '';
+    while (dec > 0) {
+        result = characters[dec % 36n] + result;
+        dec = dec / 36n;
+    }
+    return result;
+}
+// 36进制转10进制
+function tsToDec(ts) {
+    console.debug("传入的36进制：" + ts);
+    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result = 0n;
+    for (let i = 0; i < ts.length; i++) {
+        result = result * 36n + BigInt(characters.indexOf(ts[i]));
+    }
+    return String(result);
 }
