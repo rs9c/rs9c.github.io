@@ -2,13 +2,21 @@ var firstOpen = true;
 var pid = "";
 var theLastPid = "";
 var x; //校验码
+let characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩàáâãāăȧäảåǎȁȃąạḁẚầấẫẩằắẵẳǡǟǻậặⱥɑɐɒæǽǣḃɓḅḇƀƃƅćĉċčƈçḉȼḋɗḍḏḑḓďđƌȡèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝɇɛǝⱸⱻḟƒǵĝḡğġǧɠģǥĥḣḧȟḥḩḫẖħⱨⱶƕìíîĩīĭıïỉǐịįȉȋḭɨḯĳĵǰȷɉḱǩḵƙḳķĸⱪĺḻḷļḽľŀłƚḹȴⱡḿṁṃɱɯǹńñṅňŋɲṇņṋṉŉƞȵòóôõōŏȯöỏőǒȍȏơǫọɵøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿɔœƍⱷⱺƣṕṗƥɋŕṙřȑȓṛŗṟṝɍⱹśŝṡšṣșşȿṥṧṩƨßſẛṫẗťƭʈƫṭțţṱṯŧⱦȶùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǜǘǖǚừứữửựʉṽṿⱱⱴʌẁẃŵẇẅẘẉⱳẋẍỳýŷȳẏÿỷẙƴỵɏźẑżžȥẓẕƶɀⱬÞþƔƛƖƪƩƱƷǮƸƹȜȝƺǯƻƼƽƾǷƿȢȣðȸȹɁɂꭓÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶȺⱭⱯⱰÆǼǢḂƁḄḆƂƄɃĆĈĊČƇÇḈȻḊƊḌḎḐḒĎÐĐƉƋÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜƎɆƐƏḞƑǴĜḠĞĠǦƓĢǤĤḦȞḤḨḪĦⱧⱵǶÌÍÎĨĪĬİÏỈǏỊĮȈȊḬƗḮĲĴɈḰǨḴƘḲĶⱩĹḺḶĻḼĽĿŁḸȽⱠⱢḾṀṂⱮƜǸŃÑṄŇŊƝṆŅṊṈȠÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌƟØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾƆŒƢṔṖƤⱣɊŔṘŘȐȒṚŖṞṜƦɌⱤŚŜṠŠṢȘŞⱾṤṦṨƧẞṪŤƬƮṬȚŢṰṮŦȾÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰɄṼṾƲɅẀẂŴẆẄẈⱲẊẌỲÝŶỸȲẎŸỶƳỴɎŹẐŻŽȤẒẔƵⱿⱫ"; // 多进制字符集
+
 // window.location.search ——获取url?后
 var getPid = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
 // 检验getPid是否为空
 if (getPid == "") {
     console.debug("getPid为空");
 } else {
-    pid = getPid;
+    // 多进制问题：多进制字符在浏览器地址栏中会被编码成URI编码，需进行转换。
+    try {
+        pid = decodeURIComponent(getPid.replace(/\+/g, " "));
+    } catch (e) {
+        pid = getPid;
+    }
+    console.debug("getPid为：" + pid);
     verify();
 }
 
@@ -45,7 +53,10 @@ async function verify() {
     } // 熟悉的后门～进入生成pid界面
 
     // 判断是否pid为185进制；若是，则进行转换
-    if (pid.match(/[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩáéíóúàèìòùâêîôûäëïöüąęįųÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜĄĘĮŲÇŞÃÕÑÆŒØĲẞçşãõñæœøĳßÞþÝýŸÿ]/)) {pid = tsToDec(pid);}
+    if (pid.match(/[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩàáâãāăȧäảåǎȁȃąạḁẚầấẫẩằắẵẳǡǟǻậặⱥɑɐɒæǽǣḃɓḅḇƀƃƅćĉċčƈçḉȼḋɗḍḏḑḓďđƌȡèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝɇɛǝⱸⱻḟƒǵĝḡğġǧɠģǥĥḣḧȟḥḩḫẖħⱨⱶƕìíîĩīĭıïỉǐịįȉȋḭɨḯĳĵǰȷɉḱǩḵƙḳķĸⱪĺḻḷļḽľŀłƚḹȴⱡḿṁṃɱɯǹńñṅňŋɲṇņṋṉŉƞȵòóôõōŏȯöỏőǒȍȏơǫọɵøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿɔœƍⱷⱺƣṕṗƥɋŕṙřȑȓṛŗṟṝɍⱹśŝṡšṣșşȿṥṧṩƨßſẛṫẗťƭʈƫṭțţṱṯŧⱦȶùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǜǘǖǚừứữửựʉṽṿⱱⱴʌẁẃŵẇẅẘẉⱳẋẍỳýŷȳẏÿỷẙƴỵɏźẑżžȥẓẕƶɀⱬÞþƔƛƖƪƩƱƷǮƸƹȜȝƺǯƻƼƽƾǷƿȢȣðȸȹɁɂꭓÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶȺⱭⱯⱰÆǼǢḂƁḄḆƂƄɃĆĈĊČƇÇḈȻḊƊḌḎḐḒĎÐĐƉƋÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜƎɆƐƏḞƑǴĜḠĞĠǦƓĢǤĤḦȞḤḨḪĦⱧⱵǶÌÍÎĨĪĬİÏỈǏỊĮȈȊḬƗḮĲĴɈḰǨḴƘḲĶⱩĹḺḶĻḼĽĿŁḸȽⱠⱢḾṀṂⱮƜǸŃÑṄŇŊƝṆŅṊṈȠÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌƟØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾƆŒƢṔṖƤⱣɊŔṘŘȐȒṚŖṞṜƦɌⱤŚŜṠŠṢȘŞⱾṤṦṨƧẞṪŤƬƮṬȚŢṰṮŦȾÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰɄṼṾƲɅẀẂŴẆẄẈⱲẊẌỲÝŶỸȲẎŸỶƳỴɎŹẐŻŽȤẒẔƵⱿⱫ]/)) {
+        pid = tsToDec(pid);
+        document.getElementById("pid").value = pid;
+    }
 
     console.info("传入的Pid为'" + pid + "'");
     lengthOfXH = pid.length - 17;
@@ -261,27 +272,25 @@ function autoRand() {
     范围:01~99；两个字符`;
 }
 
-// 10进制转185进制
-let characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩáéíóúàèìòùâêîôûäëïöüąęįųÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜĄĘĮŲÇŞÃÕÑÆŒØĲẞçşãõñæœøĳßÞþÝýŸÿ';// 多进制字符集
-
+// 10进制转多进制
 function decToTs(dec) {
     console.debug("传入的十进制：" + dec);
     dec = BigInt(dec);
     // const characters = '';
-    let result = '';
+    let result = "";
     while (dec > 0) {
-        result = characters[dec % 185n] + result;
-        dec = dec / 185n;
+        result = characters[dec % 784n] + result;
+        dec = dec / 784n;
     }
     return result;
 }
-// 185进制转10进制
+// 多进制转10进制
 function tsToDec(ts) {
-    console.debug("传入的185进制：" + ts);
+    console.debug("传入的多进制：" + ts);
     // const characters = '';
     let result = 0n;
     for (let i = 0; i < ts.length; i++) {
-        result = result * 185n + BigInt(characters.indexOf(ts[i]));
+        result = result * 784n + BigInt(characters.indexOf(ts[i]));
     }
     return String(result);
 }
