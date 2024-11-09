@@ -44,8 +44,8 @@ async function verify() {
         return;
     } // 熟悉的后门～进入生成pid界面
 
-    // 判断是否pid为36进制；若是，则进行转换
-    if (pid.match(/[A-Z]/)) {pid = tsToDec(pid);}
+    // 判断是否pid为185进制；若是，则进行转换
+    if (pid.match(/[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩáéíóúàèìòùâêîôûäëïöüąęįųÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜĄĘĮŲÇŞÃÕÑÆŒØĲẞçşãõñæœøĳßÞþÝýŸÿ]/)) {pid = tsToDec(pid);}
 
     console.info("传入的Pid为'" + pid + "'");
     lengthOfXH = pid.length - 17;
@@ -261,25 +261,27 @@ function autoRand() {
     范围:01~99；两个字符`;
 }
 
-// 10进制转36进制
+// 10进制转185进制
+let characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩáéíóúàèìòùâêîôûäëïöüąęįųÁÉÍÓÚÀÈÌÒÙÂÊÎÔÛÄËÏÖÜĄĘĮŲÇŞÃÕÑÆŒØĲẞçşãõñæœøĳßÞþÝýŸÿ';// 多进制字符集
+
 function decToTs(dec) {
     console.debug("传入的十进制：" + dec);
     dec = BigInt(dec);
-    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    // const characters = '';
     let result = '';
     while (dec > 0) {
-        result = characters[dec % 36n] + result;
-        dec = dec / 36n;
+        result = characters[dec % 185n] + result;
+        dec = dec / 185n;
     }
     return result;
 }
-// 36进制转10进制
+// 185进制转10进制
 function tsToDec(ts) {
-    console.debug("传入的36进制：" + ts);
-    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    console.debug("传入的185进制：" + ts);
+    // const characters = '';
     let result = 0n;
     for (let i = 0; i < ts.length; i++) {
-        result = result * 36n + BigInt(characters.indexOf(ts[i]));
+        result = result * 185n + BigInt(characters.indexOf(ts[i]));
     }
     return String(result);
 }
