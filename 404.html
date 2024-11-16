@@ -1,683 +1,621 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta
-            charset="utf-8"
-            id="viewport"
-            name="viewport"
-            content="width=device-width, initial-scale=1" />
-        <title>404 Not Found</title>
 
-        <style>
-            html,
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: #ffffff;
-            }
+<head>
+    <meta charset="utf-8" id="viewport" name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 Not Found</title>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+
+        @media (max-width: 767px) {
             .markdown-body {
-                box-sizing: border-box;
-                min-width: 200px;
-                max-width: 980px;
-                margin: 0 auto;
-                padding: 45px;
-            }
-            @media (max-width: 767px) {
-                .markdown-body {
-                    padding: 15px;
-                }
-            }
-            .markdown-body {
-                -ms-text-size-adjust: 100%;
-                -webkit-text-size-adjust: 100%;
-                line-height: 1.5;
-                color: #24292e;
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-                font-size: 32px;
-                line-height: 1.5;
-                word-wrap: break-word;
-            }
-
-            .markdown-body details {
-                display: block;
-            }
-
-            .markdown-body summary {
-                display: list-item;
-            }
-
-            .markdown-body a {
-                background-color: initial;
-            }
-
-            .markdown-body a:active,
-            .markdown-body a:hover {
-                outline-width: 0;
-            }
-
-            .markdown-body strong {
-                font-weight: inherit;
-                font-weight: bolder;
-            }
-
-            .markdown-body h1 {
-                font-size: 2em;
-                margin: 0.67em 0;
-            }
-
-            .markdown-body img {
-                border-style: none;
-            }
-
-            .markdown-body code,
-            .markdown-body kbd,
-            .markdown-body pre {
-                font-family: monospace, monospace;
-                font-size: 1em;
-            }
-
-            .markdown-body hr {
-                box-sizing: initial;
-                height: 0;
-                overflow: visible;
-            }
-
-            .markdown-body input {
-                font: inherit;
-                margin: 0;
-            }
-
-            .markdown-body input {
-                overflow: visible;
-            }
-
-            .markdown-body [type="checkbox"] {
-                box-sizing: border-box;
-                padding: 0;
-            }
-
-            .markdown-body * {
-                box-sizing: border-box;
-            }
-
-            .markdown-body input {
-                font-family: inherit;
-                font-size: inherit;
-                line-height: inherit;
-            }
-
-            .markdown-body a {
-                color: #0366d6;
-                text-decoration: none;
-            }
-
-            .markdown-body a:hover {
-                text-decoration: underline;
-            }
-
-            .markdown-body strong {
-                font-weight: 600;
-            }
-
-            .markdown-body hr {
-                height: 0;
-                margin: 15px 0;
-                overflow: hidden;
-                background: transparent;
-                border: 0;
-                border-bottom: 1px solid #dfe2e5;
-            }
-
-            .markdown-body hr:after,
-            .markdown-body hr:before {
-                display: table;
-                content: "";
-            }
-
-            .markdown-body hr:after {
-                clear: both;
-            }
-
-            .markdown-body table {
-                border-spacing: 0;
-                border-collapse: collapse;
-            }
-
-            .markdown-body td,
-            .markdown-body th {
-                padding: 0;
-            }
-
-            .markdown-body details summary {
-                cursor: pointer;
-            }
-
-            .markdown-body kbd {
-                display: inline-block;
-                padding: 3px 5px;
-                font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-                line-height: 10px;
-                color: #444d56;
-                vertical-align: middle;
-                background-color: #fafbfc;
-                border: 1px solid #d1d5da;
-                border-radius: 3px;
-                box-shadow: inset 0 -1px 0 #d1d5da;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2,
-            .markdown-body h3,
-            .markdown-body h4,
-            .markdown-body h5,
-            .markdown-body h6 {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body h1 {
-                font-size: 32px;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2 {
-                font-weight: 600;
-            }
-
-            .markdown-body h2 {
-                font-size: 24px;
-            }
-
-            .markdown-body h3 {
-                font-size: 20px;
-            }
-
-            .markdown-body h3,
-            .markdown-body h4 {
-                font-weight: 600;
-            }
-
-            .markdown-body h4 {
-                font-size: 16px;
-            }
-
-            .markdown-body h5 {
-                font-size: 14px;
-            }
-
-            .markdown-body h5,
-            .markdown-body h6 {
-                font-weight: 600;
-            }
-
-            .markdown-body h6 {
-                font-size: 12px;
-            }
-
-            .markdown-body p {
-                margin-top: 0;
-                margin-bottom: 10px;
-            }
-
-            .markdown-body blockquote {
-                margin: 0;
-            }
-
-            .markdown-body ol,
-            .markdown-body ul {
-                padding-left: 0;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body ol ol,
-            .markdown-body ul ol {
-                list-style-type: lower-roman;
-            }
-
-            .markdown-body ol ol ol,
-            .markdown-body ol ul ol,
-            .markdown-body ul ol ol,
-            .markdown-body ul ul ol {
-                list-style-type: lower-alpha;
-            }
-
-            .markdown-body dd {
-                margin-left: 0;
-            }
-
-            .markdown-body code,
-            .markdown-body pre {
-                font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-                font-size: 12px;
-            }
-
-            .markdown-body pre {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body input::-webkit-inner-spin-button,
-            .markdown-body input::-webkit-outer-spin-button {
-                margin: 0;
-                -webkit-appearance: none;
-                appearance: none;
-            }
-
-            .markdown-body :checked + .radio-label {
-                position: relative;
-                z-index: 1;
-                border-color: #0366d6;
-            }
-
-            .markdown-body hr {
-                border-bottom-color: #eee;
-            }
-
-            .markdown-body kbd {
-                display: inline-block;
-                padding: 3px 5px;
-                font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-                line-height: 10px;
-                color: #444d56;
-                vertical-align: middle;
-                background-color: #fafbfc;
-                border: 1px solid #d1d5da;
-                border-radius: 3px;
-                box-shadow: inset 0 -1px 0 #d1d5da;
-            }
-
-            .markdown-body:after,
-            .markdown-body:before {
-                display: table;
-                content: "";
-            }
-
-            .markdown-body:after {
-                clear: both;
-            }
-
-            .markdown-body > :first-child {
-                margin-top: 0 !important;
-            }
-
-            .markdown-body > :last-child {
-                margin-bottom: 0 !important;
-            }
-
-            .markdown-body a:not([href]) {
-                color: inherit;
-                text-decoration: none;
-            }
-
-            .markdown-body blockquote,
-            .markdown-body details,
-            .markdown-body dl,
-            .markdown-body ol,
-            .markdown-body p,
-            .markdown-body pre,
-            .markdown-body table,
-            .markdown-body ul {
-                margin-top: 0;
-                margin-bottom: 16px;
-            }
-
-            .markdown-body hr {
-                height: 0.25em;
-                padding: 0;
-                margin: 24px 0;
-                background-color: #e1e4e8;
-                border: 0;
-            }
-
-            .markdown-body blockquote {
-                padding: 0 1em;
-                color: #6a737d;
-                border-left: 0.25em solid #dfe2e5;
-            }
-
-            .markdown-body blockquote > :first-child {
-                margin-top: 0;
-            }
-
-            .markdown-body blockquote > :last-child {
-                margin-bottom: 0;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2,
-            .markdown-body h3,
-            .markdown-body h4,
-            .markdown-body h5,
-            .markdown-body h6 {
-                margin-top: 24px;
-                margin-bottom: 16px;
-                font-weight: 600;
-                line-height: 1.25;
-            }
-
-            .markdown-body h1 {
-                font-size: 2em;
-            }
-
-            .markdown-body h1,
-            .markdown-body h2 {
-                padding-bottom: 0.3em;
-                border-bottom: 1px solid #eaecef;
-            }
-
-            .markdown-body h2 {
-                font-size: 1.5em;
-            }
-
-            .markdown-body h3 {
-                font-size: 1.25em;
-            }
-
-            .markdown-body h4 {
-                font-size: 1em;
-            }
-
-            .markdown-body h5 {
-                font-size: 0.875em;
-            }
-
-            .markdown-body h6 {
-                font-size: 0.85em;
-                color: #6a737d;
-            }
-
-            .markdown-body ol,
-            .markdown-body ul {
-                padding-left: 2em;
-            }
-
-            .markdown-body ol ol,
-            .markdown-body ol ul,
-            .markdown-body ul ol,
-            .markdown-body ul ul {
-                margin-top: 0;
-                margin-bottom: 0;
-            }
-
-            .markdown-body li {
-                word-wrap: break-all;
-            }
-
-            .markdown-body li > p {
-                margin-top: 16px;
-            }
-
-            .markdown-body li + li,
-            .markdown-body li > ul {
-                margin-top: 0.25em;
-            }
-
-            .markdown-body ul li.task-list-item {
-                position: relative;
-                appearance: none;
-                list-style: none;
-            }
-
-            .markdown-body ul li.task-list-item.checked {
-                text-decoration-line: line-through;
-                color: #6e6e6e;
-            }
-
-            .markdown-body ul li.task-list-item:not(.checked) {
-                color: initial;
-            }
-
-            .markdown-body ul li.task-list-item::before {
-                content: "";
-                width: 13px;
-                height: 13px;
-                background-color: #fff;
-                position: absolute;
-                left: -28px;
-                top: 4px;
-                border-radius: 2px;
-                border: 2px solid #757575;
-            }
-
-            .markdown-body ul li.task-list-item.checked::before {
-                background-color: #1976d2;
-                border-color: #1976d2;
-            }
-
-            .markdown-body ul li.task-list-item.checked::after {
-                content: "";
-                position: absolute;
-                left: -22px;
-                top: 5px;
-                width: 4px;
-                height: 10px;
-                border: solid #fff;
-                border-width: 0 2px 2px 0;
-                transform: rotate(45deg);
-            }
-
-            .markdown-body dl {
-                padding: 0;
-            }
-
-            .markdown-body dl dt {
-                padding: 0;
-                margin-top: 16px;
-                font-size: 1em;
-                font-style: italic;
-                font-weight: 600;
-            }
-
-            .markdown-body dl dd {
-                padding: 0 16px;
-                margin-bottom: 16px;
-            }
-
-            .markdown-body table {
-                width: 100%;
-                overflow: auto;
-            }
-
-            .markdown-body table th {
-                font-weight: 600;
-            }
-
-            .markdown-body table td,
-            .markdown-body table th {
-                padding: 6px 13px;
-                border: 1px solid #dfe2e5;
-            }
-
-            .markdown-body table tr {
-                background-color: #fff;
-                border-top: 1px solid #c6cbd1;
-            }
-
-            .markdown-body table tr:nth-child(2n) {
-                background-color: #f6f8fa;
-            }
-
-            .markdown-body img {
-                max-width: 100%;
-                box-sizing: initial;
-                background-color: #fff;
-            }
-
-            .markdown-body p > img {
-                display: block;
-                margin: 0 auto;
-            }
-
-            .markdown-body img[align="right"] {
-                padding-left: 20px;
-            }
-
-            .markdown-body img[align="left"] {
-                padding-right: 20px;
-            }
-
-            .markdown-body code {
-                padding: 0.2em 0.4em;
-                margin: 0;
-                font-size: 85%;
-                background-color: rgba(27, 31, 35, 0.05);
-                border-radius: 3px;
-            }
-
-            .markdown-body pre {
-                word-wrap: normal;
-            }
-
-            .markdown-body pre > code {
-                padding: 0;
-                margin: 0;
-                font-size: 100%;
-                word-break: normal;
-                white-space: pre;
-                background: transparent;
-                border: 0;
-            }
-
-            .markdown-body pre {
-                padding: 16px;
-                overflow: auto;
-                font-size: 85%;
-                line-height: 1.45;
-                background-color: #f6f8fa;
-                border-radius: 3px;
-            }
-
-            .markdown-body pre code {
-                display: inline;
-                max-width: auto;
-                padding: 0;
-                margin: 0;
-                overflow: visible;
-                line-height: inherit;
-                word-wrap: normal;
-                background-color: initial;
-                border: 0;
-            }
-
-            .markdown-body mark {
-                display: inline-flex;
-                background-color: #fff8c5;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <article class="markdown-body">
-            <!-- 旧版404页面 -->
-            <!-- <br />
-            <h3><mark style="background-color: #ff0000d0">404啦¯\_(ツ)_/¯</mark></h3>
-            <p style="background-color: #fff04771">==404 Not Found==</p>
-            <hr />
-            <h3>
-                <strong><u style="color: #11d62b">好好看看你输入的什么币玩意</u></strong>
-            </h3>
-            <p style="color: #00000080">凸(◐‿◑)凸</p>
+                padding: 15px;
+            }
+        }
+
+        .markdown-body {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            line-height: 1.5;
+            color: #24292e;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+            font-size: 32px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .markdown-body details {
+            display: block;
+        }
+
+        .markdown-body summary {
+            display: list-item;
+        }
+
+        .markdown-body a {
+            background-color: initial;
+        }
+
+        .markdown-body a:active,
+        .markdown-body a:hover {
+            outline-width: 0;
+        }
+
+        .markdown-body strong {
+            font-weight: inherit;
+            font-weight: bolder;
+        }
+
+        .markdown-body h1 {
+            font-size: 2em;
+            margin: 0.67em 0;
+        }
+
+        .markdown-body img {
+            border-style: none;
+        }
+
+        .markdown-body code,
+        .markdown-body kbd,
+        .markdown-body pre {
+            font-family: monospace, monospace;
+            font-size: 1em;
+        }
+
+        .markdown-body hr {
+            box-sizing: initial;
+            height: 0;
+            overflow: visible;
+        }
+
+        .markdown-body input {
+            font: inherit;
+            margin: 0;
+        }
+
+        .markdown-body input {
+            overflow: visible;
+        }
+
+        .markdown-body [type="checkbox"] {
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        .markdown-body * {
+            box-sizing: border-box;
+        }
+
+        .markdown-body input {
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+        }
+
+        .markdown-body a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .markdown-body a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-body strong {
+            font-weight: 600;
+        }
+
+        .markdown-body hr {
+            height: 0;
+            margin: 15px 0;
+            overflow: hidden;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid #dfe2e5;
+        }
+
+        .markdown-body hr:after,
+        .markdown-body hr:before {
+            display: table;
+            content: "";
+        }
+
+        .markdown-body hr:after {
+            clear: both;
+        }
+
+        .markdown-body table {
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        .markdown-body td,
+        .markdown-body th {
+            padding: 0;
+        }
+
+        .markdown-body details summary {
+            cursor: pointer;
+        }
+
+        .markdown-body kbd {
+            display: inline-block;
+            padding: 3px 5px;
+            font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            line-height: 10px;
+            color: #444d56;
+            vertical-align: middle;
+            background-color: #fafbfc;
+            border: 1px solid #d1d5da;
+            border-radius: 3px;
+            box-shadow: inset 0 -1px 0 #d1d5da;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4,
+        .markdown-body h5,
+        .markdown-body h6 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body h1 {
+            font-size: 32px;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2 {
+            font-weight: 600;
+        }
+
+        .markdown-body h2 {
+            font-size: 24px;
+        }
+
+        .markdown-body h3 {
+            font-size: 20px;
+        }
+
+        .markdown-body h3,
+        .markdown-body h4 {
+            font-weight: 600;
+        }
+
+        .markdown-body h4 {
+            font-size: 16px;
+        }
+
+        .markdown-body h5 {
+            font-size: 14px;
+        }
+
+        .markdown-body h5,
+        .markdown-body h6 {
+            font-weight: 600;
+        }
+
+        .markdown-body h6 {
+            font-size: 12px;
+        }
+
+        .markdown-body p {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .markdown-body blockquote {
+            margin: 0;
+        }
+
+        .markdown-body ol,
+        .markdown-body ul {
+            padding-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body ol ol,
+        .markdown-body ul ol {
+            list-style-type: lower-roman;
+        }
+
+        .markdown-body ol ol ol,
+        .markdown-body ol ul ol,
+        .markdown-body ul ol ol,
+        .markdown-body ul ul ol {
+            list-style-type: lower-alpha;
+        }
+
+        .markdown-body dd {
+            margin-left: 0;
+        }
+
+        .markdown-body code,
+        .markdown-body pre {
+            font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            font-size: 12px;
+        }
+
+        .markdown-body pre {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body input::-webkit-inner-spin-button,
+        .markdown-body input::-webkit-outer-spin-button {
+            margin: 0;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .markdown-body :checked+.radio-label {
+            position: relative;
+            z-index: 1;
+            border-color: #0366d6;
+        }
+
+        .markdown-body hr {
+            border-bottom-color: #eee;
+        }
+
+        .markdown-body kbd {
+            display: inline-block;
+            padding: 3px 5px;
+            font: 11px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+            line-height: 10px;
+            color: #444d56;
+            vertical-align: middle;
+            background-color: #fafbfc;
+            border: 1px solid #d1d5da;
+            border-radius: 3px;
+            box-shadow: inset 0 -1px 0 #d1d5da;
+        }
+
+        .markdown-body:after,
+        .markdown-body:before {
+            display: table;
+            content: "";
+        }
+
+        .markdown-body:after {
+            clear: both;
+        }
+
+        .markdown-body> :first-child {
+            margin-top: 0 !important;
+        }
+
+        .markdown-body> :last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .markdown-body a:not([href]) {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .markdown-body blockquote,
+        .markdown-body details,
+        .markdown-body dl,
+        .markdown-body ol,
+        .markdown-body p,
+        .markdown-body pre,
+        .markdown-body table,
+        .markdown-body ul {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body hr {
+            height: 0.25em;
+            padding: 0;
+            margin: 24px 0;
+            background-color: #e1e4e8;
+            border: 0;
+        }
+
+        .markdown-body blockquote {
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 0.25em solid #dfe2e5;
+        }
+
+        .markdown-body blockquote> :first-child {
+            margin-top: 0;
+        }
+
+        .markdown-body blockquote> :last-child {
+            margin-bottom: 0;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3,
+        .markdown-body h4,
+        .markdown-body h5,
+        .markdown-body h6 {
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .markdown-body h1 {
+            font-size: 2em;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2 {
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #eaecef;
+        }
+
+        .markdown-body h2 {
+            font-size: 1.5em;
+        }
+
+        .markdown-body h3 {
+            font-size: 1.25em;
+        }
+
+        .markdown-body h4 {
+            font-size: 1em;
+        }
+
+        .markdown-body h5 {
+            font-size: 0.875em;
+        }
+
+        .markdown-body h6 {
+            font-size: 0.85em;
+            color: #6a737d;
+        }
+
+        .markdown-body ol,
+        .markdown-body ul {
+            padding-left: 2em;
+        }
+
+        .markdown-body ol ol,
+        .markdown-body ol ul,
+        .markdown-body ul ol,
+        .markdown-body ul ul {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .markdown-body li {
+            word-wrap: break-all;
+        }
+
+        .markdown-body li>p {
+            margin-top: 16px;
+        }
+
+        .markdown-body li+li,
+        .markdown-body li>ul {
+            margin-top: 0.25em;
+        }
+
+        .markdown-body ul li.task-list-item {
+            position: relative;
+            appearance: none;
+            list-style: none;
+        }
+
+        .markdown-body ul li.task-list-item.checked {
+            text-decoration-line: line-through;
+            color: #6e6e6e;
+        }
+
+        .markdown-body ul li.task-list-item:not(.checked) {
+            color: initial;
+        }
+
+        .markdown-body ul li.task-list-item::before {
+            content: "";
+            width: 13px;
+            height: 13px;
+            background-color: #fff;
+            position: absolute;
+            left: -28px;
+            top: 4px;
+            border-radius: 2px;
+            border: 2px solid #757575;
+        }
+
+        .markdown-body ul li.task-list-item.checked::before {
+            background-color: #1976d2;
+            border-color: #1976d2;
+        }
+
+        .markdown-body ul li.task-list-item.checked::after {
+            content: "";
+            position: absolute;
+            left: -22px;
+            top: 5px;
+            width: 4px;
+            height: 10px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .markdown-body dl {
+            padding: 0;
+        }
+
+        .markdown-body dl dt {
+            padding: 0;
+            margin-top: 16px;
+            font-size: 1em;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .markdown-body dl dd {
+            padding: 0 16px;
+            margin-bottom: 16px;
+        }
+
+        .markdown-body table {
+            width: 100%;
+            overflow: auto;
+        }
+
+        .markdown-body table th {
+            font-weight: 600;
+        }
+
+        .markdown-body table td,
+        .markdown-body table th {
+            padding: 6px 13px;
+            border: 1px solid #dfe2e5;
+        }
+
+        .markdown-body table tr {
+            background-color: #fff;
+            border-top: 1px solid #c6cbd1;
+        }
+
+        .markdown-body table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        .markdown-body img {
+            max-width: 100%;
+            box-sizing: initial;
+            background-color: #fff;
+        }
+
+        .markdown-body p>img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .markdown-body img[align="right"] {
+            padding-left: 20px;
+        }
+
+        .markdown-body img[align="left"] {
+            padding-right: 20px;
+        }
+
+        .markdown-body code {
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            border-radius: 3px;
+        }
+
+        .markdown-body pre {
+            word-wrap: normal;
+        }
+
+        .markdown-body pre>code {
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            word-break: normal;
+            white-space: pre;
+            background: transparent;
+            border: 0;
+        }
+
+        .markdown-body pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: #f6f8fa;
+            border-radius: 3px;
+        }
+
+        .markdown-body pre code {
+            display: inline;
+            max-width: auto;
+            padding: 0;
+            margin: 0;
+            overflow: visible;
+            line-height: inherit;
+            word-wrap: normal;
+            background-color: initial;
+            border: 0;
+        }
+
+        .markdown-body mark {
+            display: inline-flex;
+            background-color: #fff8c5;
+        }
+
+        #video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+        }
+
+        #video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="markdown-body">
+        <div style="text-align:center;">
+            <h3>404 Not Found</h3>
+            <br />
             <h4>
-                <a href="/index.html"><strong>滚回主页↗</strong></a>
-            </h4> -->
-            <svg
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 375 177"
-                style="enable-background: new 0 0 375 177"
-                xml:space="preserve">
-                <style type="text/css">
-                    .st0 {
-                        fill: none;
-                        stroke: #2a6eff;
-                        stroke-width: 2;
-                        stroke-miterlimit: 10;
-                    }
-                </style>
-                <g>
-                    <path
-                        class="st0"
-                        d="M48.13,106.77V87.74H2.96V58.05L41.6,3.07h23.44L22.85,64.01v5.26h25.29V47.11h21.31v59.66H48.13z" />
-                    <path
-                        class="st0"
-                        d="M123.42,108.19c-6.91,0-12.93-1.3-18.04-3.91c-5.11-2.6-9.07-6.25-11.86-10.94
-		c-2.79-4.69-4.19-10.16-4.19-16.41V32.9c0-6.25,1.4-11.72,4.19-16.41c2.79-4.69,6.75-8.33,11.86-10.94
-		c5.11-2.6,11.13-3.91,18.04-3.91c7.01,0,13.04,1.3,18.11,3.91c5.07,2.61,9,6.25,11.79,10.94c2.79,4.69,4.19,10.16,4.19,16.41v44.04
-		c0,6.25-1.4,11.72-4.19,16.41c-2.79,4.69-6.73,8.33-11.79,10.94C136.46,106.89,130.43,108.19,123.42,108.19z M123.42,89.72
-		c4.45,0,7.93-1.14,10.44-3.41c2.51-2.27,3.76-5.4,3.76-9.38V32.9c0-3.98-1.26-7.1-3.76-9.38c-2.51-2.27-5.99-3.41-10.44-3.41
-		c-4.45,0-7.93,1.14-10.44,3.41c-2.51,2.27-3.76,5.4-3.76,9.38v44.04c0,3.98,1.28,7.1,3.84,9.38
-		C115.61,88.59,119.06,89.72,123.42,89.72z M123.42,64.01c-2.94,0-5.33-0.83-7.17-2.49c-1.85-1.66-2.77-4-2.77-7.03
-		c0-3.03,0.92-5.33,2.77-6.89c1.85-1.56,4.24-2.34,7.17-2.34c3.03,0,5.44,0.78,7.24,2.34c1.8,1.56,2.7,3.86,2.7,6.89
-		c0,3.03-0.9,5.38-2.7,7.03C128.86,63.19,126.45,64.01,123.42,64.01z" />
-                    <path
-                        class="st0"
-                        d="M218.59,106.77V87.74h-45.17V58.05l38.64-54.97h23.44l-42.19,60.94v5.26h25.29V47.11h21.31v59.66H218.59z" />
-                </g>
-                <g>
-                    <path
-                        class="st0"
-                        d="M2.89,172.45v-51.85h8.52L27.25,165c-0.1-1.18-0.2-2.64-0.32-4.37c-0.12-1.73-0.21-3.55-0.28-5.47
-		c-0.07-1.92-0.11-3.73-0.11-5.43v-29.12h6.18v51.85H24.2L8.43,128.06c0.09,1.14,0.19,2.57,0.28,4.3c0.09,1.73,0.18,3.55,0.25,5.47
-		c0.07,1.92,0.11,3.75,0.11,5.5v29.12H2.89z" />
-                    <path
-                        class="st0"
-                        d="M60.42,173.02c-4.69,0-8.42-1.37-11.19-4.12c-2.77-2.75-4.16-6.58-4.16-11.51v-8.95
-		c0-4.97,1.37-8.82,4.12-11.54c2.75-2.72,6.49-4.08,11.22-4.08c4.73,0,8.48,1.36,11.22,4.08c2.75,2.72,4.12,6.57,4.12,11.54v8.95
-		c0,4.93-1.39,8.76-4.16,11.51C68.84,171.65,65.11,173.02,60.42,173.02z M60.42,167.34c2.79,0,4.98-0.78,6.57-2.34
-		c1.59-1.56,2.38-3.86,2.38-6.89v-10.37c0-3.03-0.79-5.33-2.38-6.89c-1.59-1.56-3.78-2.34-6.57-2.34c-2.75,0-4.93,0.78-6.53,2.34
-		c-1.61,1.56-2.41,3.86-2.41,6.89v10.37c0,3.03,0.8,5.33,2.41,6.89C55.5,166.56,57.67,167.34,60.42,167.34z" />
-                    <path
-                        class="st0"
-                        d="M106.94,172.45c-3.22,0-5.8-0.93-7.74-2.81c-1.94-1.87-2.91-4.37-2.91-7.49v-22.94H85.07v-5.82h11.22v-11.01
-		h6.39v11.01h15.98v5.82h-15.98v22.94c0,1.33,0.39,2.4,1.17,3.23c0.78,0.83,1.81,1.24,3.09,1.24h11.36v5.82H106.94z" />
-                    <path
-                        class="st0"
-                        d="M173.71,172.45v-51.85h30.54v5.82h-24.29v17.19h22.44v5.82h-22.3v23.01H173.71z" />
-                    <path
-                        class="st0"
-                        d="M230.88,173.02c-4.69,0-8.42-1.37-11.19-4.12c-2.77-2.75-4.16-6.58-4.16-11.51v-8.95
-		c0-4.97,1.37-8.82,4.12-11.54c2.75-2.72,6.49-4.08,11.22-4.08c4.73,0,8.48,1.36,11.22,4.08c2.75,2.72,4.12,6.57,4.12,11.54v8.95
-		c0,4.93-1.39,8.76-4.16,11.51C239.3,171.65,235.57,173.02,230.88,173.02z M230.88,167.34c2.79,0,4.98-0.78,6.57-2.34
-		c1.59-1.56,2.38-3.86,2.38-6.89v-10.37c0-3.03-0.79-5.33-2.38-6.89c-1.59-1.56-3.78-2.34-6.57-2.34c-2.75,0-4.93,0.78-6.53,2.34
-		c-1.61,1.56-2.41,3.86-2.41,6.89v10.37c0,3.03,0.8,5.33,2.41,6.89C225.96,166.56,228.14,167.34,230.88,167.34z" />
-                    <path
-                        class="st0"
-                        d="M273.43,173.16c-4.5,0-8.1-1.34-10.8-4.01c-2.7-2.67-4.05-6.31-4.05-10.9v-24.86h6.39v24.86
-		c0,2.84,0.76,5.1,2.27,6.78c1.51,1.68,3.57,2.52,6.18,2.52c2.65,0,4.75-0.84,6.29-2.52c1.54-1.68,2.31-3.94,2.31-6.78v-24.86h6.39
-		v24.86c0,4.59-1.37,8.23-4.12,10.9C281.55,171.83,277.92,173.16,273.43,173.16z" />
-                    <path
-                        class="st0"
-                        d="M301.34,172.45v-39.06h6.39v7.46h0.07c0.33-2.6,1.4-4.62,3.2-6.04c1.8-1.42,4.19-2.13,7.17-2.13
-		c3.93,0,7.06,1.21,9.38,3.62c2.32,2.41,3.48,5.71,3.48,9.87v26.28h-6.39v-25.14c0-2.98-0.75-5.27-2.24-6.85
-		c-1.49-1.59-3.52-2.38-6.07-2.38c-2.65,0-4.75,0.83-6.29,2.49c-1.54,1.66-2.31,4-2.31,7.03v24.86H301.34z" />
-                    <path
-                        class="st0"
-                        d="M356.45,173.16c-3.88,0-7-1.3-9.34-3.91c-2.34-2.6-3.52-6.13-3.52-10.58v-11.44c0-4.5,1.16-8.05,3.48-10.65
-		c2.32-2.6,5.44-3.91,9.38-3.91c2.94,0,5.36,0.73,7.28,2.2c1.92,1.47,3.07,3.46,3.44,5.97h0.07l-0.14-8.88v-11.36h6.39v51.85h-6.39
-		V165h-0.07c-0.33,2.56-1.45,4.56-3.34,6C361.8,172.44,359.39,173.16,356.45,173.16z M358.58,167.62c2.65,0,4.73-0.83,6.25-2.49
-		c1.51-1.66,2.27-3.95,2.27-6.89V147.6c0-2.94-0.76-5.23-2.27-6.89c-1.52-1.66-3.6-2.49-6.25-2.49c-2.7,0-4.81,0.7-6.32,2.1
-		c-1.52,1.4-2.27,3.71-2.27,6.93v11.36c0,3.17,0.76,5.47,2.27,6.89C353.78,166.91,355.89,167.62,358.58,167.62z" />
-                </g>
-                <line
-                    class="st0"
-                    x1="48.13"
-                    y1="69.27"
-                    x2="48.13"
-                    y2="87.74" />
-                <line
-                    class="st0"
-                    x1="218.59"
-                    y1="69.27"
-                    x2="218.59"
-                    y2="87.74" />
-            </svg>
-            <h4>
-                <a href="/index.html" style="color: #3977ff;">前往网站导航↗</a>
+                <p id="back"><a id="fullscreen-btn" style="color: #3977ff;">返回网站导航↗</a></p>
+                
+                <div id="video-container">
+                </div>
             </h4>
-        </article>
-    </body>
+        </div>
+
+    </article>
+    <script>
+        document.getElementById('fullscreen-btn').addEventListener('click', function () {
+            document.getElementById('video-container').innerHTML = `<iframe
+                        src="https://player.bilibili.com/player.html?isOutside=true&aid=1706416465&bvid=BV1UT42167xb&cid=1641702404&p=1&autoplay=1&muted=0&danmaku=0"
+                        scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="1"></iframe>
+                `;
+            var videoContainer = document.getElementById('video-container');
+            if (videoContainer.requestFullscreen) {
+                videoContainer.requestFullscreen();
+            } else if (videoContainer.mozRequestFullScreen) { /* Firefox */
+                videoContainer.mozRequestFullScreen();
+            } else if (videoContainer.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                videoContainer.webkitRequestFullscreen();
+            } else if (videoContainer.msRequestFullscreen) { /* IE/Edge */
+                videoContainer.msRequestFullscreen();
+            }
+            document.getElementById('back').innerHTML = `<a href="/index.html" style="color: #3977ff;">返回网站导航↗(这次是真的:D)</a>`;
+        });
+    </script>
+</body>
+
 </html>
