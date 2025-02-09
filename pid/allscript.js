@@ -2,7 +2,7 @@ var firstOpen = true;
 var pid = "";
 var theLastPid = "";
 var x; //校验码
-let characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩàáâãāăȧäảåǎȁȃąạḁẚầấẫẩằắẵẳǡǟǻậặⱥɑɐɒæǽǣḃɓḅḇƀƃƅćĉċčƈçḉȼḋɗḍḏḑḓďđƌȡèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝɇɛǝⱸⱻḟƒǵĝḡğġǧɠģǥĥḣḧȟḥḩḫẖħⱨⱶƕìíîĩīĭıïỉǐịįȉȋḭɨḯĳĵǰȷɉḱǩḵƙḳķĸⱪĺḻḷļḽľŀłƚḹȴⱡḿṁṃɱɯǹńñṅňŋɲṇņṋṉŉƞȵòóôõōŏȯöỏőǒȍȏơǫọɵøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿɔœƍⱷⱺƣṕṗƥɋŕṙřȑȓṛŗṟṝɍⱹśŝṡšṣșşȿṥṧṩƨßſẛṫẗťƭʈƫṭțţṱṯŧⱦȶùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǜǘǖǚừứữửựʉṽṿⱱⱴʌẁẃŵẇẅẘẉⱳẋẍỳýŷȳẏÿỷẙƴỵɏźẑżžȥẓẕƶɀⱬÞþƔƛƖƪƩƱƷǮƸƹȜȝƺǯƻƼƽƾǷƿȢȣðȸȹɁɂꭓÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶȺⱭⱯⱰÆǼǢḂƁḄḆƂƄɃĆĈĊČƇÇḈȻḊƊḌḎḐḒĎÐĐƉƋÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜƎɆƐƏḞƑǴĜḠĞĠǦƓĢǤĤḦȞḤḨḪĦⱧⱵǶÌÍÎĨĪĬİÏỈǏỊĮȈȊḬƗḮĲĴɈḰǨḴƘḲĶⱩĹḺḶĻḼĽĿŁḸȽⱠⱢḾṀṂⱮƜǸŃÑṄŇŊƝṆŅṊṈȠÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌƟØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾƆŒƢṔṖƤⱣɊŔṘŘȐȒṚŖṞṜƦɌⱤŚŜṠŠṢȘŞⱾṤṦṨƧẞṪŤƬƮṬȚŢṰṮŦȾÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰɄṼṾƲɅẀẂŴẆẄẈⱲẊẌỲÝŶỸȲẎŸỶƳỴɎŹẐŻŽȤẒẔƵⱿⱫ"; // 多进制字符集
+let characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 多进制字符集
 
 // window.location.search ——获取url?后
 var getPid = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
@@ -52,8 +52,8 @@ async function verify() {
         return;
     } // 熟悉的后门～进入生成pid界面
 
-    // 判断是否pid为185进制；若是，则进行转换
-    if (pid.match(/[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωςΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩàáâãāăȧäảåǎȁȃąạḁẚầấẫẩằắẵẳǡǟǻậặⱥɑɐɒæǽǣḃɓḅḇƀƃƅćĉċčƈçḉȼḋɗḍḏḑḓďđƌȡèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝɇɛǝⱸⱻḟƒǵĝḡğġǧɠģǥĥḣḧȟḥḩḫẖħⱨⱶƕìíîĩīĭıïỉǐịįȉȋḭɨḯĳĵǰȷɉḱǩḵƙḳķĸⱪĺḻḷļḽľŀłƚḹȴⱡḿṁṃɱɯǹńñṅňŋɲṇņṋṉŉƞȵòóôõōŏȯöỏőǒȍȏơǫọɵøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿɔœƍⱷⱺƣṕṗƥɋŕṙřȑȓṛŗṟṝɍⱹśŝṡšṣșşȿṥṧṩƨßſẛṫẗťƭʈƫṭțţṱṯŧⱦȶùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǜǘǖǚừứữửựʉṽṿⱱⱴʌẁẃŵẇẅẘẉⱳẋẍỳýŷȳẏÿỷẙƴỵɏźẑżžȥẓẕƶɀⱬÞþƔƛƖƪƩƱƷǮƸƹȜȝƺǯƻƼƽƾǷƿȢȣðȸȹɁɂꭓÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶȺⱭⱯⱰÆǼǢḂƁḄḆƂƄɃĆĈĊČƇÇḈȻḊƊḌḎḐḒĎÐĐƉƋÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜƎɆƐƏḞƑǴĜḠĞĠǦƓĢǤĤḦȞḤḨḪĦⱧⱵǶÌÍÎĨĪĬİÏỈǏỊĮȈȊḬƗḮĲĴɈḰǨḴƘḲĶⱩĹḺḶĻḼĽĿŁḸȽⱠⱢḾṀṂⱮƜǸŃÑṄŇŊƝṆŅṊṈȠÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌƟØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾƆŒƢṔṖƤⱣɊŔṘŘȐȒṚŖṞṜƦɌⱤŚŜṠŠṢȘŞⱾṤṦṨƧẞṪŤƬƮṬȚŢṰṮŦȾÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰɄṼṾƲɅẀẂŴẆẄẈⱲẊẌỲÝŶỸȲẎŸỶƳỴɎŹẐŻŽȤẒẔƵⱿⱫ]/)) {
+    // 判断是否pid为多进制；若是，则进行转换
+    if (pid.match(/[a-zA-Z]/)) {
         pid = tsToDec(pid);
         document.getElementById("pid").value = pid;
     }
@@ -142,6 +142,10 @@ async function verify() {
 // 生成rspid
 async function create() {
     console.debug("运行create()");
+    const qrContainer1 = document.getElementById("qr1");
+    const qrContainer2 = document.getElementById("qr2");
+    qrContainer1.innerHTML = "";
+    qrContainer2.innerHTML = ""; // 清空二维码
     document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
                 style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
             <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
@@ -176,6 +180,22 @@ async function create() {
     console.info("最终pid:" + theLastPid);
     document.getElementById("output").innerHTML = `${theLastPid}`;
     document.getElementById("output36").innerHTML = `${decToTs(theLastPid)}`;
+    const qr1 = new QRCode(qrContainer1, {
+        text: `https://rs9c.github.io/pid/?pid=${theLastPid}`, // 要生成二维码的内容
+        width: 120, // 二维码的宽度
+        height: 120, // 二维码的高度
+        colorDark: "#000000", // 深色部分的颜色
+        colorLight: "#ffffff", // 浅色部分的颜色
+        correctLevel: QRCode.CorrectLevel.L, // 纠错等级
+    });
+    const qr2 = new QRCode(qrContainer2, {
+        text: `https://rs9c.github.io/pid/?pid=${decToTs(theLastPid)}`, // 要生成二维码的内容
+        width: 120, // 二维码的宽度
+        height: 120, // 二维码的高度
+        colorDark: "#000000", // 深色部分的颜色
+        colorLight: "#ffffff", // 浅色部分的颜色
+        correctLevel: QRCode.CorrectLevel.L, // 纠错等级
+    });
 }
 
 // 异步-将传入的数字（字符串）转为字符（字符串）【详见table.json】
@@ -274,23 +294,23 @@ function autoRand() {
 
 // 10进制转多进制
 function decToTs(dec) {
-    console.debug("传入的十进制：" + dec);
+    // console.debug("传入的十进制：" + dec);
     dec = BigInt(dec);
     // const characters = '';
     let result = "";
     while (dec > 0) {
-        result = characters[dec % 784n] + result;
-        dec = dec / 784n;
+        result = characters[dec % 62n] + result;
+        dec = dec / 62n;
     }
     return result;
 }
 // 多进制转10进制
 function tsToDec(ts) {
-    console.debug("传入的多进制：" + ts);
+    // console.debug("传入的多进制：" + ts);
     // const characters = '';
     let result = 0n;
     for (let i = 0; i < ts.length; i++) {
-        result = result * 784n + BigInt(characters.indexOf(ts[i]));
+        result = result * 62n + BigInt(characters.indexOf(ts[i]));
     }
     return String(result);
 }
