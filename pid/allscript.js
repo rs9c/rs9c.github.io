@@ -142,9 +142,9 @@ async function verify() {
 // 生成rspid
 async function create() {
     console.debug("运行create()");
-    const qrContainer1 = document.getElementById("qr1");
+    // const qrContainer1 = document.getElementById("qr1");
     const qrContainer2 = document.getElementById("qr2");
-    qrContainer1.innerHTML = "";
+    // qrContainer1.innerHTML = "";
     qrContainer2.innerHTML = ""; // 清空二维码
     document.getElementById("button2").innerHTML = `<input type="button" value="生成" onclick="create()"
                 style="font-size: 1.4em; font-weight: 550;margin-right: 0.5em;" />
@@ -180,14 +180,14 @@ async function create() {
     console.info("最终pid:" + theLastPid);
     document.getElementById("output").innerHTML = `${theLastPid}`;
     document.getElementById("output36").innerHTML = `${decToTs(theLastPid)}`;
-    const qr1 = new QRCode(qrContainer1, {
-        text: `https://rs9c.github.io/pid/?pid=${theLastPid}`, // 要生成二维码的内容
-        width: 120, // 二维码的宽度
-        height: 120, // 二维码的高度
-        colorDark: "#000000", // 深色部分的颜色
-        colorLight: "#ffffff", // 浅色部分的颜色
-        correctLevel: QRCode.CorrectLevel.L, // 纠错等级
-    });
+    // const qr1 = new QRCode(qrContainer1, {
+    //     text: `https://rs9c.github.io/pid/?pid=${theLastPid}`, // 要生成二维码的内容
+    //     width: 120, // 二维码的宽度
+    //     height: 120, // 二维码的高度
+    //     colorDark: "#000000", // 深色部分的颜色
+    //     colorLight: "#ffffff", // 浅色部分的颜色
+    //     correctLevel: QRCode.CorrectLevel.L, // 纠错等级
+    // });
     const qr2 = new QRCode(qrContainer2, {
         text: `https://rs9c.github.io/pid/?pid=${decToTs(theLastPid)}`, // 要生成二维码的内容
         width: 120, // 二维码的宽度
