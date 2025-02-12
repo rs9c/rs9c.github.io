@@ -4,9 +4,9 @@
         <meta charset="utf-8" id="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <!-- iOS web app -->
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="apple-touch-icon-precomposed" href="image/icon2.png" sizes="1024x1024" />
+        <!-- <link rel="apple-touch-icon-precomposed" href="image/icon2.png" sizes="1024x1024" /> -->
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <title>生成产品识别码(RSPID)</title>
+        <title>奇怪的页面</title>
 
         <style>
             html,
@@ -572,90 +572,31 @@
 
     <body>
         <article class="markdown-body">
-            <!-- <p><u><a href="/index.html" style="font-size: 1.1em"><strong>←返回主页</strong></a></u></p> -->
-            <h1><a href="./debug.html" target="_blank" style="color: #24292e">产品识别码生成系统</a></h1>
-            <!-- <p><blockquote style="border-width: 0.16em;">
-              示例:<code>51231130152930002619332046011</code>。
-              <p style="padding: 0.35em 1.15em; color: #ff4800;">
-                本生成程序适用于2023/09/16及以后的产品识别码(RSPID-29位)。
-              </p>
-            </blockquote></p> -->
-            <!-- 输入部分 -->
             <p>
-                类型:
-                <select id="tpl" style="font-size: 1em">
-                    <!-- <option value="51">Product</option>
-                <option value="57">Ticket</option>
-                <option value="29">Bill</option> -->
-                </select>
-                品牌:
-                <select id="ppl" style="font-size: 1em">
-                    <!-- <option value="90">RISINGSUN</option>
-                <option value="23">BoringClub</option> -->
-                </select>
-            </p>
-            <p id="date">
-                日期: 20
-                <input size="2" id="yy" type="text" maxlength="2" value="" />年 <input size="2" id="mm" type="text" maxlength="2" value="" />月 <input size="2" id="dd" type="text" maxlength="2" value="" />日
-            </p>
-            <p id="time">
-                时间:
-                <input size="2" id="h" type="text" maxlength="2" value="" />时 <input size="2" id="m" type="text" maxlength="2" value="" />分
-            </p>
-            <p>
-                型号:
-                <input size="20" id="xh" type="text" />
-            </p>
-            <!-- <p>
-                代号:
-                <input
-                    size="2"
-                    id="dh"
-                    type="text"
-                    maxlength="2" />
-                范围:00~99；两个字符
-            </p> -->
-            <!-- 在rspidv2中弃用 -->
-            <p id="rand">
-                随机码:
-                <input size="2" id="ra" type="text" maxlength="2" />
-                范围:00~99；两个字符
+                输入：
+                <br />
+                <input size="29" id="input" type="text" />
             </p>
             <!-- 按钮部分 -->
-            <p>
-                <input type="button" value="填充日期" onclick="autoDate()" />
-                <input type="button" value="填充时间" onclick="autoTime()" />
-                <input type="button" value="填充随机码" onclick="autoRand()" />
-            </p>
             <p id="button2">
-                <input type="button" value="生成" onclick="create()" style="font-size: 1.4em; font-weight: 550; margin-right: 0.5em" />
-                <input type="button" value="复制Dec" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
-                <input type="button" value="复制Ts" onclick="copy36()" style="font-size: 1.4em; font-weight: 400" />
+                <input type="button" value="62进制转为10进制" onclick="ttDec()" style="font-size: 1.4em; font-weight: 400" />
+                <br />
+                <input type="button" value="10进制转为62进制" onclick="ttTs()" style="font-size: 1.4em; font-weight: 400" />
             </p>
             <p>
                 结果：
                 <br />
                 <code style="font-size: 1.1em" id="output"></code>
-                <!-- <div id="qr1"></div> -->
-                <br />
-                <code style="font-size: 1.1em" id="output36"></code>
             </p>
-            <div id="qr2"></div>
         </article>
-        <script>
-            // （生成系统）初始化菜单
-            fetch("type.json")
-                .then((response) => response.json())
-                .then((typeList) => {
-                    for (var i = 0; i < typeList.tp.length; ++i) {
-                        document.getElementById("tpl").innerHTML += `<option value="${typeList.tp[i].n}">${typeList.tp[i].a}</option>`;
-                    }
-                    for (var i = 0; i < typeList.pp.length; ++i) {
-                        document.getElementById("ppl").innerHTML += `<option value="${typeList.pp[i].n}">${typeList.pp[i].a}</option>`;
-                    }
-                });
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
         <script src="allscript.js"></script>
+        <script>
+            function ttDec() {
+                document.getElementById("output").innerHTML = tsToDec(document.getElementById("input").value);
+            }
+            function ttTs() {
+                document.getElementById("output").innerHTML = decToTs(document.getElementById("input").value);
+            }
+        </script>
     </body>
 </html>
