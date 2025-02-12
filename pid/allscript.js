@@ -181,7 +181,7 @@ async function create() {
     document.getElementById("output").innerHTML = `${theLastPid}`;
     document.getElementById("output36").innerHTML = `${decToTs(theLastPid)}`;
     // const qr1 = new QRCode(qrContainer1, {
-    //     text: `https://rs9c.github.io/pid/?pid=${theLastPid}`, // 要生成二维码的内容
+    //     text: `https://rs9c.github.io/pid/?=${theLastPid}`, // 要生成二维码的内容
     //     width: 120, // 二维码的宽度
     //     height: 120, // 二维码的高度
     //     colorDark: "#000000", // 深色部分的颜色
@@ -189,7 +189,7 @@ async function create() {
     //     correctLevel: QRCode.CorrectLevel.L, // 纠错等级
     // });
     const qr2 = new QRCode(qrContainer2, {
-        text: `https://rs9c.github.io/pid/?pid=${decToTs(theLastPid)}`, // 要生成二维码的内容
+        text: `https://rs9c.github.io/pid/?=${decToTs(theLastPid)}`, // 要生成二维码的内容
         width: 120, // 二维码的宽度
         height: 120, // 二维码的高度
         colorDark: "#000000", // 深色部分的颜色
