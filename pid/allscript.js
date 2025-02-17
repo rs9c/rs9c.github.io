@@ -289,7 +289,7 @@ function autoRand() {
     randnum == 100 ? (randnum = Math.round(Math.random() * 100)) : randnum;
     document.getElementById("rand").innerHTML = `随机码: 
     <input size="2" id="ra" type="text" maxlength="2" value="${randnum < 10 ? "0" + String(randnum) : randnum}"></input>
-    范围:01~99；两个字符`;
+    范围:00~99；两个字符`;
 }
 
 // 10进制转多进制
