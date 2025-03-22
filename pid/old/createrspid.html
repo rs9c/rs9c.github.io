@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta
-            charset="utf-8"
-            id="viewport"
-            name="viewport"
-            content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8" id="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <!-- iOS web app -->
-        <meta
-            name="apple-mobile-web-app-capable"
-            content="yes" />
-        <link
-            rel="apple-touch-icon-precomposed"
-            href="icon.png"
-            sizes="1024x1024" />
-        <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="apple-touch-icon-precomposed" href="icon.png" sizes="1024x1024" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <title>生成产品识别码(RSPID)</title>
 
         <style>
@@ -590,117 +579,54 @@
             <!-- 输入部分 -->
             <p>
                 类型:
-                <select
-                    id="tp"
-                    style="font-size: 1em">
+                <select id="tp" style="font-size: 1em">
                     <option value="51">Product</option>
                     <option value="57">Ticket</option>
                     <option value="29">Bill</option>
                 </select>
                 品牌:
-                <select
-                    id="pp"
-                    style="font-size: 1em">
+                <select id="pp" style="font-size: 1em">
                     <option value="90">RISINGSUN</option>
                     <option value="23">BoringClub</option>
                 </select>
             </p>
             <p id="date">
                 日期: 20
-                <input
-                    size="2"
-                    id="yy"
-                    type="text"
-                    maxlength="2"
-                    value="" />年
-                <input
-                    size="2"
-                    id="mm"
-                    type="text"
-                    maxlength="2"
-                    value="" />月
-                <input
-                    size="2"
-                    id="dd"
-                    type="text"
-                    maxlength="2"
-                    value="" />日
+                <input size="2" id="yy" type="text" maxlength="2" value="" />年 <input size="2" id="mm" type="text" maxlength="2" value="" />月 <input size="2" id="dd" type="text" maxlength="2" value="" />日
             </p>
             <p id="time">
                 时间:
-                <input
-                    size="2"
-                    id="h"
-                    type="text"
-                    maxlength="2"
-                    value="" />时
-                <input
-                    size="2"
-                    id="m"
-                    type="text"
-                    maxlength="2"
-                    value="" />分
+                <input size="2" id="h" type="text" maxlength="2" value="" />时 <input size="2" id="m" type="text" maxlength="2" value="" />分
             </p>
             <p>
                 型号:
-                <input
-                    size="7"
-                    id="xh"
-                    type="text"
-                    maxlength="5" />
+                <input size="7" id="xh" type="text" maxlength="5" />
                 范围:A~Z,0~9；不超过五个字符
             </p>
             <p>
                 代号:
-                <input
-                    size="2"
-                    id="dh"
-                    type="text"
-                    maxlength="2" />
+                <input size="2" id="dh" type="text" maxlength="2" />
                 范围:00~99；两个字符
             </p>
             <p id="rand">
                 随机码:
-                <input
-                    size="2"
-                    id="ra"
-                    type="text"
-                    maxlength="2" />
+                <input size="2" id="ra" type="text" maxlength="2" />
                 范围:01~99；两个字符
             </p>
             <!-- 按钮部分 -->
             <p>
-                <input
-                    type="button"
-                    value="填充日期"
-                    onclick="autoDate()" />
-                <input
-                    type="button"
-                    value="填充时间"
-                    onclick="autoTime()" />
-                <input
-                    type="button"
-                    value="填充随机码"
-                    onclick="autoRand()" />
+                <input type="button" value="填充日期" onclick="autoDate()" />
+                <input type="button" value="填充时间" onclick="autoTime()" />
+                <input type="button" value="填充随机码" onclick="autoRand()" />
             </p>
             <p id="button2">
-                <input
-                    type="button"
-                    value="生成RSPID"
-                    onclick="creat()"
-                    style="font-size: 1.4em; font-weight: 550; margin-right: 0.5em" />
-                <input
-                    type="button"
-                    value="复制RSPID"
-                    onclick="copy()"
-                    style="font-size: 1.4em; font-weight: 400" />
+                <input type="button" value="生成RSPID" onclick="creat()" style="font-size: 1.4em; font-weight: 550; margin-right: 0.5em" />
+                <input type="button" value="复制RSPID" onclick="copy()" style="font-size: 1.4em; font-weight: 400" />
             </p>
             <p>
                 结果：
                 <br />
-                <code
-                    style="font-size: 1.1em"
-                    id="output"></code>
+                <code style="font-size: 1.1em" id="output"></code>
             </p>
         </article>
         <script src="createrspid.js"></script>
