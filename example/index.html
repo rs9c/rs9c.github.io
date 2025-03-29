@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- iOS web app
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="apple-touch-icon-precomposed" href="" sizes="1024x1024" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> -->
+        <title>RS9C | Index</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #f7f7f7;
+                display: flex;
+                flex-direction: column;
+            }
+            .header {
+                display: flex;
+                height: 46px;
+                background-color: #ffffffcc;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
+                /* z-index: 3; */
+                position: fixed;
+                top: 0;
+                width: 100%;
+                backdrop-filter: blur(7px);
+            }
+            .top {
+                display: flex;
+                height: 250px;
+                margin-top: 46px;
+            }
+            .card {
+                display: flex;
+                background-color: #ffffff;
+                box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 5px;
+                height: 70px;
+                margin-left: 5vh;
+                margin-right: 5vh;
+                margin-bottom: 30px;
+                padding: 10px;
+            }
+            .menu-button {
+                cursor: pointer;
+                display: block;
+                flex-direction: column;
+                justify-content: center;
+                position: fixed;
+                height: 12px;
+                width: 18px;
+                top: 18px;
+                left: 18px;
+            }
+            .menu-button-bar {
+                display: block;
+                width: 18px;
+                height: 2px;
+                background-color: #24292e;
+                opacity: 1;
+                border-radius: 5px;
+                margin: 0 0 3px 0;
+                transition: none;
+                transform-origin: center;
+            }
+            @keyframes top-bar {
+                0% {
+                    transform: translateY(0) rotate(0);
+                }
+                50% {
+                    transform: translateY(5px);
+                }
+                100% {
+                    transform: translateY(5px) rotate(45deg);
+                }
+            }
+            @keyframes middle-bar {
+                0% {
+                    transform: scaleX(1);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scaleX(0);
+                    opacity: 0;
+                }
+                100% {
+                    transform: scaleX(0);
+                    opacity: 0;
+                }
+            }
+            @keyframes bottom-bar {
+                0% {
+                    transform: translateY(0) rotate(0);
+                }
+                50% {
+                    transform: translateY(-5px);
+                }
+                100% {
+                    transform: translateY(-5px) rotate(-45deg);
+                }
+            }
+            @keyframes top-bar-reverse {
+                0% {
+                    transform: translateY(5px) rotate(45deg);
+                }
+                50% {
+                    transform: translateY(5px) rotate(0);
+                }
+                100% {
+                    transform: translateY(0) rotate(0);
+                }
+            }
+            @keyframes middle-bar-reverse {
+                0% {
+                    transform: scaleX(0);
+                    opacity: 0;
+                }
+                50% {
+                    transform: scaleX(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scaleX(1);
+                    opacity: 1;
+                }
+            }
+            @keyframes bottom-bar-reverse {
+                0% {
+                    transform: translateY(-5px) rotate(-45deg);
+                }
+                50% {
+                    transform: translateY(-5px) rotate(0);
+                }
+                100% {
+                    transform: translateY(0) rotate(0);
+                }
+            }
+            .menu-button.active .menu-button-bar:nth-child(1) {
+                animation: top-bar 0.3s forwards;
+            }
+            .menu-button.active .menu-button-bar:nth-child(2) {
+                animation: middle-bar 0.3s forwards;
+            }
+            .menu-button.active .menu-button-bar:nth-child(3) {
+                animation: bottom-bar 0.3s forwards;
+            }
+            .menu-button:not(.active) .menu-button-bar:nth-child(1) {
+                animation: top-bar-reverse 0.3s forwards;
+            }
+            .menu-button:not(.active) .menu-button-bar:nth-child(2) {
+                animation: middle-bar-reverse 0.3s forwards;
+            }
+            .menu-button:not(.active) .menu-button-bar:nth-child(3) {
+                animation: bottom-bar-reverse 0.3s forwards;
+            }
+            /* 适配竖屏 */
+            /* @media (max-width: 640px) {
+            } */
+            /* 适配深色模式 */
+            /* @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: black;
+                }
+            } */
+        </style>
+    </head>
+    <body>
+        <!-- 头部栏 -->
+        <div class="header">
+            <div class="menu-button">
+                <span class="menu-button-bar"></span>
+                <span class="menu-button-bar"></span>
+                <span class="menu-button-bar"></span>
+            </div>
+        </div>
+        <!-- 内容区 -->
+        <div style="display: flex; flex-direction: column; flex: 1; overflow: auto">
+            <!-- 置顶内容区 -->
+            <div class="top"></div>
+            <!-- 内容区卡片 -->
+            <div>
+                <div class="card">123</div>
+                <div class="card">123</div>
+                <div class="card">123</div>
+                <div class="card">123</div>
+                <div class="card">123</div>
+                <div class="card">123</div>
+                <div class="card">123</div>
+            </div>
+        </div>
+    </body>
+    <!-- boxicons: https://boxicons.com/ https://github.com/atisawd/boxicons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 监听菜单按钮点击事件
+            const menuButton = document.querySelector(".menu-button");
+            menuButton.addEventListener("click", function (e) {
+                e.preventDefault();
+                this.classList.toggle("active");
+            });
+        });
+    </script>
+</html>
