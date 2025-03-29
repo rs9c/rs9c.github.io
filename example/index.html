@@ -47,13 +47,12 @@
             .menu-button {
                 cursor: pointer;
                 display: block;
-                flex-direction: column;
-                justify-content: center;
                 position: fixed;
-                height: 12px;
-                width: 18px;
-                top: 18px;
-                left: 18px;
+                height: 26px;
+                width: 26px;
+                top: 0px;
+                left: 0px;
+                padding: 18px 0px 0px 18px;
             }
             .menu-button-bar {
                 display: block;
@@ -183,7 +182,10 @@
             <div class="top"></div>
             <!-- 内容区卡片 -->
             <div>
-                <div class="card">123</div>
+                <div class="card">
+                    123
+                    <box-icon type="regular" name="qr-scan" color="#0ea1ff" animation="tada-hover"></box-icon>
+                </div>
                 <div class="card">123</div>
                 <div class="card">123</div>
                 <div class="card">123</div>
@@ -194,6 +196,8 @@
         </div>
     </body>
     <!-- boxicons: https://boxicons.com/ https://github.com/atisawd/boxicons -->
+    <!-- 调用方法 -->
+    <!-- <box-icon type = "regular|solid|logo" name="adjust|alarms|etc...." color="blue|red|etc..." size="xs|sm|md|lg|cssSize" rotate="90|180|270" flip="horizontal|vertical" border="square|circle" animation="spin|tada|etc..." pull = "left|right"></box-icon> -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
