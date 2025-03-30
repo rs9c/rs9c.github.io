@@ -3,15 +3,74 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- iOS web app
+        <!-- iOS web app -->
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon-precomposed" href="" sizes="1024x1024" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <title>RS9C | Index</title>
         <style>
+            @font-face {
+                font-family: "JetBrainsMono";
+                src: url(/fonts/JetBrainsMono/JetBrainsMono-Medium.woff2) format("woff2");
+                font-weight: normal;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: "JetBrainsMono";
+                src: url(/fonts/JetBrainsMono/JetBrainsMono-MediumItalic.woff2) format("woff2");
+                font-weight: normal;
+                font-style: italic;
+            }
+            @font-face {
+                font-family: "JetBrainsMono";
+                src: url(/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2) format("woff2");
+                font-weight: bold;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: "JetBrainsMono";
+                src: url(/fonts/JetBrainsMono/JetBrainsMono-BoldItalic.woff2) format("woff2");
+                font-weight: bold;
+                font-style: italic;
+            }
+            @font-face {
+                font-family: "XBC";
+                src: url(/fonts/XBC/XBCAYF-ENGWR.ttf) format("truetype");
+                font-weight: normal;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: "RSLOGO";
+                src: url(/fonts/RSLOGO/RISINGSUNLOGO-Regular.woff2) format("woff2");
+                font-weight: normal;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: "SiyuanHei";
+                src: url(/fonts/SiyuanHei/SourceHanSansSC-Regular.otf) format("opentype");
+                font-weight: normal;
+            }
+            @font-face {
+                font-family: "SiyuanHei";
+                src: url(/fonts/SiyuanHei/SourceHanSansSC-Bold.otf) format("opentype");
+                font-weight: bold;
+            }
+            @font-face {
+                font-family: "SiyuanSong";
+                src: url(/fonts/SiyuanSong/SourceHanSerifSC-Regular.otf) format("opentype");
+                font-weight: normal;
+            }
+            @font-face {
+                font-family: "SiyuanSong";
+                src: url(/fonts/SiyuanSong/SourceHanSerifSC-Bold.otf) format("opentype");
+                font-weight: bold;
+            }
             * {
                 margin: 0;
                 padding: 0;
+                font-family: "SiyuanHei";
+                font-weight: normal;
             }
             body {
                 background-color: #f7f7f7;
@@ -23,7 +82,7 @@
                 height: 46px;
                 background-color: #ffffffcc;
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px;
-                /* z-index: 3; */
+                z-index: 1000;
                 position: fixed;
                 top: 0;
                 width: 100%;
@@ -156,6 +215,22 @@
             .menu-button:not(.active) .menu-button-bar:nth-child(3) {
                 animation: bottom-bar-reverse 0.3s forwards;
             }
+            .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                font-family: "RSLOGO";
+                font-size: 30px;
+                position: fixed;
+                left: 47px;
+                top: 0px;
+                height: 46px;
+                user-select: none;
+                z-index: 1002;
+                padding-top: 1px;
+                color: #ff3300;
+            }
             /* 适配竖屏 */
             /* @media (max-width: 640px) {
             } */
@@ -175,23 +250,32 @@
                 <span class="menu-button-bar"></span>
                 <span class="menu-button-bar"></span>
             </div>
+            <div class="logo">rISINGSUN</div>
         </div>
         <!-- 内容区 -->
         <div style="display: flex; flex-direction: column; flex: 1; overflow: auto">
             <!-- 置顶内容区 -->
-            <div class="top"></div>
+            <div class="top">???</div>
             <!-- 内容区卡片 -->
             <div>
                 <div class="card">
-                    123
+                    这是什么？<br />666
                     <box-icon type="regular" name="qr-scan" color="#0ea1ff" animation="tada-hover"></box-icon>
                 </div>
-                <div class="card">123</div>
-                <div class="card">123</div>
-                <div class="card">123</div>
-                <div class="card">123</div>
-                <div class="card">123</div>
-                <div class="card">123</div>
+                <div class="card" style="font-family: 'SiyuanSong'">
+                    我是一个
+                    <div style="font-family: 'SiyuanSong'; font-weight: bold">卡片</div>
+                </div>
+                <div class="card" style="font-weight: bold">显示普通通知</div>
+                <div class="card" style="font-weight: bold">显示警告通知</div>
+                <div class="card" style="font-weight: bold">显示错误通知</div>
+                <div class="card">你好，世界！</div>
+                <div class="card" style="font-family: 'JetBrainsMono'">Hello World!</div>
+                <div class="card" style="font-family: 'JetBrainsMono'; font-weight: bold">Hello World!</div>
+                <div class="card" style="font-family: 'JetBrainsMono'; font-style: italic">Hello World!</div>
+                <div class="card" style="font-family: 'JetBrainsMono'; font-style: italic; font-weight: bold">Hello World!</div>
+                <div class="card" style="font-family: 'XBC'">RISINGSUN BoringClub 2025</div>
+                <div class="card" style="font-family: 'RSLOGO'; font-size: 25px">rISINGSUN GROUP 2025</div>
             </div>
         </div>
     </body>
