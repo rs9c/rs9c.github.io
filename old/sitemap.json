@@ -1,0 +1,9 @@
+{
+    "main": [{ "title": "验证产品识别码(RSPID) ↗", "url": "pid/index.html" }],
+    "beta": [
+        { "title": "测试页-β ↗", "url": "beta/index.html" },
+        { "title": "404页-β ↗", "url": "404.html" },
+        { "title": "空白页-β ↗", "url": "blank.html" }
+    ],
+    "alpha": []
+}
