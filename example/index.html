@@ -387,10 +387,14 @@
             /* 适配深色模式 */
             @media (prefers-color-scheme: dark) {
                 :root {
-                    --theme-color: #f5f5f5;
                     --font-color: #f5f5f5;
                     --bottom-icon-color: #333333;
-                    --is-dark: true;
+                }
+                .logo {
+                    color: var(--font-color);
+                }
+                #today {
+                    color: var(--font-color);
                 }
                 body {
                     background-color: #1e1e1e;
@@ -420,9 +424,6 @@
                     opacity: 0;
                     transform: translateX(-375px);
                 }
-                :root {
-                    --is-wide: true;
-                }
                 #menu {
                     width: 375px;
                     height: 100%;
@@ -432,9 +433,6 @@
             }
             /* 宽屏深色 */
             @media screen and (min-width: 600px) and (prefers-color-scheme: dark) {
-                :root {
-                    --is-dark: true;
-                }
                 #menu {
                     background-color: #181818cc;
                 }
