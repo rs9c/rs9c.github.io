@@ -47,14 +47,6 @@
                 font-weight: normal;
                 font-style: normal;
             }
-            @font-face {
-                font-family: "SiyuanHei";
-                src: url(/fonts/SiyuanHei/SourceHanSansCN-VF.ttf.woff2) format("woff2");
-            }
-            @font-face {
-                font-family: "SiyuanSong";
-                src: url(/fonts/SiyuanSong/SourceHanSerifCN-VF.ttf.woff2) format("woff2");
-            }
             @keyframes top-bar {
                 0% {
                     transform: translateY(0) rotate(0);
@@ -154,10 +146,9 @@
             * {
                 margin: 0;
                 padding: 0;
-                font-family: "SiyuanHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
                 font-weight: 400;
                 color: var(--font-color);
-                /* scrollbar-width: none; */
             }
             body {
                 background-color: #f7f7f7;
@@ -222,7 +213,6 @@
                 justify-self: center;
                 align-items: center;
                 padding-left: 5px;
-                font-family: "SiyuanHei";
                 font-size: 13px;
                 height: 46px;
                 color: var(--theme-color);
@@ -245,13 +235,12 @@
                 flex-direction: row;
                 justify-content: center;
                 align-items: center;
-                font-family: "SiyuanHei";
                 font-size: 40px;
                 font-weight: 600;
                 padding: 0 5vh 0 5vh;
                 overflow: hidden;
             }
-            .grid-container {
+            .cards-container {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 40px;
@@ -330,14 +319,10 @@
             <!-- 置顶内容区 -->
             <div id="top"></div>
             <!-- 内容区卡片 -->
-            <div class="grid-container">
+            <div class="cards-container">
                 <div class="card">
-                    这是什么？<br />666
-                    <box-icon type="regular" name="qr-scan" color="#0ea1ff" animation="tada-hover"></box-icon>
-                </div>
-                <div class="card" style="font-family: 'SiyuanSong'">
                     我是一个
-                    <div style="font-family: 'SiyuanSong'; font-weight: 700">卡片</div>
+                    <div style="font-weight: 700">卡片</div>
                 </div>
                 <div class="card" style="font-weight: 700">显示普通通知</div>
                 <div class="card" style="font-weight: 700">显示警告通知</div>
@@ -357,7 +342,7 @@
                 <a href="/quote.html" style="display: flex; justify-items: center; align-items: center; margin: 15px; text-decoration: none; color: var(--bottom-icon-color)"><box-icon name="github" type="logo" color="var(--bottom-icon-color)"></box-icon>引用的开源项目</a>
             </div>
             <!-- 路径 -->
-            <p style="margin: 0 auto 20px 10px; color: var(--bottom-icon-color)">示例/示例主页</p>
+            <p style="margin: 0 auto 20px 10px; color: var(--bottom-icon-color)">示例/主页</p>
         </div>
     </body>
     <!-- boxicons: https://boxicons.com/ https://github.com/atisawd/boxicons -->
