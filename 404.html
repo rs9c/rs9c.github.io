@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RS9C</title>
+        <style>
+            body {
+                background-color: #f7f7f7;
+            }
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: #1e1e1e;
+                }
+            }
+        </style>
+    </head>
+    <body></body>
+    <script>
+        let getContent = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
+        if (getContent === undefined || getContent === null || getContent === "") {
+            alert('你在地址栏输入了什么？啥都木有╮(￣▽￣"")╭');
+            window.location.href = "/index.html";
+        } else {
+            // 将getContent进行URL解码
+            getContent = decodeURIComponent(getContent);
+            alert(getContent);
+            // 回退至用户上一个页面
+            window.history.back();
+        }
+    </script>
+</html>
