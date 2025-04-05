@@ -9,6 +9,7 @@
         <link rel="apple-touch-icon-precomposed" href="/icon.png" sizes="1024x1024" />
         <link rel="icon" href="/icon.png" type="image/png" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
         <title>RS9C | 示例主页</title>
         <style>
             @font-face {
@@ -510,6 +511,9 @@
                 background-color: rgba(27, 31, 35, 0.05);
                 border-radius: 4px;
             }
+            i.bx {
+                font-size: 18px;
+            }
             /* 适配深色模式 */
             @media (prefers-color-scheme: dark) {
                 :root {
@@ -661,16 +665,14 @@
             <!-- 底栏 -->
             <div class="bottom">
                 <hr class="divider" />
-                <a href="#top" class="to-top"><box-icon name="arrow-to-top" color="var(--font-color)"></box-icon>返回顶部</a>
-                <a href="/quote.html" style="display: flex; justify-items: center; align-items: center; margin: 15px; text-decoration: none; color: var(--bottom-icon-color)"><box-icon name="github" type="logo" color="var(--bottom-icon-color)"></box-icon>引用的开源项目</a>
+                <a href="#top" class="to-top"><i class="bx bx-arrow-to-top"></i>返回顶部</a>
+                <a href="/quote.html" style="display: flex; justify-items: center; align-items: center; margin: 15px; text-decoration: none; color: var(--bottom-icon-color)"><i class="bx bxl-github" style="color: var(--bottom-icon-color)"></i>引用的开源项目</a>
             </div>
             <!-- 路径 -->
             <p style="margin: 0 auto 20px 10px; color: var(--bottom-icon-color)">示例/主页</p>
         </div>
     </body>
-    <!-- boxicons: https://boxicons.com/ https://github.com/atisawd/boxicons -->
-    <!-- 调用方法 -->
-    <!-- <box-icon type = "regular|solid|logo" name="adjust|alarms|etc...." color="blue|red|etc..." size="xs|sm|md|lg|cssSize" rotate="90|180|270" flip="horizontal|vertical" border="square|circle" animation="spin|tada|etc..." pull = "left|right"></box-icon> -->
+    <!-- boxicons: https://boxicons.com/usage https://boxicons.com https://github.com/atisawd/boxicons -->
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script>
         // 变量声明
