@@ -9,7 +9,7 @@
         <link rel="apple-touch-icon-precomposed" href="/icon.png" sizes="1024x1024" />
         <link rel="icon" href="/icon.png" type="image/png" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <title>RS9C | Index</title>
+        <title>RS9C | 示例主页</title>
         <style>
             @font-face {
                 font-family: "JetBrainsMono";
@@ -314,8 +314,8 @@
                 display: flex;
                 background-color: #ffffff;
                 box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 5px;
-                height: 70px;
-                padding: 25px;
+                height: 100px;
+                padding: 15px 25px;
                 border-radius: 15px;
                 transition: all 0.3s ease-in-out;
                 flex-direction: column;
@@ -339,7 +339,7 @@
                 height: 40px;
                 width: 90px;
                 padding: 7px;
-                margin: 5px 10px;
+                margin: 10px 10px;
                 border-radius: 10px;
                 font-size: 16px;
                 font-weight: 600;
@@ -499,6 +499,17 @@
                 border-color: #ef9a9a;
                 color: var(--notification-e-color);
             }
+            code {
+                display: inline;
+                font-family: "JetBrainsMono", monospace;
+                font-weight: normal;
+                height: 16px;
+                padding: 0.2em 0.4em;
+                margin: 0;
+                font-size: 85%;
+                background-color: rgba(27, 31, 35, 0.05);
+                border-radius: 4px;
+            }
             /* 适配深色模式 */
             @media (prefers-color-scheme: dark) {
                 :root {
@@ -540,6 +551,9 @@
                 .notification.e {
                     background-color: #b71c1ccc;
                     border-color: #c62828;
+                }
+                code {
+                    background-color: rgba(0, 0, 0, 0.1);
                 }
             }
             /* 宽屏 */
@@ -630,15 +644,15 @@
                         <button class="hollow" onclick="showNotification('HELLO WORLD!','i',10000)">知道了</button>
                     </div>
                 </div>
-                <div class="card" style="font-family: 'JetBrainsMono'">Hello World!</div>
-                <div class="card" style="font-family: 'JetBrainsMono'; font-weight: bold">Hello World!</div>
+                <div class="card"><code>Hello World!</code></div>
+                <div class="card"><s style="font-family: 'JetBrainsMono'; font-weight: bold">Hello World!</s></div>
                 <div class="card" style="font-family: 'JetBrainsMono'; font-style: italic">Hello World!</div>
-                <div class="card" style="font-family: 'JetBrainsMono'; font-style: italic; font-weight: bold">Hello World!</div>
+                <div class="card"><u style="font-family: 'JetBrainsMono'; font-style: italic; font-weight: bold">Hello World!</u></div>
                 <div class="card" style="font-family: 'XBC'">RISINGSUN BoringClub 2025</div>
                 <div class="card" style="font-family: 'RSLOGO'; font-size: 25px">RISINGSUN GROUP 2025</div>
-                <div class="card" style="height: 100px">
+                <div class="card">
                     <b>问题反馈</b>
-                    feedback@rsdev.dpdns.org
+                    <code style="font-weight: bold">feedback@rsdev.dpdns.org</code>
                     <div class="button-container">
                         <button class="solid" onclick="window.location.href = 'mailto:feedback@rsdev.dpdns.org?subject=【问题反馈】此处填写标题'">反馈</button>
                     </div>
