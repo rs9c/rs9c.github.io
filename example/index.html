@@ -558,7 +558,6 @@
                     width: 375px;
                     height: 100%;
                     box-shadow: rgba(0, 0, 0, 0.1) 3px 0px 5px;
-                    transform: translateX(-100%);
                 }
                 #wide-menu-back-area.active {
                     position: fixed;
@@ -761,7 +760,7 @@
             });
         }
 
-        // 按钮监听
+        // 监听
 
         menuButton.addEventListener("click", function (e) {
             e.preventDefault();
@@ -778,6 +777,15 @@
             menuContainer.classList.toggle("active");
             menuButton.classList.toggle("active");
             wideMenuBackArea.classList.toggle("active");
+        });
+        window.addEventListener("resize", () => {
+            menuButtonBars.forEach((bar) => {
+                bar.classList.add("no-animation");
+            });
+            menuContainer.classList.add("no-animation");
+            menuContainer.classList.remove("active");
+            menuButton.classList.remove("active");
+            wideMenuBackArea.classList.remove("active");
         });
         logo.addEventListener("click", function (e) {
             e.preventDefault();
