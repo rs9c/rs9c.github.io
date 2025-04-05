@@ -13,7 +13,7 @@
     "服务": [
         { "name": "验证产品识别码(RSPID)[旧]", "url": "/old/pid/index.html" },
         { "name": "售后服务", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
-        { "name": "意见反馈", "url": "/404.html?=这是虚假的页面！你被骗了:D" }
+        { "name": "意见反馈", "url": "mailto:feedback@rsdev.dpdns.org?subject=【意见反馈】此处填写标题" }
     ],
     "主题": [{ "name": "AI 赋能 - RSDC2024 回顾", "url": "/404.html?=这是虚假的页面！你被骗了:D" }],
     "活动": [
