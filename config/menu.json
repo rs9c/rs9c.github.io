@@ -4,18 +4,20 @@
         { "name": "RISINGSUN LAPTOP PRO", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
         { "name": "RISINGSUN DESKTOP", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
         { "name": "RISINGSUN PHONE PRO", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
-        { "name": "RISINGSUN 配件", "url": "/404.html?=这是虚假的页面！你被骗了:D" }
+        { "name": "RISINGSUN WATCH", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
+        { "name": "RISINGSUN 其他设备", "url": "/404.html?=这是虚假的页面！你被骗了:D" }
     ],
     "软件": [
         { "name": "RISINGSUN OS 10", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
-        { "name": "MemoryOS 2", "url": "/404.html?=这是虚假的页面！你被骗了:D" }
+        { "name": "MemoryOS 2", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
+        { "name": "RISINGSUN AI 系列", "url": "/404.html?=这是虚假的页面！你被骗了:D" }
     ],
     "服务": [
         { "name": "验证产品识别码(RSPID)[旧]", "url": "/old/pid/index.html" },
-        { "name": "售后服务", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
+        { "name": "RISINGSUN 技术支持", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
         { "name": "意见反馈", "url": "mailto:feedback@rsdev.dpdns.org?subject=【意见反馈】此处填写标题" }
     ],
-    "主题": [{ "name": "AI 赋能 - RSDC2024 回顾", "url": "/404.html?=这是虚假的页面！你被骗了:D" }],
+    "主题": [{ "name": "AI 赋能 - RSDC 2024 回顾", "url": "/404.html?=这是虚假的页面！你被骗了:D" }],
     "活动": [
         { "name": "RISINGSUN 发布会", "url": "/404.html?=这是虚假的页面！你被骗了:D" },
         { "name": "RISINGSUN 开发者大会", "url": "/404.html?=这是虚假的页面！你被骗了:D" }
