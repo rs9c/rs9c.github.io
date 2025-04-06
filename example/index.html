@@ -9,6 +9,7 @@
         <link rel="apple-touch-icon-precomposed" href="/icon.png" sizes="1024x1024" />
         <link rel="icon" href="/icon.png" type="image/png" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- boxicons: https://boxicons.com/usage https://boxicons.com https://github.com/atisawd/boxicons -->
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
         <title>示例主页 | RS9C</title>
         <style>
@@ -282,12 +283,11 @@
                 cursor: default;
                 z-index: 1001;
             }
-            .header box-icon {
+            .header i.bx {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 46px;
-                width: 46px;
+                font-size: 26px;
                 padding: 10px;
                 cursor: pointer;
                 z-index: 1001;
@@ -469,19 +469,18 @@
                 box-shadow: rgba(0, 0, 0, 0.3) 0 0 5px;
                 backdrop-filter: blur(7px);
                 white-space: pre-wrap;
-                overflow-wrap: break-word;
+                overflow-wrap: anywhere;
                 animation: notification-show 0.2s ease-out forwards;
                 pointer-events: all;
             }
             .notification.hiding {
                 animation: notification-hide 0.2s ease-in forwards;
             }
-            .notification box-icon {
+            .notification i.bx {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 20px;
-                width: 20px;
+                font-size: 20px;
                 margin-right: 10px;
                 flex-shrink: 0;
             }
@@ -606,8 +605,8 @@
                 RISINGSUN
                 <div id="today">今天什么日子</div>
             </div>
-            <box-icon name="user-circle" color="var(--font-color)" id="user-button"></box-icon>
-            <box-icon name="search" color="var(--font-color)" id="search-button"></box-icon>
+            <i class="bx bx-user-circle" id="user-button"></i>
+            <i class="bx bx-search" id="search-button"></i>
         </div>
         <div id="menu" class="no-animation"></div>
         <div id="wide-menu-back-area"></div>
@@ -672,8 +671,6 @@
             <p style="margin: 0 auto 20px 10px; color: var(--bottom-icon-color)">示例/主页</p>
         </div>
     </body>
-    <!-- boxicons: https://boxicons.com/usage https://boxicons.com https://github.com/atisawd/boxicons -->
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script>
         // 变量声明
 
@@ -756,9 +753,9 @@
             }
             const notification = document.createElement("div");
             notification.className = className;
-            const icon = document.createElement("box-icon");
-            icon.setAttribute("name", iconName);
-            icon.setAttribute("color", iconColor);
+            const icon = document.createElement("i");
+            icon.className = "bx bx-" + iconName;
+            icon.style.color = iconColor;
             const text = document.createTextNode(content);
             notification.appendChild(icon);
             notification.appendChild(text);
@@ -767,12 +764,14 @@
                 notification.classList.add("hiding");
                 notification.addEventListener("animationend", () => {
                     notification.remove();
+                    return;
                 });
             });
             await sleep(ms);
             notification.classList.add("hiding");
             notification.addEventListener("animationend", () => {
                 notification.remove();
+                return;
             });
         }
 
