@@ -688,7 +688,7 @@
         // 函数
 
         /**
-         * @description: 显示置顶内容
+         * 显示置顶内容
          */
         async function showTopContent() {
             await sleep(1000);
@@ -712,15 +712,16 @@
         }
 
         /**
-         * @description: 延时（毫秒）
+         * 延时（毫秒）
          * @param {Number} ms
+         * @return {Promise}
          */
         function sleep(ms) {
             return new Promise((resolve) => setTimeout(resolve, ms));
         }
 
         /**
-         * @description: 显示通知
+         * 显示通知
          * @param {String} content
          * @param {String} type
          * @param {Number} ms
