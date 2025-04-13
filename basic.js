@@ -10,12 +10,18 @@ const searchButton = document.getElementById("search-button");
 const menuContainer = document.getElementById("menu");
 const notificationContainer = document.getElementById("notification-container");
 const wideMenuBackArea = document.getElementById("wide-menu-back-area");
+let today = new Date();
+let todayYear = today.getFullYear();
+let todayMonth = today.getMonth() + 1;
+let todayDate = today.getDate();
+let configToday, configLunar;
 
 // 函数
 
 /**
  * @description 延时
  * @param {Number} ms - 延时毫秒数
+ * @returns {Promise}
  */
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -74,6 +80,60 @@ async function showNotification(content, type, ms) {
     notification.addEventListener("animationend", () => {
         notification.remove();
         return;
+    });
+}
+
+/**
+ * @description 更新“#today”栏
+ */
+async function todayUpdate() {
+    await getToday();
+    const lunarDate = configLunar.lunar === "十二月三十" ? "十二月廿九" : configLunar.lunar;
+    // 注：除夕不一定是腊月廿九（好在2025-2029并没有腊月三十），偷懒起见，直接将所有腊月三十改为腊月廿九，对应today.json里的除夕。:D
+    const solarTerm = configLunar.solarTerm;
+    const gregorianFestival = configToday.gregorian.find((item) => item.date === `${todayMonth}-${todayDate}`) || {};
+    const lunarFestival = configToday.lunar.find((item) => item.date === `${lunarDate}`) || {};
+    const solarColor = configToday.solar.find((item) => item.name === `${solarTerm}`) || {};
+    if (lunarFestival.name) {
+        document.getElementById("today").innerHTML = lunarFestival.name;
+        document.documentElement.style.setProperty("--theme-color", lunarFestival.color);
+    } else if (gregorianFestival.name) {
+        document.getElementById("today").innerHTML = gregorianFestival.name;
+        document.documentElement.style.setProperty("--theme-color", gregorianFestival.color);
+    } else if (solarTerm) {
+        document.getElementById("today").innerHTML = solarTerm;
+        document.documentElement.style.setProperty("--theme-color", solarColor.color);
+    } else {
+        document.getElementById("today").innerHTML = "";
+        document.documentElement.style.setProperty("--theme-color", "#ff3300");
+    }
+}
+
+/**
+ * @description 获取today.json和lunar.json
+ * @returns {Promise}
+ */
+function getToday() {
+    return new Promise((resolve) => {
+        fetch("/config/today.json")
+            .then((response) => response.json())
+            .then((data) => {
+                configToday = data;
+            })
+            .catch((e) => {
+                showNotification("获取today.json失败\n" + e, "e", 10200);
+            });
+        // 数据来源：https://github.com/hungtcs/traditional-chinese-calendar-database/blob/master/database/all.json
+        // MIT License
+        fetch("/config/lunar.json")
+            .then((response) => response.json())
+            .then((data) => {
+                configLunar = data.find((item) => item.gdate === `${todayYear}-${todayMonth}-${todayDate}`) || {};
+                resolve();
+            })
+            .catch((e) => {
+                showNotification("获取lunar.json失败\n" + e, "e", 10200);
+            });
     });
 }
 
@@ -139,6 +199,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         })
         .catch((e) => {
-            showNotification("菜单初始化失败\n" + e, "e", 10000);
+            showNotification("菜单初始化失败\n" + e, "e", 10200);
         });
+    todayUpdate();
 });
