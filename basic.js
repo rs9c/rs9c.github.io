@@ -88,7 +88,7 @@ async function showNotification(content, type, ms) {
  */
 async function todayUpdate() {
     await getToday();
-    const lunarDate = configLunar.lunar === "十二月三十" ? "十二月廿九" : configLunar.lunar;
+    const lunarDate = configLunar.lunar === "腊月三十" ? "腊月廿九" : configLunar.lunar;
     // 注：除夕不一定是腊月廿九（好在2025-2029并没有腊月三十），偷懒起见，直接将所有腊月三十改为腊月廿九，对应today.json里的除夕。:D
     const solarTerm = configLunar.solarTerm;
     const gregorianFestival = configToday.gregorian.find((item) => item.date === `${todayMonth}-${todayDate}`) || {};
@@ -104,7 +104,7 @@ async function todayUpdate() {
         document.getElementById("today").innerHTML = solarTerm;
         document.documentElement.style.setProperty("--theme-color", solarColor.color);
     } else {
-        document.getElementById("today").innerHTML = "";
+        document.getElementById("today").innerHTML = configLunar.lunar || "";
         document.documentElement.style.setProperty("--theme-color", "#ff3300");
     }
 }

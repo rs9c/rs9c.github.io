@@ -11,16 +11,16 @@
         { "date": "12-13", "name": "国家公祭日", "color": "#000000" }
     ],
     "lunar": [
-        { "date": "一月初一", "name": "春节", "color": "#D50000" },
-        { "date": "一月十五", "name": "元宵节", "color": "#FF9800" },
+        { "date": "正月初一", "name": "春节", "color": "#D50000" },
+        { "date": "正月十五", "name": "元宵节", "color": "#FF9800" },
         { "date": "二月初二", "name": "龙抬头", "color": "#2E7D32" },
         { "date": "五月初五", "name": "端午节", "color": "#388E3C" },
         { "date": "七月初七", "name": "七夕节", "color": "#9C27B0" },
         { "date": "八月十五", "name": "中秋节", "color": "#FFC107" },
         { "date": "九月初九", "name": "重阳节", "color": "#FFA000" },
-        { "date": "十二月初八", "name": "腊八节", "color": "#6D4C41" },
-        { "date": "十二月廿三", "name": "小年", "color": "#EF5350" },
-        { "date": "十二月廿九", "name": "除夕", "color": "#D32F2F" }
+        { "date": "腊月初八", "name": "腊八节", "color": "#6D4C41" },
+        { "date": "腊月廿三", "name": "小年", "color": "#EF5350" },
+        { "date": "腊月廿九", "name": "除夕", "color": "#D32F2F" }
     ],
     "solar": [
         { "name": "立春", "color": "#8BC34A" },

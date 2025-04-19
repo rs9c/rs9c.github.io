@@ -302,6 +302,10 @@ b {
     gap: 40px;
     padding: 0 5vh 0 5vh;
 }
+.card div {
+    display: inline-flex;
+    align-items: center;
+}
 .card {
     display: flex;
     background-color: #ffffff;
@@ -325,7 +329,7 @@ b {
     align-items: flex-end;
 }
 button {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     height: 40px;
@@ -385,7 +389,7 @@ button.hollow.warn:active {
     margin: 40px auto 20px;
 }
 .to-top {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     background-color: var(--bottom-icon-color);
@@ -519,8 +523,6 @@ code {
 }
 i.bx {
     font-size: 18px;
-    vertical-align: text-top;
-    line-height: 1;
 }
 /* 适配深色模式 */
 @media (prefers-color-scheme: dark) {

@@ -49,11 +49,6 @@
             <div id="top"></div>
             <!-- 内容区卡片 -->
             <div class="cards-container">
-                <div class="card">
-                    <div style="font-weight: 700">一键抛弃样式表</div>
-                    <div style="font-style: italic; font-size: 13px; margin-bottom: 5px">哇，这是什么功能？</div>
-                    <button class="hollow warn" onclick="removeCss()">尝逝一下</button>
-                </div>
                 <div class="card" style="font-weight: 700">
                     时光机
                     <div id="time-machine"></div>
@@ -90,6 +85,11 @@
                         <button class="hollow" onclick="showNotification('HELLO WORLD!','i',10000)">知道了</button>
                     </div>
                 </div>
+                <div class="card">
+                    <div style="font-weight: 700">一键抛弃样式表</div>
+                    <div style="font-style: italic; font-size: 13px; margin-bottom: 5px">哇，这是什么功能？</div>
+                    <button class="hollow warn" onclick="removeCss()">尝逝一下</button>
+                </div>
                 <div class="card"><code>Hello World!</code></div>
                 <div class="card"><s style="font-family: 'JetBrainsMono'; font-weight: bold">Hello World!</s></div>
                 <div class="card" style="font-family: 'JetBrainsMono'; font-style: italic">Hello World!</div>
@@ -100,7 +100,7 @@
                     <b>问题反馈</b>
                     <code style="font-weight: bold">feedback@rsdev.dpdns.org</code>
                     <div class="button-container">
-                        <button class="solid" onclick="window.location.href = 'mailto:feedback@rsdev.dpdns.org?subject=【问题反馈】此处填写标题'">反馈</button>
+                        <button class="solid" onclick="window.location.href = 'mailto:feedback@rsdev.dpdns.org?subject=【问题反馈】此处填写标题'">反馈<i class="bx bx-envelope" style="color: #ffffff"></i></button>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
             <div class="bottom">
                 <hr class="divider" />
                 <a href="#top" class="to-top"><i class="bx bx-arrow-to-top"></i>返回顶部</a>
-                <a href="/quote.html" style="display: flex; justify-items: center; align-items: center; margin: 15px; text-decoration: none; color: var(--bottom-icon-color)"><i class="bx bxl-github" style="color: var(--bottom-icon-color)"></i>引用的开源项目</a>
+                <a href="/quote.html" style="display: inline-flex; justify-items: center; align-items: center; margin: 15px; text-decoration: none; color: var(--bottom-icon-color)"><i class="bx bxl-github" style="color: var(--bottom-icon-color)"></i>引用的开源项目</a>
             </div>
             <!-- 路径 -->
             <p style="margin: 0 auto 20px 10px; color: var(--bottom-icon-color)">示例/主页</p>
