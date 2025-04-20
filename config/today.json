@@ -20,7 +20,7 @@
         { "date": "九月初九", "name": "重阳节", "color": "#FFA000" },
         { "date": "腊月初八", "name": "腊八节", "color": "#6D4C41" },
         { "date": "腊月廿三", "name": "小年", "color": "#EF5350" },
-        { "date": "腊月廿九", "name": "除夕", "color": "#D32F2F" }
+        { "date": "腊月三十", "name": "除夕", "color": "#D32F2F" }
     ],
     "solar": [
         { "name": "立春", "color": "#8BC34A" },
