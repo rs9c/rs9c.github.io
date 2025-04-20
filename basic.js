@@ -14,7 +14,7 @@ let today = new Date();
 let todayYear = today.getFullYear();
 let todayMonth = today.getMonth() + 1;
 let todayDate = today.getDate();
-let configToday, configLunar;
+let configToday, configLunar, configLunar2;
 
 // 函数
 
@@ -88,8 +88,8 @@ async function showNotification(content, type, ms) {
  */
 async function todayUpdate() {
     await getToday();
-    const lunarDate = configLunar.lunar === "腊月三十" ? "腊月廿九" : configLunar.lunar;
-    // 注：除夕不一定是腊月廿九（好在2025-2029并没有腊月三十），偷懒起见，直接将所有腊月三十改为腊月廿九，对应today.json里的除夕。:D
+    const lunarDate = configLunar.lunar === "腊月廿九" && configLunar2.lunar !== "腊月三十" ? "腊月三十" : configLunar.lunar;
+    // 注：除夕不一定是腊月廿九（好在2025-2029并没有腊月三十），偷懒起见，直接将腊月廿九改为腊月三十，对应today.json里的除夕。:D
     const solarTerm = configLunar.solarTerm;
     const gregorianFestival = configToday.gregorian.find((item) => item.date === `${todayMonth}-${todayDate}`) || {};
     const lunarFestival = configToday.lunar.find((item) => item.date === `${lunarDate}`) || {};
@@ -128,7 +128,9 @@ function getToday() {
         fetch("/config/lunar.json")
             .then((response) => response.json())
             .then((data) => {
-                configLunar = data.find((item) => item.gdate === `${todayYear}-${todayMonth}-${todayDate}`) || {};
+                const index = data.findIndex((item) => item.gdate === `${todayYear}-${todayMonth}-${todayDate}`) || {};
+                configLunar = data[index] || {};
+                configLunar2 = data[index + 1] || {};
                 resolve();
             })
             .catch((e) => {
