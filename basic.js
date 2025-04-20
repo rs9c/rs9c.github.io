@@ -87,7 +87,12 @@ async function showNotification(content, type, ms) {
  * @description 更新“#today”栏
  */
 async function todayUpdate() {
-    await getToday();
+    try {
+        await getToday();
+        await getTodayLunar();
+    } catch {
+        return;
+    }
     const lunarDate = configLunar.lunar === "腊月廿九" && configLunar2.lunar !== "腊月三十" ? "腊月三十" : configLunar.lunar;
     // 注：除夕不一定是腊月廿九（好在2025-2029并没有腊月三十），偷懒起见，直接将腊月廿九改为腊月三十，对应today.json里的除夕。:D
     const solarTerm = configLunar.solarTerm;
@@ -110,19 +115,30 @@ async function todayUpdate() {
 }
 
 /**
- * @description 获取today.json和lunar.json
+ * @description 获取today.json
  * @returns {Promise}
  */
 function getToday() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         fetch("/config/today.json")
             .then((response) => response.json())
             .then((data) => {
                 configToday = data;
+                resolve();
             })
             .catch((e) => {
                 showNotification("获取today.json失败\n" + e, "e", 10200);
+                reject();
             });
+    });
+}
+
+/**
+ * @description 获取lunar.json
+ * @return {Promise}
+ */
+function getTodayLunar() {
+    return new Promise((resolve, reject) => {
         // 数据来源：https://github.com/hungtcs/traditional-chinese-calendar-database/blob/master/database/all.json
         // MIT License
         fetch("/config/lunar.json")
@@ -135,6 +151,7 @@ function getToday() {
             })
             .catch((e) => {
                 showNotification("获取lunar.json失败\n" + e, "e", 10200);
+                reject();
             });
     });
 }
