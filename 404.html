@@ -17,16 +17,18 @@
     </head>
     <body></body>
     <script>
-        let getContent = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
-        if (getContent === undefined || getContent === null || getContent === "") {
-            alert('页面不见了╮(￣▽￣"")╭');
-            window.location.href = "/index.html";
-        } else {
-            // 将getContent进行URL解码
-            getContent = decodeURIComponent(getContent);
-            alert(getContent);
-            // 回退至用户上一个页面
-            window.history.back();
-        }
+        // let getContent = window.location.search.substring(window.location.search.lastIndexOf("=") + 1, window.location.search.length);
+        // if (getContent === undefined || getContent === null || getContent === "") {
+        //     alert('页面不见了╮(￣▽￣"")╭');
+        //     window.location.href = "/index.html";
+        // } else {
+        //     // 将getContent进行URL解码
+        //     getContent = decodeURIComponent(getContent);
+        //     alert(getContent);
+        //     // 回退至用户上一个页面
+        //     window.history.back();
+        // }
+        let getUrl = window.location.href;
+        alert(getUrl);
     </script>
 </html>
