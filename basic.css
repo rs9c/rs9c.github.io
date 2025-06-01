@@ -346,6 +346,9 @@ button.solid {
     color: #ffffff;
     border: none;
 }
+button.solid i.bx {
+    color: #ffffff;
+}
 button.solid:active {
     background-color: #0060e3;
 }
@@ -353,6 +356,9 @@ button.hollow {
     background-color: #ffffff00;
     color: #0b7ef2;
     border: #0071e3 1px solid;
+}
+button.hollow i.bx {
+    color: #0b7ef2;
 }
 button.hollow:active {
     color: #0b60e3;
@@ -364,12 +370,18 @@ button.solid.warn {
     color: #ffffff;
     border: none;
 }
+button.solid.warn i.bx {
+    color: #ffffff;
+}
 button.solid.warn:active {
     background-color: #cc0000;
 }
 button.hollow.warn {
     color: #ff0000;
     border: #ff0000 1px solid;
+}
+button.hollow.warn i.bx {
+    color: #ff0000;
 }
 button.hollow.warn:active {
     color: #cc0000;

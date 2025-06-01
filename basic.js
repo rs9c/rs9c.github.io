@@ -189,7 +189,7 @@ logo.addEventListener("click", function (e) {
 });
 userButton.addEventListener("click", function (e) {
     e.preventDefault();
-    showNotification("这个功能还没做:D");
+    window.location.href = "/dash/index.html";
 });
 searchButton.addEventListener("click", function (e) {
     e.preventDefault();
