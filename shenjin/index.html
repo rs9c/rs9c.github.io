@@ -132,6 +132,7 @@
                     if (isGameOver) {
                         alert("Game Over!");
                         clearInterval(interval1);
+                        window.location.reload();
                     }
                     update();
                 }, 1000 / 60);
