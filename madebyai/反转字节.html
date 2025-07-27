@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <!-- iOS web app -->
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="apple-touch-icon-precomposed" href="/icon.png" sizes="1024x1024" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- boxicons: https://boxicons.com/usage https://boxicons.com https://github.com/atisawd/boxicons -->
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <link href="/basic.css" rel="stylesheet" />
+        <title>32位十六进制值反转工具</title>
+        <style></style>
+    </head>
+    <body>
+        <!-- 头部栏 -->
+        <div class="menu-button">
+            <span class="menu-button-bar no-animation"></span>
+            <span class="menu-button-bar no-animation"></span>
+            <span class="menu-button-bar no-animation"></span>
+        </div>
+        <div class="header">
+            <div class="logo">
+                RISINGSUN
+                <div id="today"></div>
+            </div>
+            <i class="bx bx-user-circle" id="user-button"></i>
+            <i class="bx bx-search" id="search-button"></i>
+        </div>
+        <div id="menu" class="no-animation"></div>
+        <div id="wide-menu-back-area"></div>
+        <div id="notification-container"></div>
+        <!-- 内容区 -->
+        <div style="display: flex; flex-direction: column; flex: 1; overflow: scroll; transform: translateZ(0); will-change: transform; overscroll-behavior: contain">
+            <!-- 置顶内容区 -->
+            <div id="top" style="height: 40px"></div>
+            <!-- 内容区卡片 -->
+            <div class="cards-container">
+                <div class="card" style="height: auto">123</div>
+            </div>
+        </div>
+        <!-- 底栏 -->
+        <div class="bottom">
+            <hr class="divider" />
+            <a href="#top" class="to-top"><i class="bx bx-arrow-to-top"></i>返回顶部</a>
+            <a href="/quote.html" style="display: flex; justify-items: center; align-items: center; margin: 15px; text-decoration: none; color: var(--bottom-icon-color)"><i class="bx bxl-github" style="color: var(--bottom-icon-color)"></i>引用的开源项目</a>
+        </div>
+    </body>
+    <script src="/basic.min.js"></script>
+    <script>
+        // 变量
+
+        // 函数
+
+        // 监听
+
+        // 初始化
+        window.addEventListener("DOMContentLoaded", () => {
+            // showTopContent();
+        });
+    </script>
+</html>
