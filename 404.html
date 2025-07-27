@@ -17,12 +17,12 @@
     </head>
     <body></body>
     <script>
-        let path = window.location.pathname;
-        let url = window.location.href;
+        let path = decodeURIComponent(window.location.pathname);
+        let url = decodeURIComponent(window.location.href);
 
         let getContentF = new URLSearchParams(window.location.search).get("f");
         if (getContentF === null || getContentF === "") {
-            if (findMapping(path) === undefined) {
+            if (findMapping(path) === 0) {
                 alert(path + '\n这个页面不见了╮(￣▽￣")╭');
                 window.location.href = "/index.html";
             }
@@ -36,15 +36,16 @@
 
         /**
          * @description 映射
-         * @param {string} url - 要映射的URL
+         * @param {string} path - 要映射的URL
          * @return {*}
          */
         function findMapping(path) {
             // pid => old/pid
             if (path.match(/^(\/pid\/)/g)) {
                 window.location.href = url.replace("/pid/", "/old/pid/");
+                return 1;
             }
-            return undefined;
+            return 0;
         }
     </script>
 </html>
