@@ -180,7 +180,7 @@ button {
 }
 
 .hex-value {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "JetBrainsMono", monospace;
     font-size: 1.4rem;
     font-weight: bold;
     color: #1a2a6c;
@@ -218,7 +218,7 @@ button {
 }
 
 .bit {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "JetBrainsMono", monospace;
 
     width: 20px;
     text-align: center;
