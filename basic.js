@@ -189,7 +189,8 @@ logo.addEventListener("click", function (e) {
 });
 userButton.addEventListener("click", function (e) {
     e.preventDefault();
-    window.location.href = "/dash/index.html";
+    showNotification("正在开发，敬请期待:D");
+    // window.location.href = "/dash/index.html";
 });
 searchButton.addEventListener("click", function (e) {
     e.preventDefault();
