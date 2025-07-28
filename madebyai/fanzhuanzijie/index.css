@@ -1,6 +1,12 @@
 .card div {
     display: block;
-    align-items: start;
+    /* align-items: start; */
+}
+#top {
+    margin-top: 26px;
+}
+.cards-container {
+    padding: 0 20px 0;
 }
 .description {
     /* display: block !important; */
@@ -71,7 +77,7 @@ label {
 }
 .option-group {
     flex: 1;
-    min-width: 250px;
+    min-width: 200px;
 }
 
 .option-title {
@@ -156,7 +162,7 @@ button {
 
 .result-box {
     flex: 1;
-    min-width: 300px;
+    min-width: 220px;
     background-color: white;
     border-radius: 8px;
     padding: 15px;
