@@ -293,14 +293,14 @@ b {
     align-items: center;
     font-size: 40px;
     font-weight: 600;
-    padding: 0 5vh 0 5vh;
+    padding: 0 40px;
     overflow: hidden;
 }
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
-    padding: 0 5vh 0 5vh;
+    padding: 0 40px;
 }
 .card div {
     display: inline-flex;

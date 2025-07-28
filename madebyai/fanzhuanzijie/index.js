@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (validateHex(inputValue)) {
             updateDisplay(inputValue);
         } else {
-            alert("请输入有效的32位十六进制值（8个字符，如B54AFF00）");
+            showNotification("请输入有效的32位十六进制值\n（8个字符，如B54AFF00）", "w");
             hexInput.value = "B54AFF00";
             updateDisplay("B54AFF00");
         }
@@ -38,15 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 复制按钮事件
     copyBtn.addEventListener("click", function () {
-        reversedHex.select();
-        document.execCommand("copy");
-
-        // 显示复制反馈
-        const originalText = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fas fa-check"></i> 已复制!';
-        setTimeout(() => {
-            copyBtn.innerHTML = originalText;
-        }, 2000);
+        // 使用 Clipboard API 复制文本
+        navigator.clipboard
+            .writeText(reversedHex.value)
+            .then(() => {
+                // 显示复制反馈
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="bx bx-check"></i>&nbsp已复制';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                }, 2000);
+            })
+            .catch(() => {
+                showNotification("复制失败，请手动复制", "e");
+            });
     });
 
     // 输入验证
