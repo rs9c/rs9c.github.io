@@ -1,0 +1,5 @@
+.DS_Store
+.vscode/
+*.js
+!*.min.js
+obfuscator-config.json
