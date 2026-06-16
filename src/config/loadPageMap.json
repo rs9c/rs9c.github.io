@@ -1,4 +1,5 @@
 {
     "/": "/index.html",
-    "/register": "/register.html"
+    "/register": "/register/register.html",
+    "/debug": "/debug/debug.html"
 }
