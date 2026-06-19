@@ -1,5 +1,6 @@
 {
     "/": "/index.html",
     "/register": "/register/register.html",
+    "/register/complete": "/register/register2.html",
     "/debug": "/debug/debug.html"
 }
