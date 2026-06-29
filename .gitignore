@@ -3,3 +3,4 @@
 *.js
 !*.min.js
 obfuscator-config.json
+.vsls.json

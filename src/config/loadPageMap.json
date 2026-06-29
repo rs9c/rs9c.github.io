@@ -2,5 +2,6 @@
     "/": "/index.html",
     "/register": "/register/register.html",
     "/register/complete": "/register/register2.html",
+    "/login": "/login/login.html",
     "/debug": "/debug/debug.html"
 }
