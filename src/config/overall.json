@@ -1,6 +1,0 @@
-{
-    "apiServer": {
-        "normal": "https://api.rs9c.dpdns.org",
-        "debug": "https://192.168.1.111:8787"
-    }
-}
